@@ -5,6 +5,7 @@ import { DateAgo } from '#/components/utils/date-ago.tsx'
 import { useOAuthClientIdentifier } from '#/hooks/use-oauth-client-identifier.ts'
 import { useOauthClientName } from '#/hooks/use-oauth-client-name.ts'
 import { Button } from '../atoms/button.tsx'
+import { PageHeader } from '../molecules/page-header.tsx'
 
 export type AccountAppsViewProps = {
   sessions: readonly ActiveOAuthSession[]
@@ -18,35 +19,41 @@ export function AccountAppsView({
   revokingTokenId,
   onRevoke,
 }: AccountAppsViewProps) {
-  if (sessions.length === 0) {
-    return (
-      <p className="text-text-light text-sm">
-        <Trans>
-          It appears that you haven't used this account to sign in to any
-          apps yet.
-        </Trans>
-      </p>
-    )
-  }
-
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-text-light mb-2 text-sm leading-relaxed">
-        <Trans>
-          These apps have access to your account. An app may appear multiple
-          times if you use it on different devices. Revoking access will log
-          the app out until you sign in again.
-        </Trans>
-      </p>
+    <div>
+      <PageHeader back>
+        <Trans>Apps</Trans>
+      </PageHeader>
 
-      {sessions.map((session) => (
-        <AppRow
-          key={session.tokenId}
-          session={session}
-          revoking={revokingTokenId === session.tokenId}
-          onRevoke={() => onRevoke(session.tokenId)}
-        />
-      ))}
+      {sessions.length === 0 ? (
+        <p className="text-text-light text-sm">
+          <Trans>
+            It appears that you haven't used this account to sign in to any
+            apps yet.
+          </Trans>
+        </p>
+      ) : (
+        <>
+          <p className="text-text-light mb-4 text-sm leading-relaxed">
+            <Trans>
+              These apps have access to your account. An app may appear
+              multiple times if you use it on different devices. Revoking
+              access will log the app out until you sign in again.
+            </Trans>
+          </p>
+
+          <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+            {sessions.map((session) => (
+              <AppRow
+                key={session.tokenId}
+                session={session}
+                revoking={revokingTokenId === session.tokenId}
+                onRevoke={() => onRevoke(session.tokenId)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -67,8 +74,8 @@ function AppRow({
   const clientName = useOauthClientName({ clientId, clientMetadata })
 
   return (
-    <div className="bg-contrast-0 border-contrast-100 flex items-center gap-4 rounded-panel border p-4">
-      <div className="bg-contrast-50 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
+    <div className="flex items-center gap-4 p-4">
+      <div className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
         <GlobeIcon className="size-4" />
       </div>
       <div className="min-w-0 flex-1">

@@ -3,6 +3,7 @@ import type { Account } from '@atproto/oauth-provider-api'
 import { CustomizationName } from '#/components/customization-name.tsx'
 import { AccountIdentifier } from '#/components/utils/account-identifier.tsx'
 import { LinkExternal } from '#/components/utils/link-external.tsx'
+import { PageHeader } from '../molecules/page-header.tsx'
 
 export type AccountAboutViewProps = {
   account: Account
@@ -12,6 +13,10 @@ export type AccountAboutViewProps = {
 export function AccountAboutView({ account }: AccountAboutViewProps) {
   return (
     <div className="prose-sm md:prose prose-slate dark:prose-invert max-w-none">
+      <PageHeader back>
+        <Trans>About</Trans>
+      </PageHeader>
+
       <section>
         <Trans>
           <h2>What is an Atmosphere account?</h2>

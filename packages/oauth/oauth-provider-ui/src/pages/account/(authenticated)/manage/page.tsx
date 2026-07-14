@@ -21,10 +21,21 @@ import { UpdatePasswordDialog } from '#/components/update-password-dialog.tsx'
 import { Admonition } from '#/components/utils/admonition'
 import { Handle } from '#/components/utils/handle.tsx'
 import { VerifyEmailDialog } from '#/components/verify-email-dialog.tsx'
+import { Admonition as AdmonitionV2 } from '#/components-v2/atoms/admonition.tsx'
+import { Button as ButtonV2 } from '#/components-v2/atoms/button.tsx'
+import { Handle as HandleV2 } from '#/components-v2/atoms/handle.tsx'
+import { PageHeader } from '#/components-v2/molecules/page-header.tsx'
 import {
-  SettingsPanel,
+  SettingsList,
   SettingsRow,
 } from '#/components-v2/molecules/settings-row.tsx'
+import { DeactivateAccountDialog as DeactivateAccountDialogV2 } from '#/components-v2/organisms/deactivate-account-dialog.tsx'
+import { DeleteAccountDialog as DeleteAccountDialogV2 } from '#/components-v2/organisms/delete-account-dialog.tsx'
+import { ReactivateAccountDialog as ReactivateAccountDialogV2 } from '#/components-v2/organisms/reactivate-account-dialog.tsx'
+import { UpdateEmailDialog as UpdateEmailDialogV2 } from '#/components-v2/organisms/update-email-dialog.tsx'
+import { UpdateHandleDialog as UpdateHandleDialogV2 } from '#/components-v2/organisms/update-handle-dialog.tsx'
+import { UpdatePasswordDialog as UpdatePasswordDialogV2 } from '#/components-v2/organisms/update-password-dialog.tsx'
+import { VerifyEmailDialog as VerifyEmailDialogV2 } from '#/components-v2/organisms/verify-email-dialog.tsx'
 import { useAuthenticatedSession } from '#/contexts/authentication.tsx'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import {
@@ -67,24 +78,30 @@ function PageV1() {
 }
 
 /**
- * v2 restyle: same hooks/dialogs as v1 (the dialogs' request/confirm flows
- * are reused as-is — see docs/superpowers/specs/2026-07-14-oauth-provider-ui-redesign-design.md
- * for why porting them wasn't worth the duplication risk). Only the trigger
- * rows get the new `SettingsRow` visual treatment.
+ * v2 restyle: uses the fully-ported v2 dialogs (`components-v2/organisms/*`)
+ * so the form content inside matches the new visual language — not just the
+ * trigger rows. Data hooks (`#/data/*`) and contexts are reused as-is; only
+ * the presentational layer is duplicated.
  */
 function PageV2() {
   return (
-    <div className="flex flex-col gap-4">
-      <EmailVerificationRow />
-      <SettingsPanel>
-        <EmailUpdateRowV2 />
-        <HandleUpdateRowV2 />
-        <PasswordUpdateRowV2 />
-      </SettingsPanel>
-      <SettingsPanel>
-        <AccountStatusRowV2 />
-        <AccountDeletionRowV2 />
-      </SettingsPanel>
+    <div>
+      <PageHeader back>
+        <Trans>Account</Trans>
+      </PageHeader>
+
+      <div className="flex flex-col gap-4">
+        <EmailVerificationRowV2 />
+        <SettingsList>
+          <EmailUpdateRowV2 />
+          <HandleUpdateRowV2 />
+          <PasswordUpdateRowV2 />
+        </SettingsList>
+        <SettingsList>
+          <AccountStatusRowV2 />
+          <AccountDeletionRowV2 />
+        </SettingsList>
+      </div>
     </div>
   )
 }
@@ -100,7 +117,7 @@ function EmailUpdateRowV2() {
   const verifyConfirm = useVerifyEmailConfirm()
 
   return (
-    <UpdateEmailDialog
+    <UpdateEmailDialogV2
       email={email}
       requestPending={updateRequest.isPending}
       confirmPending={updateConfirm.isPending}
@@ -116,19 +133,19 @@ function EmailUpdateRowV2() {
       }}
       introMessage={
         data.show2FaWarningOnEmailUpdate && (
-          <Admonition role="warning" className="text-sm">
+          <AdmonitionV2 role="warning" className="text-sm">
             <Trans>
               If you update your email address, email 2FA (if enabled) will be
               disabled.
             </Trans>
-          </Admonition>
+          </AdmonitionV2>
         )
       }
     >
       <SettingsRow icon={EnvelopeIcon} value={email}>
         <Trans>Email address</Trans>
       </SettingsRow>
-    </UpdateEmailDialog>
+    </UpdateEmailDialogV2>
   )
 }
 
@@ -139,7 +156,7 @@ function HandleUpdateRowV2() {
   const updateHandle = useUpdateHandle()
 
   return (
-    <UpdateHandleDialog
+    <UpdateHandleDialogV2
       did={did}
       currentHandle={handle}
       domains={availableUserDomains}
@@ -147,10 +164,10 @@ function HandleUpdateRowV2() {
         await updateHandle.mutateAsync({ did, handle })
       }}
     >
-      <SettingsRow icon={AtIcon} value={<Handle handle={handle} />}>
+      <SettingsRow icon={AtIcon} value={<HandleV2 handle={handle} />}>
         <Trans>Username</Trans>
       </SettingsRow>
-    </UpdateHandleDialog>
+    </UpdateHandleDialogV2>
   )
 }
 
@@ -163,7 +180,7 @@ function PasswordUpdateRowV2() {
   if (!email) return null
 
   return (
-    <UpdatePasswordDialog
+    <UpdatePasswordDialogV2
       email={email}
       requestPending={resetPasswordRequest.isPending}
       confirmPending={resetPasswordConfirm.isPending}
@@ -177,7 +194,7 @@ function PasswordUpdateRowV2() {
       <SettingsRow icon={LockIcon}>
         <Trans>Password</Trans>
       </SettingsRow>
-    </UpdatePasswordDialog>
+    </UpdatePasswordDialogV2>
   )
 }
 
@@ -188,7 +205,7 @@ function AccountStatusRowV2() {
 
   if (account.deactivated) {
     return (
-      <ReactivateAccountDialog
+      <ReactivateAccountDialogV2
         onConfirm={async () => {
           await reactivate.mutateAsync({ did: account.did })
         }}
@@ -196,12 +213,12 @@ function AccountStatusRowV2() {
         <SettingsRow icon={SnowflakeIcon}>
           <Trans>Reactivate account</Trans>
         </SettingsRow>
-      </ReactivateAccountDialog>
+      </ReactivateAccountDialogV2>
     )
   }
 
   return (
-    <DeactivateAccountDialog
+    <DeactivateAccountDialogV2
       onConfirm={async () => {
         await deactivate.mutateAsync({ did: account.did })
       }}
@@ -209,7 +226,7 @@ function AccountStatusRowV2() {
       <SettingsRow icon={SnowflakeIcon} danger>
         <Trans>Deactivate account</Trans>
       </SettingsRow>
-    </DeactivateAccountDialog>
+    </DeactivateAccountDialogV2>
   )
 }
 
@@ -220,7 +237,7 @@ function AccountDeletionRowV2() {
   const deleteConfirm = useDeleteAccountConfirm()
 
   return (
-    <DeleteAccountDialog
+    <DeleteAccountDialogV2
       handle={handle}
       email={email}
       requestPending={deleteRequest.isPending}
@@ -235,7 +252,43 @@ function AccountDeletionRowV2() {
       <SettingsRow icon={TrashIcon} danger>
         <Trans>Delete account</Trans>
       </SettingsRow>
-    </DeleteAccountDialog>
+    </DeleteAccountDialogV2>
+  )
+}
+
+function EmailVerificationRowV2() {
+  const { account } = useAuthenticatedSession()
+  const { did, email, emailVerified } = account
+
+  const verifyRequest = useVerifyEmailRequest()
+  const verifyConfirm = useVerifyEmailConfirm()
+
+  if (!email || emailVerified) return null
+
+  return (
+    <AdmonitionV2
+      role="info"
+      icon={ShieldWarningIcon}
+      action={
+        <VerifyEmailDialogV2
+          email={email}
+          requestPending={verifyRequest.isPending}
+          confirmPending={verifyConfirm.isPending}
+          onRequest={async () => {
+            await verifyRequest.mutateAsync({ did })
+          }}
+          onConfirm={async ({ token }) => {
+            await verifyConfirm.mutateAsync({ did, token, email })
+          }}
+        >
+          <ButtonV2 size="sm" color="info">
+            <Trans context="verify email">Verify now</Trans>
+          </ButtonV2>
+        </VerifyEmailDialogV2>
+      }
+    >
+      <Trans>Your email address needs to be verified.</Trans>
+    </AdmonitionV2>
   )
 }
 

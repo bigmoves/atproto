@@ -12,7 +12,7 @@ export type SettingsRowProps = Override<
   }
 >
 
-/** List row used in the Manage tab's settings panels (icon, label, value, chevron). */
+/** Settings row — used inside `SettingsList`, which owns the shared background/rounding. */
 export function SettingsRow({
   icon: IconComponent,
   value,
@@ -28,7 +28,7 @@ export function SettingsRow({
       type="button"
       {...props}
       className={clsx(
-        'hover:bg-contrast-25 flex w-full items-center gap-3 px-4 py-3.5 text-left',
+        'hover:bg-contrast-200 flex w-full cursor-pointer items-center gap-3 px-4 py-5 text-left',
         danger ? 'text-error' : 'text-text-default',
         className,
       )}
@@ -45,9 +45,10 @@ export function SettingsRow({
   )
 }
 
-export function SettingsPanel({ children }: { children: ReactNode }) {
+/** One connected panel: shared background, rounded only at the outer corners, hairline dividers between rows. */
+export function SettingsList({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-contrast-0 border-contrast-100 divide-contrast-50 flex flex-col divide-y overflow-hidden rounded-panel border">
+    <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
       {children}
     </div>
   )

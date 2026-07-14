@@ -69,13 +69,13 @@ export function DevConfigPanel({
   }
 
   return (
-    <div className="bg-contrast-0 border-contrast-100 shadow-card fixed bottom-20 right-4 z-[200] flex max-h-[80vh] w-80 flex-col overflow-hidden rounded-panel border">
-      <div className="border-contrast-100 flex items-center justify-between border-b px-4 py-3">
+    <div className="bg-contrast-100 border-contrast-200 shadow-card fixed bottom-20 right-4 z-[200] flex max-h-[80vh] w-80 flex-col overflow-hidden rounded-panel border">
+      <div className="border-contrast-200 flex items-center justify-between border-b px-4 py-3">
         <span className="text-text-default text-sm font-bold">Dev config</span>
         <button
           type="button"
           onClick={onClose}
-          className="text-text-light hover:bg-contrast-50 rounded-full p-1"
+          className="text-text-light hover:bg-contrast-200 rounded-full p-1"
           aria-label="Close"
         >
           <XIcon className="size-4" />
@@ -225,7 +225,7 @@ export function DevConfigPanel({
                   <button
                     type="button"
                     onClick={() => removeLink(i)}
-                    className="text-text-light hover:bg-contrast-50 rounded-full p-1"
+                    className="text-text-light hover:bg-contrast-200 rounded-full p-1"
                     aria-label="Remove link"
                   >
                     <XIcon className="size-3.5" />

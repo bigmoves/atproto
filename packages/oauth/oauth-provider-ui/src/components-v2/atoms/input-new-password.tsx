@@ -1,11 +1,11 @@
 import { useLingui } from '@lingui/react/macro'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import { useEffect, useState } from 'react'
-import { PasswordStrengthLabel } from '#/components/utils/password-strength-label.tsx'
-import { PasswordStrengthMeter } from '#/components/utils/password-strength-meter.tsx'
 import { MIN_PASSWORD_LENGTH } from '#/lib/password.ts'
 import type { Override } from '#/lib/util.ts'
 import { InputPassword, type InputPasswordProps } from './input-password.tsx'
+import { PasswordStrengthLabel } from './password-strength-label.tsx'
+import { PasswordStrengthMeter } from './password-strength-meter.tsx'
 
 export type InputNewPasswordProps = Override<
   InputPasswordProps,

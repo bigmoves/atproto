@@ -2,6 +2,8 @@ import { useLingui } from '@lingui/react/macro'
 import { XIcon } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
 import type { ReactNode } from 'react'
+import { DialogSimple as DialogSimpleV2 } from '#/components-v2/molecules/dialog-simple.tsx'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import type { Override } from '#/lib/util.ts'
 
 export type DialogSimpleProps = Override<
@@ -20,7 +22,20 @@ export type DialogSimpleProps = Override<
     dismissable?: boolean
   }
 >
-export function DialogSimple({
+
+/**
+ * Consumed by the 7 account-management dialogs (update email/handle/password,
+ * deactivate/delete/reactivate account, verify email) — all reused unchanged
+ * between v1 and v2 (see docs/superpowers/specs/2026-07-14-oauth-provider-ui-redesign-design.md).
+ * Rather than fork those 7 wrapper components just to swap which dialog shell
+ * they render, this single entry point picks the shell.
+ */
+export function DialogSimple(props: DialogSimpleProps) {
+  if (NEW_DESIGN_ENABLED) return <DialogSimpleV2 {...props} />
+  return <DialogSimpleV1 {...props} />
+}
+
+function DialogSimpleV1({
   title,
   description,
   trigger,
@@ -39,7 +54,7 @@ export function DialogSimple({
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-contrast-900/30 dark:bg-contrast-0/70 fixed inset-0" />
+        <Dialog.Overlay className="bg-contrast-900/30 dark:bg-contrast-0/70 fixed inset-0 z-40" />
 
         <Dialog.Content
           role="dialog"
@@ -48,7 +63,7 @@ export function DialogSimple({
           onEscapeKeyDown={preventWhenLocked}
           onPointerDownOutside={preventWhenLocked}
           onInteractOutside={preventWhenLocked}
-          className="bg-contrast-0 fixed inset-0 flex flex-col overflow-y-auto border-slate-200 p-6 shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:max-h-[85vh] sm:w-[90vw] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-lg sm:border dark:border-slate-700"
+          className="bg-contrast-0 fixed inset-0 z-40 flex flex-col overflow-y-auto border-slate-200 p-6 shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:max-h-[85vh] sm:w-[90vw] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-lg sm:border dark:border-slate-700"
         >
           {children}
 

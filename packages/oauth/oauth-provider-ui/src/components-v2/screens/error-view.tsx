@@ -30,8 +30,8 @@ export function ErrorView({
   const parsed = parser(error) ?? parseError(error)
 
   return (
-    <div className="bg-contrast-50 flex min-h-dvh w-full items-center justify-center px-5">
-      <div className="bg-contrast-0 border-contrast-100 shadow-card rounded-card w-full max-w-md border p-10 text-center">
+    <div className="bg-contrast-0 flex min-h-dvh w-full items-center justify-center px-5">
+      <div className="bg-contrast-100 border-contrast-200 shadow-card rounded-card w-full max-w-md border p-10 text-center">
         <div className="bg-error-100 text-error-500 mx-auto mb-4 flex size-14 items-center justify-center rounded-full">
           <WarningIcon weight="bold" className="size-6" />
         </div>

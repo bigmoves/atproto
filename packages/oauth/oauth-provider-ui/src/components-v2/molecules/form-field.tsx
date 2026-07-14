@@ -1,11 +1,11 @@
 import { type JSX, type ReactNode, useMemo } from 'react'
+import { useRandomString } from '#/hooks/use-random-string.ts'
+import type { Override } from '#/lib/util.ts'
 import {
   FieldsetContext,
   type FieldsetContextValue,
-} from '#/components/forms/fieldset-context.tsx'
-import { useFormContext } from '#/components/forms/form-context.tsx'
-import { useRandomString } from '#/hooks/use-random-string.ts'
-import type { Override } from '#/lib/util.ts'
+} from '../atoms/fieldset-context.tsx'
+import { useFormContext } from '../atoms/form-context.tsx'
 
 export type FormFieldProps = Override<
   Omit<JSX.IntrinsicElements['fieldset'], 'aria-labelledby'>,

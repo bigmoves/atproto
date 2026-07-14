@@ -34,7 +34,7 @@ export function SignInPicker({
 
   return (
     <div {...props} className="flex flex-col">
-      <div className="flex flex-col">
+      <div className="divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
         {sessions.map((session) => (
           <AccountRow
             key={session.account.did}
@@ -52,9 +52,9 @@ export function SignInPicker({
             type="button"
             onClick={onOther}
             aria-label={t`Login to account that is not listed`}
-            className="border-contrast-50 hover:bg-contrast-25 flex w-full items-center gap-4 rounded-panel border-b px-2.5 py-3 text-left last:border-b-0"
+            className="hover:bg-contrast-200 flex w-full items-center gap-4 px-2.5 py-3 text-left"
           >
-            <span className="border-contrast-300 text-text-light flex size-9 flex-none items-center justify-center rounded-full border">
+            <span className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
               <AtIcon aria-hidden weight="bold" className="size-4" />
             </span>
             <span className="text-text-default flex-1 text-sm font-semibold">

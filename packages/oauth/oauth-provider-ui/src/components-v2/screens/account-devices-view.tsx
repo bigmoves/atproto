@@ -5,6 +5,7 @@ import type { ActiveAccountSession } from '@atproto/oauth-provider-api'
 import { DateAgo } from '#/components/utils/date-ago.tsx'
 import { useBrowserName } from '#/hooks/use-browser-name.ts'
 import { Button } from '../atoms/button.tsx'
+import { PageHeader } from '../molecules/page-header.tsx'
 
 export type AccountDevicesViewProps = {
   devices: readonly ActiveAccountSession[]
@@ -18,36 +19,42 @@ export function AccountDevicesView({
   revokingId,
   onRevoke,
 }: AccountDevicesViewProps) {
-  if (devices.length === 0) {
-    return (
-      <p className="text-text-light text-sm">
-        <Trans>Looks like you aren't logged in on any other devices.</Trans>
-      </p>
-    )
-  }
-
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-text-light mb-2 text-sm leading-relaxed">
-        <Trans>
-          Your account is signed in on the devices listed below. If your
-          account was compromised, sign out all devices, change your
-          password, and check your connected{' '}
-          <Link to="/account/apps" className="text-primary hover:underline">
-            apps
-          </Link>
-          .
-        </Trans>
-      </p>
+    <div>
+      <PageHeader back>
+        <Trans>Devices</Trans>
+      </PageHeader>
 
-      {devices.map((session) => (
-        <DeviceRow
-          key={session.deviceId}
-          session={session}
-          revoking={revokingId === session.deviceId}
-          onRevoke={() => onRevoke(session.deviceId)}
-        />
-      ))}
+      {devices.length === 0 ? (
+        <p className="text-text-light text-sm">
+          <Trans>Looks like you aren't logged in on any other devices.</Trans>
+        </p>
+      ) : (
+        <>
+          <p className="text-text-light mb-4 text-sm leading-relaxed">
+            <Trans>
+              Your account is signed in on the devices listed below. If your
+              account was compromised, sign out all devices, change your
+              password, and check your connected{' '}
+              <Link to="/account/apps" className="text-primary hover:underline">
+                apps
+              </Link>
+              .
+            </Trans>
+          </p>
+
+          <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+            {devices.map((session) => (
+              <DeviceRow
+                key={session.deviceId}
+                session={session}
+                revoking={revokingId === session.deviceId}
+                onRevoke={() => onRevoke(session.deviceId)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -66,8 +73,8 @@ function DeviceRow({
   const browserName = useBrowserName(userAgent || undefined)
 
   return (
-    <div className="bg-contrast-0 border-contrast-100 flex items-center gap-4 rounded-panel border p-4">
-      <div className="bg-contrast-50 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
+    <div className="flex items-center gap-4 p-4">
+      <div className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
         <DeviceMobileIcon className="size-4" />
       </div>
       <div className="min-w-0 flex-1">

@@ -123,7 +123,7 @@ export function InputHandleDefault({
                 update(segment, Number(event.target.value))
                 inputRef.current?.focus()
               }}
-              className="text-text-light hover:bg-contrast-50 accent-primary cursor-pointer rounded-md p-2 pr-1 text-sm outline-none"
+              className="text-text-light hover:bg-contrast-200 accent-primary cursor-pointer rounded-md p-2 pr-1 text-sm outline-none"
             >
               {domains.map((d, idx) => (
                 <option key={d} value={idx}>

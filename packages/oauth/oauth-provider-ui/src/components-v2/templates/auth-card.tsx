@@ -54,12 +54,14 @@ export function AuthCard({
   const titleString = typeof titleNode === 'string' ? titleNode : undefined
 
   return (
-    <div className="bg-contrast-50 flex min-h-screen w-full flex-col items-center justify-center px-5 py-10">
+    <div className="bg-contrast-0 flex min-h-screen w-full flex-col items-stretch justify-between px-5 pb-6 pt-10 sm:items-center sm:justify-center sm:px-5 sm:py-10">
       <div
         {...props}
         className={clsx(
-          'bg-contrast-0 shadow-card rounded-card w-full p-8 sm:px-14 sm:py-16',
-          narrow ? 'max-w-lg' : 'max-w-4xl min-h-[30rem]',
+          // Below `sm`, the card blends into the page (no surface/shadow/rounding
+          // — matches a native full-bleed mobile auth flow like Google's).
+          'w-full p-0 sm:bg-contrast-100 sm:shadow-card sm:rounded-card sm:p-8 sm:px-14 sm:py-16',
+          narrow ? 'max-w-lg' : 'max-w-4xl sm:min-h-[30rem]',
           className,
         )}
       >

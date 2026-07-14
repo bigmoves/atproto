@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import type { JSX, ReactNode } from 'react'
-import { useFieldsetContext } from '#/components/forms/fieldset-context.tsx'
 import type { Override } from '#/lib/util.ts'
+import { useFieldsetContext } from './fieldset-context.tsx'
 
 export type InputTextProps = Override<
   JSX.IntrinsicElements['input'],
@@ -34,7 +34,7 @@ export function InputText({
     <div className={className}>
       <div
         className={clsx(
-          'border-contrast-200 focus-within:border-primary flex items-center gap-2 rounded-control border px-4 py-3',
+          'border-contrast-400 focus-within:border-primary rounded-control flex items-center gap-2 border px-4 py-3',
           isDisabled && 'opacity-60',
         )}
       >

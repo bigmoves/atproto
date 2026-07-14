@@ -1,9 +1,9 @@
 import { composeRefs } from '@radix-ui/react-compose-refs'
 import { clsx } from 'clsx'
 import { type JSX, useRef } from 'react'
-import { useFieldsetContext } from '#/components/forms/fieldset-context.tsx'
 import { useRandomString } from '#/hooks/use-random-string.ts'
 import { Checkbox } from './checkbox.tsx'
+import { useFieldsetContext } from './fieldset-context.tsx'
 
 export type InputCheckboxProps = Omit<JSX.IntrinsicElements['input'], 'type'>
 
@@ -26,7 +26,7 @@ export function InputCheckbox({
     <label
       htmlFor={inputId}
       className={clsx(
-        'flex cursor-pointer items-start gap-2 select-none',
+        'flex cursor-pointer select-none items-start gap-2',
         disabled && 'cursor-not-allowed opacity-60',
         className,
       )}

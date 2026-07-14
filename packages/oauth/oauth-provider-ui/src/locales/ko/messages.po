@@ -26,40 +26,42 @@ msgid "{deltaMinutes} minutes ago"
 msgstr "{deltaMinutes}분 전"
 
 #: src/pages/account/(authenticated)/about/page.tsx:142
-#: src/components-v2/screens/account-about-view.tsx:139
+#: src/components-v2/screens/account-about-view.tsx:144
 msgid "<0>AT Protocol</0> — Technical documentation for developers"
 msgstr "<0>AT 프로토콜</0> — 개발자를 위한 기술 문서"
 
 #: src/pages/account/(authenticated)/about/page.tsx:134
-#: src/components-v2/screens/account-about-view.tsx:131
+#: src/components-v2/screens/account-about-view.tsx:136
 msgid "<0>Bluesky Social</0> — General information about the network"
 msgstr "<0>Bluesky 소셜</0> — 네트워크에 대한 일반 정보"
 
 #: src/pages/account/(authenticated)/about/page.tsx:125
-#: src/components-v2/screens/account-about-view.tsx:122
+#: src/components-v2/screens/account-about-view.tsx:127
 msgid "<0>Learn more</0><1>Want to learn more about the technology and network behind your Atmosphere account?</1>"
 msgstr "<0>더 알아보기</0><1>내 Atmosphere 계정 뒤편에 사용된 기술 및 네트워크에 대해 더 자세히 알아보고 싶으신가요?</1>"
 
 #: src/pages/account/(authenticated)/about/page.tsx:90
-#: src/components-v2/screens/account-about-view.tsx:87
+#: src/components-v2/screens/account-about-view.tsx:92
 msgid "<0>This website: your account control center</0><1>The website you're on right now is your <2>account management hub</2>. Here you can:</1><3><4>Update your email address and password</4><5>Manage your personal data and security settings</5><6>View and manage active sessions across devices (browsers where you're signed in)</6></3><7>This place is where you control the fundamental aspects of your Atmosphere identity, independently of any app-specific details like the profile you have on the <8>Bluesky social app</8>.</7><9>Your Atmosphere account is currently hosted by <10/>, one of many hosting providers in the Atmosphere network. You can switch to a different one at any time without losing your account, identity, or data.</9>"
 msgstr "<0>이 웹사이트: 계정 제어 센터</0><1>지금 보고 계신 웹사이트는 내 <2>계정 관리 허브</2>입니다. 여기에서 다음을 수행할 수 있습니다.</1><3><4>이메일 주소 및 비밀번호 변경</4><5>개인 데이터 및 보안 설정 관리</5><6>여러 기기(로그인된 브라우저)의 활성 세션 보기 및 관리</6></3><7>이곳은 <8>Bluesky 소셜 앱</8>의 프로필과 같은 앱별 세부 정보와는 별개로 Atmosphere 신원의 기본 사항을 관리하는 곳입니다.</7><9>현재 내 Atmosphere 계정은 Atmosphere 네트워크의 여러 호스팅 제공자 중 하나인 <10/>에서 호스팅됩니다. 내 계정, 식별 정보 또는 데이터를 잃지 않고 언제든지 다른 호스팅 제공자로 전환할 수 있습니다.</9>"
 
 #: src/pages/account/(authenticated)/about/page.tsx:30
-#: src/components-v2/screens/account-about-view.tsx:27
+#: src/components-v2/screens/account-about-view.tsx:32
 msgid "<0>Use it across multiple apps</0><1>Your Atmosphere account works with the <2>Bluesky Social App</2> and any other social apps built on the same network.</1><3>Just like you can use the same email address to sign into different websites, your Atmosphere account lets you sign into different social apps while keeping the same identity, connections, and content.</3><4>When you see options to log in with an Atmosphere account or \"internet handle\" on other apps, you can use your existing account <5><6/></5> instead of creating a new one.</4>"
 msgstr "<0>여러 앱에서 사용하라</0><1>Atmosphere 계정은 <2>Bluesky 소셜 앱</2> 및 동일 네트워크 기반의 다른 소셜 앱과 연동됩니다.</1><3>같은 이메일 주소로 여러 웹사이트에 로그인할 수 있는 것처럼 Atmosphere 계정을 사용하면 동일한 신원, 연결 정보, 콘텐츠를 유지하면서 여러 소셜 앱에 로그인할 수 있습니다.</3><4>다른 앱에서 Atmosphere 계정 또는 ‘인터넷 핸들’로 로그인하는 옵션이 표시되면 새 계정을 만드는 대신 기존 계정을 사용할 수 있습니다.</5><6/></5></4>"
 
 #: src/pages/account/(authenticated)/about/page.tsx:19
-#: src/components-v2/screens/account-about-view.tsx:16
+#: src/components-v2/screens/account-about-view.tsx:21
 msgid "<0>What is an Atmosphere account?</0><1>An <2>Atmosphere account</2> is your personal identity on the Atmosphere. Think of it as a digital passport that you truly own, not locked to any single app or company.</1>"
 msgstr "<0>Atmosphere 계정이란?</0><1><2>Atmosphere 계정</2>은 Atmosphere에서 사용하는 개인 식별 정보입니다. 특정 앱이나 회사에 종속되지 않고 진정으로 소유할 수 있는 디지털 여권이라고 생각하면 됩니다.</1>"
 
 #: src/pages/account/(authenticated)/about/page.tsx:57
-#: src/components-v2/screens/account-about-view.tsx:54
+#: src/components-v2/screens/account-about-view.tsx:59
 msgid "<0>What makes it special</0><1>The key difference: your data isn't trapped in any one app. Unlike traditional social media accounts, where your data belongs to the platform, with an Atmosphere account you genuinely own your identity and data:</1><2><3><4>You own your identity</4>: Your username (handle) and permanent ID belong to you</3><5><6>Your data is portable</6>: Posts, follows, and content live in your personal data storage, not locked in an app's database</5><7><8>You can move freely</8>: Switch hosting providers without losing your followers, posts, or connections. This also lets you choose a provider in your country if it matters where your data is stored.</7><9><10>Multiple apps, one identity</10>: Use the same account across different apps built on the same network</9></2>"
 msgstr "<0>무엇이 특별한가</0><1>가장 큰 차이점은 데이터가 특정 앱에 갇히지 않는다는 것입니다. 데이터가 플랫폼에 속하는 기존 소셜 미디어 계정과 달리 Atmosphere 계정을 사용하면 사용자의 신원과 데이터를 진정으로 소유할 수 있습니다.</1><2><3><4>신원을 소유한다</4>: 사용자 이름(핸들)과 영구 ID는 사용자의 소유입니다.</3><5><6>데이터 이동이 가능하다</6>: 게시물, 팔로우, 콘텐츠는 앱 데이터베이스에 갇히지 않고 개인 데이터 저장소에 저장됩니다.</5><7><8>자유롭게 이동할 수 있다</8>: 팔로워, 게시물, 연결을 잃지 않고 호스팅 제공자를 변경할 수 있습니다. 데이터 저장 위치가 중요한 경우 해당 국가의 제공자를 선택할 수도 있습니다.</7><9><10>여러 앱에서 하나의 신원 사용</10>: 동일한 네트워크 기반의 여러 앱에서 동일한 계정을 사용할 수 있습니다.</9></2>"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:55
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:70
 #: src/components/forms/input-handle-custom-instructions.tsx:54
 #: src/components/forms/input-handle-custom-instructions.tsx:69
 msgid "<your-domain>"
@@ -91,6 +93,7 @@ msgid "A service controlled by <0>{domain}</0>"
 msgstr "<0>{domain}</0>(이)가 관리하는 서비스"
 
 #: src/pages/account/(authenticated)/route.tsx:85
+#: src/components-v2/screens/account-about-view.tsx:17
 msgid "About"
 msgstr "정보"
 
@@ -103,6 +106,7 @@ msgid "Access specific parts of your Bluesky account and read your private prefe
 msgstr ""
 
 #: src/pages/account/(authenticated)/route.tsx:64
+#: src/pages/account/(authenticated)/manage/page.tsx:90
 #: src/components/utils/scope-description.tsx:266
 msgid "Account"
 msgstr "계정"
@@ -137,23 +141,28 @@ msgstr "계정 개요"
 msgid "Account reactivated"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:137
+#: src/components-v2/templates/account-app-shell.tsx:251
 #: src/components/utils/account-selector.tsx:25
 msgid "Account selector"
 msgstr "계정 선택기"
 
+#: src/components-v2/atoms/handle.tsx:48
 #: src/components/utils/handle.tsx:53
 msgid "Account username"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:51
 #: src/components/forms/input-handle-custom-instructions.tsx:50
 msgid "Add the following record to your domain's DNS configuration."
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom.tsx:46
 #: src/components/forms/input-handle-custom.tsx:45
 msgid "alice.com"
 msgstr ""
 
+#: src/components-v2/organisms/verify-email-dialog.tsx:112
+#: src/components-v2/organisms/update-password-dialog.tsx:151
 #: src/components/verify-email-dialog.tsx:74
 #: src/components/update-password-dialog.tsx:77
 #: src/components/reset-password-view.tsx:61
@@ -174,6 +183,7 @@ msgid "An unexpected error occurred. Please try again."
 msgstr ""
 
 #: src/components-v2/screens/error-view.tsx:42
+#: src/components-v2/atoms/error-card.tsx:34
 #: src/components/utils/error-card.tsx:90
 msgid "An unknown error occurred"
 msgstr "알 수 없는 오류가 발생했습니다"
@@ -195,6 +205,7 @@ msgid "Any service"
 msgstr "모든 서비스"
 
 #: src/pages/account/(authenticated)/route.tsx:78
+#: src/components-v2/screens/account-apps-view.tsx:25
 msgid "Apps"
 msgstr "앱"
 
@@ -202,6 +213,7 @@ msgstr "앱"
 msgid "Apps may access your account in the background (to check notifications, sync data, etc.) even when you're not actively using them. This is normal behavior and will update the \"last accessed\" time shown above."
 msgstr "앱은 사용자가 앱을 적극적으로 사용하지 않을 때에도 백그라운드에서 계정에 접근할 수 있습니다. (알림 확인, 데이터 동기화 등) 이는 정상적인 동작이며, 위에 표시된 ‘마지막 접근’ 시간이 업데이트됩니다."
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:163
 #: src/components/delete-account-dialog.tsx:86
 msgid "Are you really, really sure?"
 msgstr ""
@@ -230,7 +242,7 @@ msgid "Authorize"
 msgstr "승인"
 
 #. placeholder {0}: i18n.date(createdAt, { year: 'numeric', month: 'short', day: 'numeric', })
-#: src/components-v2/screens/account-apps-view.tsx:80
+#: src/components-v2/screens/account-apps-view.tsx:87
 msgctxt "OAuthApp"
 msgid "Authorized {0}"
 msgstr ""
@@ -243,6 +255,7 @@ msgstr "{0}에 승인됨"
 
 #: src/components-v2/templates/wizard-card.tsx:100
 #: src/components-v2/organisms/sign-in-picker.tsx:77
+#: src/components-v2/molecules/page-header.tsx:23
 #: src/components-v2/molecules/form-card.tsx:65
 #: src/components/sign-in-picker.tsx:90
 #: src/components/forms/wizard-card.tsx:116
@@ -290,6 +303,8 @@ msgstr "호출"
 
 #: src/contexts/authentication.tsx:203
 #: src/components-v2/screens/authenticate-welcome-view.tsx:48
+#: src/components-v2/organisms/delete-account-dialog.tsx:197
+#: src/components-v2/organisms/delete-account-dialog.tsx:279
 #: src/components-v2/molecules/form-card.tsx:62
 #: src/components/reactivate-account-view.tsx:44
 #: src/components/delete-account-dialog.tsx:120
@@ -307,6 +322,7 @@ msgstr "현재 기기를 제거할 수 없습니다"
 msgid "Change your <0>@handle</0>"
 msgstr "<0>@핸들</0> 변경"
 
+#: src/components-v2/organisms/update-password-dialog.tsx:123
 #: src/components/update-password-dialog.tsx:49
 msgid "Change your password"
 msgstr ""
@@ -315,6 +331,7 @@ msgstr ""
 msgid "Chat"
 msgstr "대화"
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:214
 #: src/components/delete-account-dialog.tsx:137
 msgid "Check <0>{email}</0> for an email with the confirmation code to enter below:"
 msgstr ""
@@ -325,6 +342,7 @@ msgstr ""
 msgid "Check your {0} email for a login code and enter it here."
 msgstr "{0} 이메일에서 로그인 코드를 확인한 후 여기에 입력하세요."
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:219
 #: src/components/delete-account-dialog.tsx:142
 msgid "Check your email for the confirmation code to enter below:"
 msgstr ""
@@ -342,10 +360,13 @@ msgstr ""
 msgid "Check your inbox."
 msgstr "받은 편지함을 확인하세요."
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:138
 #: src/components/update-handle-dialog.tsx:58
 msgid "Choose a new default username."
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:188
+#: src/components-v2/organisms/update-email-dialog.tsx:224
 #: src/components/update-email-dialog.tsx:111
 #: src/components/update-email-dialog.tsx:147
 msgid "Choose a new email address to associate with your account."
@@ -362,8 +383,9 @@ msgstr "사용자 이름 선택"
 msgid "Click here if nothing happens"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:174
-#: src/components/utils/dialog-simple.tsx:70
+#: src/components-v2/templates/account-app-shell.tsx:288
+#: src/components-v2/molecules/dialog-simple.tsx:64
+#: src/components/utils/dialog-simple.tsx:85
 msgid "Close"
 msgstr ""
 
@@ -396,6 +418,7 @@ msgid "Confirm your password to continue"
 msgstr "계속하려면 비밀번호를 다시 한번 입력하세요"
 
 #: src/components-v2/organisms/sign-in-form.tsx:225
+#: src/components-v2/organisms/delete-account-dialog.tsx:75
 #: src/components/sign-in-form.tsx:248
 #: src/components/delete-account-confirm-form.tsx:51
 msgid "Confirmation code"
@@ -419,10 +442,12 @@ msgstr "쿠키 오류"
 msgid "Cookies are disabled"
 msgstr ""
 
+#: src/components-v2/atoms/button-copy.tsx:95
 #: src/components/forms/button-copy.tsx:96
 msgid "Copied"
 msgstr ""
 
+#: src/components-v2/atoms/button-copy.tsx:23
 #: src/components/forms/button-copy.tsx:30
 msgid "Copy to clipboard"
 msgstr ""
@@ -460,8 +485,9 @@ msgstr ""
 msgid "Data"
 msgstr "데이터"
 
-#: src/pages/account/(authenticated)/manage/page.tsx:210
-#: src/pages/account/(authenticated)/manage/page.tsx:381
+#: src/pages/account/(authenticated)/manage/page.tsx:227
+#: src/pages/account/(authenticated)/manage/page.tsx:434
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:22
 #: src/components/deactivate-account-dialog.tsx:22
 msgid "Deactivate account"
 msgstr ""
@@ -474,16 +500,19 @@ msgstr ""
 msgid "Delete"
 msgstr "삭제"
 
-#: src/pages/account/(authenticated)/manage/page.tsx:236
-#: src/pages/account/(authenticated)/manage/page.tsx:408
+#: src/pages/account/(authenticated)/manage/page.tsx:253
+#: src/pages/account/(authenticated)/manage/page.tsx:461
+#: src/components-v2/organisms/delete-account-dialog.tsx:153
 #: src/components/delete-account-dialog.tsx:76
 msgid "Delete account"
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:149
 #: src/components/delete-account-dialog.tsx:72
 msgid "Delete account <0/>"
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:53
 #: src/components/delete-account-confirm-form.tsx:33
 msgid "Delete my account"
 msgstr ""
@@ -499,6 +528,7 @@ msgid "Details"
 msgstr "세부 정보"
 
 #: src/pages/account/(authenticated)/route.tsx:71
+#: src/components-v2/screens/account-devices-view.tsx:25
 msgid "Devices"
 msgstr "기기"
 
@@ -507,15 +537,18 @@ msgstr "기기"
 msgid "Didn't receive a code? <0>Click here to resend.</0>"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:49
 #: src/components/forms/input-handle-custom-instructions.tsx:48
 msgid "DNS"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:220
 #: src/components/update-handle-dialog.tsx:143
 msgid "e.g. <0>alice.com</0>"
 msgstr ""
 
 #. placeholder {0}: domains[0]
+#: src/components-v2/organisms/update-handle-dialog.tsx:209
 #: src/components/update-handle-dialog.tsx:132
 msgid "e.g. <0>alice{0}</0>"
 msgstr ""
@@ -527,8 +560,8 @@ msgstr ""
 msgid "Email"
 msgstr "이메일"
 
-#: src/pages/account/(authenticated)/manage/page.tsx:129
-#: src/pages/account/(authenticated)/manage/page.tsx:317
+#: src/pages/account/(authenticated)/manage/page.tsx:146
+#: src/pages/account/(authenticated)/manage/page.tsx:370
 #: src/components-v2/atoms/input-email-address.tsx:31
 #: src/components/reset-password-request-form.tsx:31
 #: src/components/reset-password-request-form.tsx:35
@@ -536,6 +569,7 @@ msgstr "이메일"
 msgid "Email address"
 msgstr "이메일 주소"
 
+#: src/components-v2/organisms/update-email-dialog.tsx:139
 #: src/components/update-email-dialog.tsx:62
 msgid "Email address successfully updated"
 msgstr ""
@@ -548,6 +582,7 @@ msgstr ""
 msgid "Email change successful"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:148
 #: src/components/forms/input-handle-custom-instructions.tsx:157
 msgid "Email these instructions"
 msgstr ""
@@ -565,6 +600,7 @@ msgstr "비밀번호 입력"
 msgid "Enter the code you received to reset your password."
 msgstr "비밀번호를 재설정하려면 받은 코드를 입력하세요."
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:85
 #: src/components/update-handle-custom-form.tsx:34
 msgid "Enter the domain you want to use"
 msgstr ""
@@ -595,6 +631,7 @@ msgstr "비밀번호 입력"
 msgid "Enter your username and password"
 msgstr "사용자 이름 및 비밀번호 입력"
 
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:53
 #: src/components/deactivate-account-dialog.tsx:53
 msgid "Every app currently connected to your account, as well as any \"app passwords\" you've created, will be revoked. You'll need to sign back in when you reactivate."
 msgstr ""
@@ -609,6 +646,7 @@ msgstr "example-com-xxxxx-xxxxx"
 msgid "Expand details"
 msgstr "세부 정보 펼치기"
 
+#: src/components-v2/atoms/password-strength-label.tsx:25
 #: src/components/utils/password-strength-label.tsx:25
 msgid "Extra"
 msgstr "매우 강력"
@@ -672,14 +710,17 @@ msgstr ""
 msgid "Failed to verify email"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:73
 #: src/components/forms/input-handle-custom-instructions.tsx:72
 msgid "File contents"
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:248
 #: src/components/delete-account-dialog.tsx:172
 msgid "For security reasons, we'll need to send a confirmation code to your email address <0>{email}</0>."
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:253
 #: src/components/delete-account-dialog.tsx:177
 msgid "For security reasons, we'll need to send a confirmation code to your email address."
 msgstr ""
@@ -702,6 +743,7 @@ msgid "Having trouble? <0>Contact support</0>"
 msgstr "문제가 있나요? <0>지원팀에 연락하기</0>"
 
 #. placeholder {0}: instructionsMethods .map(({ label, message, values }) => { return `${label}: ${message}\n${values.map(({ label, value }) => `${label}: ${value}`).join('\n')}` }) .join(`\n\n`)
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:97
 #: src/components/forms/input-handle-custom-instructions.tsx:96
 msgid ""
 "Hello,\n"
@@ -716,6 +758,7 @@ msgid ""
 "Thank you."
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:142
 #: src/components/forms/input-handle-custom-instructions.tsx:144
 msgid "Help"
 msgstr ""
@@ -730,10 +773,12 @@ msgstr "숨기기"
 msgid "Home"
 msgstr "홈"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:54
 #: src/components/forms/input-handle-custom-instructions.tsx:53
 msgid "Host"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:64
 #: src/components/forms/input-handle-custom-instructions.tsx:63
 msgid "HTTP"
 msgstr ""
@@ -747,23 +792,27 @@ msgstr "아이디"
 msgid "Identity"
 msgstr "신원"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:50
 #: src/components/forms/input-handle-custom-instructions.tsx:49
 msgid "If you have access to your domain's DNS configuration panel (e.g. via your domain registrar)"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:65
 #: src/components/forms/input-handle-custom-instructions.tsx:64
 msgid "If you have access to your domain's web hosting configuration (e.g. via FTP)"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:189
 #: src/components/update-handle-dialog.tsx:109
 msgid "If you have your own domain, you can use that as your handle. This lets you self-verify your identity. <0>Learn more here</0>."
 msgstr ""
 
-#: src/pages/account/(authenticated)/manage/page.tsx:120
-#: src/pages/account/(authenticated)/manage/page.tsx:308
+#: src/pages/account/(authenticated)/manage/page.tsx:137
+#: src/pages/account/(authenticated)/manage/page.tsx:361
 msgid "If you update your email address, email 2FA (if enabled) will be disabled."
 msgstr ""
 
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:61
 #: src/components/deactivate-account-dialog.tsx:61
 msgid "If you're trying to change your handle or email, do so before you deactivate."
 msgstr ""
@@ -778,6 +827,7 @@ msgstr "인터페이스 언어 선택기"
 msgid "Invalid"
 msgstr "사용 불가"
 
+#: src/components-v2/atoms/handle.tsx:51
 #: src/components/utils/handle.tsx:56
 msgid "Invalid Handle"
 msgstr ""
@@ -791,7 +841,7 @@ msgstr ""
 msgid "Invite code"
 msgstr "초대 코드"
 
-#: src/components-v2/screens/account-apps-view.tsx:24
+#: src/components-v2/screens/account-apps-view.tsx:30
 msgid "It appears that you haven't used this account to sign in to any apps yet."
 msgstr ""
 
@@ -809,7 +859,7 @@ msgid "just now"
 msgstr "방금 전"
 
 #: src/pages/account/(authenticated)/apps/page.tsx:156
-#: src/components-v2/screens/account-apps-view.tsx:89
+#: src/components-v2/screens/account-apps-view.tsx:96
 msgctxt "OAuthApp"
 msgid "Last accessed <0/>"
 msgstr "<0/>에 마지막으로 접근함"
@@ -819,11 +869,12 @@ msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr "{lastUsedAgo}에 마지막으로 확인됨"
 
-#: src/components-v2/screens/account-devices-view.tsx:79
+#: src/components-v2/screens/account-devices-view.tsx:86
 msgctxt "device list"
 msgid "Last seen <0/>"
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:152
 #: src/components/update-email-dialog.tsx:75
 msgctxt "verify email"
 msgid "Later"
@@ -851,7 +902,7 @@ msgid "Logo"
 msgstr "로고"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:103
-#: src/components-v2/screens/account-devices-view.tsx:24
+#: src/components-v2/screens/account-devices-view.tsx:30
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "다른 기기에는 로그인되어 있지 않은 것 같습니다."
 
@@ -859,6 +910,7 @@ msgstr "다른 기기에는 로그인되어 있지 않은 것 같습니다."
 msgid "loopback"
 msgstr "루프백"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:66
 #: src/components/forms/input-handle-custom-instructions.tsx:65
 msgid "Make a text file with the contents below available at the following URL."
 msgstr ""
@@ -897,10 +949,12 @@ msgctxt "Error"
 msgid "Message"
 msgstr ""
 
+#: src/components-v2/atoms/password-strength-label.tsx:33
 #: src/components/utils/password-strength-label.tsx:33
 msgid "Missing"
 msgstr "미입력"
 
+#: src/components-v2/atoms/password-strength-label.tsx:29
 #: src/components/utils/password-strength-label.tsx:29
 msgid "Moderate"
 msgstr "보통"
@@ -915,11 +969,14 @@ msgctxt "Error"
 msgid "Name"
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:66
+#: src/components-v2/organisms/update-email-dialog.tsx:254
 #: src/components/update-email-form.tsx:54
 #: src/components/update-email-dialog.tsx:181
 msgid "New email address"
 msgstr ""
 
+#: src/components-v2/organisms/update-password-dialog.tsx:83
 #: src/components/reset-password-confirm-form.tsx:67
 msgid "New password"
 msgstr "새 비밀번호"
@@ -949,11 +1006,12 @@ msgstr ""
 msgid "Only letters, numbers, and hyphens"
 msgstr "영문자, 숫자, 하이픈만 사용할 수 있습니다"
 
-#: src/pages/account/(authenticated)/manage/page.tsx:178
-#: src/pages/account/(authenticated)/manage/page.tsx:349
+#: src/pages/account/(authenticated)/manage/page.tsx:195
+#: src/pages/account/(authenticated)/manage/page.tsx:402
 #: src/components-v2/organisms/sign-up-password-form.tsx:35
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:68
 #: src/components-v2/organisms/sign-in-form.tsx:176
+#: src/components-v2/organisms/delete-account-dialog.tsx:90
 #: src/components-v2/atoms/input-password.tsx:43
 #: src/components/sign-up-credentials-form.tsx:71
 #: src/components/sign-in-form.tsx:190
@@ -970,10 +1028,12 @@ msgstr "비밀번호 재설정 이메일을 전송했습니다"
 msgid "Password reset successful"
 msgstr "비밀번호를 재설정했습니다"
 
+#: src/components-v2/atoms/password-strength-label.tsx:23
 #: src/components/utils/password-strength-label.tsx:23
 msgid "Password strength"
 msgstr "비밀번호 강도"
 
+#: src/components-v2/atoms/password-strength-meter.tsx:45
 #: src/components/utils/password-strength-meter.tsx:45
 msgid "Password strength indicator"
 msgstr "비밀번호 강도 표시자"
@@ -1035,6 +1095,7 @@ msgstr "재설정 코드를 확인하고 다시 시도해 주세요."
 msgid "Please check your verification code and try again."
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:83
 #: src/components/update-email-form.tsx:71
 msgid "Please enter the security code that was sent to your email address."
 msgstr ""
@@ -1046,6 +1107,7 @@ msgstr ""
 msgid "Please try again in a moment."
 msgstr ""
 
+#: src/components-v2/atoms/button-cooldown.tsx:69
 #: src/components/forms/button-cooldown.tsx:76
 msgid "Please wait {remainingSeconds} seconds before trying again."
 msgstr "{remainingSeconds}초 후에 다시 시도해 주세요."
@@ -1066,12 +1128,14 @@ msgstr "변경 사항 게시"
 msgid "Re-enter your password"
 msgstr ""
 
+#: src/components-v2/organisms/reactivate-account-dialog.tsx:36
 #: src/components/reactivate-account-dialog.tsx:36
 msgid "Reactivate"
 msgstr ""
 
-#: src/pages/account/(authenticated)/manage/page.tsx:197
-#: src/pages/account/(authenticated)/manage/page.tsx:368
+#: src/pages/account/(authenticated)/manage/page.tsx:214
+#: src/pages/account/(authenticated)/manage/page.tsx:421
+#: src/components-v2/organisms/reactivate-account-dialog.tsx:22
 #: src/components/reactivate-account-dialog.tsx:22
 msgid "Reactivate account"
 msgstr ""
@@ -1111,6 +1175,7 @@ msgstr "저장소"
 msgid "Resend available in {cooldown}s"
 msgstr ""
 
+#: src/components-v2/organisms/update-password-dialog.tsx:68
 #: src/components/reset-password-confirm-form.tsx:51
 msgid "Reset code"
 msgstr "재설정 코드"
@@ -1132,11 +1197,12 @@ msgstr "비밀번호 재설정"
 msgid "Retry"
 msgstr "다시 시도"
 
+#: src/components-v2/atoms/button-cooldown.tsx:66
 #: src/components/forms/button-cooldown.tsx:73
 msgid "Retry in {remainingSeconds}s"
 msgstr "{remainingSeconds}초 후에 다시 시도"
 
-#: src/components-v2/screens/account-apps-view.tsx:101
+#: src/components-v2/screens/account-apps-view.tsx:108
 msgctxt "OAuthApp"
 msgid "Revoke"
 msgstr ""
@@ -1146,15 +1212,17 @@ msgctxt "OAuthApp"
 msgid "Revoke access"
 msgstr "접근 권한 취소"
 
+#: src/components-v2/organisms/update-email-dialog.tsx:90
 #: src/components/update-email-form.tsx:78
 msgid "Security code"
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:80
 #: src/components/update-email-form.tsx:68
 msgid "Security step required"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:168
+#: src/components-v2/templates/account-app-shell.tsx:282
 #: src/components/utils/account-selector.tsx:60
 msgid "Select another account"
 msgstr "다른 계정 선택"
@@ -1169,10 +1237,12 @@ msgstr "도메인 선택"
 msgid "Select from an existing account"
 msgstr "기존 계정에서 선택하기"
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:271
 #: src/components/delete-account-dialog.tsx:195
 msgid "Send email"
 msgstr ""
 
+#: src/components-v2/atoms/button-request-code.tsx:8
 #: src/components/forms/button-request-code.tsx:11
 msgid "Send verification code"
 msgstr ""
@@ -1201,17 +1271,17 @@ msgid "Sign in as..."
 msgstr "로그인"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:149
-#: src/components-v2/screens/account-devices-view.tsx:97
+#: src/components-v2/screens/account-devices-view.tsx:104
 msgctxt "device list"
 msgid "Sign out"
 msgstr "로그아웃"
 
-#: src/components-v2/templates/account-app-shell.tsx:163
+#: src/components-v2/templates/account-app-shell.tsx:277
 #: src/components/utils/account-selector.tsx:55
 msgid "Sign out"
 msgstr "로그아웃"
 
-#: src/components-v2/screens/account-devices-view.tsx:95
+#: src/components-v2/screens/account-devices-view.tsx:102
 msgid "Sign out this device"
 msgstr ""
 
@@ -1240,6 +1310,7 @@ msgstr ""
 msgid "Step {currentPosition} of {count}"
 msgstr "{count}단계 중 {currentPosition}단계"
 
+#: src/components-v2/atoms/password-strength-label.tsx:27
 #: src/components/utils/password-strength-label.tsx:27
 msgid "Strong"
 msgstr "강력"
@@ -1325,11 +1396,12 @@ msgstr ""
 msgid "The username is invalid"
 msgstr ""
 
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:46
 #: src/components/deactivate-account-dialog.tsx:46
 msgid "There is no time limit for account deactivation, come back any time."
 msgstr ""
 
-#: src/components-v2/screens/account-apps-view.tsx:35
+#: src/components-v2/screens/account-apps-view.tsx:38
 msgid "These apps have access to your account. An app may appear multiple times if you use it on different devices. Revoking access will log the app out until you sign in again."
 msgstr ""
 
@@ -1345,7 +1417,7 @@ msgstr "이 애플리케이션은 사용자 계정에 접근하기 위해 다음
 msgid "This authorization request has been denied. Please try again."
 msgstr "승인 요청이 거부되었습니다. 다시 시도해 주세요."
 
-#: src/components-v2/screens/account-devices-view.tsx:86
+#: src/components-v2/screens/account-devices-view.tsx:93
 msgctxt "device list"
 msgid "This device"
 msgstr ""
@@ -1369,18 +1441,22 @@ msgstr "로그인 세션이 만료되었습니다"
 msgid "This username is reserved"
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:166
 #: src/components/delete-account-dialog.tsx:89
 msgid "This will irreversibly delete your Bluesky account <0/> and all associated data. Note that this will affect any other Atmosphere services you use with this account."
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:173
 #: src/components/delete-account-dialog.tsx:96
 msgid "This will irreversibly delete your Bluesky account and all associated data. Note that this will affect any other Atmosphere services you use with this account."
 msgstr ""
 
+#: src/components-v2/organisms/update-password-dialog.tsx:125
 #: src/components/update-password-dialog.tsx:51
 msgid "To change your password, you'll need to enter a security code sent to your email."
 msgstr ""
 
+#: src/components-v2/organisms/verify-email-dialog.tsx:86
 #: src/components/verify-email-dialog.tsx:48
 msgid "To verify your email, you'll need to enter a security code sent to <0>{email}</0>."
 msgstr ""
@@ -1390,6 +1466,7 @@ msgctxt "RPC aud"
 msgid "Towards"
 msgstr "대상"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:145
 #: src/components/forms/input-handle-custom-instructions.tsx:150
 msgid "Troubleshoot"
 msgstr ""
@@ -1398,10 +1475,12 @@ msgstr ""
 msgid "Try again"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:58
 #: src/components/forms/input-handle-custom-instructions.tsx:57
 msgid "Type"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom.tsx:45
 #: src/components/forms/input-handle-custom.tsx:44
 msgid "Type your domain"
 msgstr ""
@@ -1420,7 +1499,7 @@ msgid "Unexpected server response"
 msgstr "예상치 못한 서버 응답입니다"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:127
-#: src/components-v2/screens/account-devices-view.tsx:75
+#: src/components-v2/screens/account-devices-view.tsx:82
 msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "알 수 없는 사용자 에이전트"
@@ -1429,17 +1508,23 @@ msgstr "알 수 없는 사용자 에이전트"
 msgid "Update"
 msgstr "갱신"
 
+#: src/components-v2/organisms/update-email-dialog.tsx:186
+#: src/components-v2/organisms/update-email-dialog.tsx:222
 #: src/components/update-email-dialog.tsx:109
 #: src/components/update-email-dialog.tsx:145
 msgid "Update your email"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:137
+#: src/components-v2/organisms/update-handle-dialog.tsx:161
+#: src/components-v2/organisms/update-handle-dialog.tsx:187
 #: src/components/update-handle-dialog.tsx:57
 #: src/components/update-handle-dialog.tsx:81
 #: src/components/update-handle-dialog.tsx:107
 msgid "Update your username"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:163
 #: src/components/update-handle-dialog.tsx:83
 msgid "Update your username to a domain name you own to self-verify your identity."
 msgstr ""
@@ -1448,14 +1533,17 @@ msgstr ""
 msgid "Upload files"
 msgstr "파일 업로드"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:69
 #: src/components/forms/input-handle-custom-instructions.tsx:68
 msgid "URL"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:207
 #: src/components/update-handle-dialog.tsx:130
 msgid "Use a default username"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:218
 #: src/components/update-handle-dialog.tsx:141
 msgid "Use a domain name I own"
 msgstr ""
@@ -1464,8 +1552,8 @@ msgstr ""
 msgid "Use another account"
 msgstr ""
 
-#: src/pages/account/(authenticated)/manage/page.tsx:151
-#: src/pages/account/(authenticated)/manage/page.tsx:431
+#: src/pages/account/(authenticated)/manage/page.tsx:168
+#: src/pages/account/(authenticated)/manage/page.tsx:484
 msgid "Username"
 msgstr ""
 
@@ -1483,10 +1571,13 @@ msgstr ""
 msgid "Valid"
 msgstr "사용 가능"
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:59
 #: src/components/forms/input-handle-custom-instructions.tsx:58
 msgid "Value"
 msgstr ""
 
+#: src/components-v2/organisms/verify-email-dialog.tsx:44
+#: src/components-v2/organisms/update-email-dialog.tsx:163
 #: src/components/verify-email-confirm-form.tsx:27
 #: src/components/update-email-dialog.tsx:86
 msgid "Verification code"
@@ -1496,6 +1587,7 @@ msgstr ""
 msgid "Verification email sent"
 msgstr ""
 
+#: src/components-v2/molecules/input-handle-custom-instructions.tsx:117
 #: src/components/forms/input-handle-custom-instructions.tsx:116
 msgid "Verification method"
 msgstr ""
@@ -1505,11 +1597,14 @@ msgstr ""
 msgid "Verification successful!"
 msgstr ""
 
+#: src/components-v2/organisms/update-handle-dialog.tsx:172
 #: src/components/update-handle-dialog.tsx:92
 msgid "Verify and Save"
 msgstr ""
 
-#: src/pages/account/(authenticated)/manage/page.tsx:268
+#: src/pages/account/(authenticated)/manage/page.tsx:285
+#: src/pages/account/(authenticated)/manage/page.tsx:321
+#: src/components-v2/organisms/update-email-dialog.tsx:153
 #: src/components/update-email-dialog.tsx:76
 msgctxt "verify email"
 msgid "Verify now"
@@ -1524,6 +1619,7 @@ msgstr "비밀번호를 입력하기 전에 웹사이트 주소를 확인하세�
 msgid "Verify you are human"
 msgstr "사람이 맞는지 확인"
 
+#: src/components-v2/organisms/verify-email-dialog.tsx:84
 #: src/components/verify-email-dialog.tsx:46
 msgid "Verify your email"
 msgstr ""
@@ -1552,6 +1648,7 @@ msgstr "경고"
 msgid "We're so excited to have you join us!"
 msgstr "함께하게 되어 정말 기뻐요!"
 
+#: src/components-v2/atoms/password-strength-label.tsx:31
 #: src/components/utils/password-strength-label.tsx:31
 msgid "Weak"
 msgstr "취약"
@@ -1582,10 +1679,12 @@ msgstr "Atmosphere 계정이란?"
 msgid "Wrong identifier or password"
 msgstr "잘못된 아이디 또는 비밀번호입니다"
 
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:35
 #: src/components/deactivate-account-dialog.tsx:35
 msgid "Yes, Deactivate"
 msgstr ""
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:189
 #: src/components/delete-account-dialog.tsx:112
 msgid "Yes, delete my account"
 msgstr ""
@@ -1603,6 +1702,7 @@ msgstr "어제"
 msgid "You are being redirected..."
 msgstr "페이지 이동 중…"
 
+#: src/components-v2/organisms/delete-account-dialog.tsx:283
 #: src/components/delete-account-dialog.tsx:207
 msgid "You can also temporarily deactivate your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 msgstr ""
@@ -1616,6 +1716,7 @@ msgstr ""
 msgid "You can change this username to any domain name you control after your account is set up."
 msgstr "계정 설정을 완료한 후 이 사용자 이름을 내가 소유한 도메인 이름으로 변경할 수 있습니다."
 
+#: src/components-v2/organisms/reactivate-account-dialog.tsx:46
 #: src/components/reactivate-account-dialog.tsx:46
 msgid "You can deactivate your account again at any time from this page."
 msgstr ""
@@ -1658,7 +1759,7 @@ msgid "Your account is now deactivated."
 msgstr ""
 
 #: src/pages/account/(authenticated)/devices/page.tsx:82
-#: src/components-v2/screens/account-devices-view.tsx:32
+#: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr "아래 나열된 기기에서 계정에 로그인되어 있습니다. 계정이 해킹당한 경우 모든 기기에서 로그아웃하고 비밀번호를 변경한 다음 연결된 <0>앱</0>을 확인하세요."
 
@@ -1671,10 +1772,12 @@ msgstr ""
 msgid "Your Atmosphere account is hosted by <0/>."
 msgstr "내 Atmosphere 계정은 <0/>에서 호스팅됩니다."
 
+#: src/components-v2/organisms/deactivate-account-dialog.tsx:24
 #: src/components/deactivate-account-dialog.tsx:24
 msgid "Your content (profile, posts, feeds, lists, etc.) will be hidden from the Bluesky app and across the Atmosphere network."
 msgstr ""
 
+#: src/components-v2/organisms/update-email-dialog.tsx:143
 #: src/components/update-email-dialog.tsx:66
 msgid "Your email address has been successfully updated and needs to be verified. Please enter the verification code that was sent to <0>{email}</0>."
 msgstr ""
@@ -1683,7 +1786,8 @@ msgstr ""
 msgid "Your email address has been verified."
 msgstr ""
 
-#: src/pages/account/(authenticated)/manage/page.tsx:273
+#: src/pages/account/(authenticated)/manage/page.tsx:290
+#: src/pages/account/(authenticated)/manage/page.tsx:326
 msgid "Your email address needs to be verified."
 msgstr ""
 
@@ -1696,6 +1800,7 @@ msgstr "내 전체 사용자 이름: {0}"
 msgid "Your password has been updated!"
 msgstr "비밀번호를 변경했습니다!"
 
+#: src/components-v2/organisms/reactivate-account-dialog.tsx:24
 #: src/components/reactivate-account-dialog.tsx:24
 msgid "Your profile, posts, feeds, and lists will become visible again across the Atmosphere network — that includes the Bluesky app and any other Atmosphere app you use with this account."
 msgstr ""

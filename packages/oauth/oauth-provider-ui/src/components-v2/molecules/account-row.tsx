@@ -26,7 +26,7 @@ export function AccountRow({
     <button
       type="button"
       {...props}
-      className="border-contrast-50 hover:bg-contrast-25 flex w-full items-center gap-4 rounded-panel border-b px-2.5 py-3 text-left last:border-b-0"
+      className="hover:bg-contrast-200 flex w-full items-center gap-4 px-2.5 py-3 text-left"
     >
       <AvatarBadge account={account} size="sm" />
       <div className="min-w-0 flex-1">

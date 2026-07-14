@@ -11,11 +11,11 @@ export function CookieErrorView({ continueUrl }: CookieErrorViewProps) {
   const url = new URL(continueUrl)
 
   return (
-    <div className="bg-contrast-50 flex min-h-dvh w-full items-center justify-center px-5">
+    <div className="bg-contrast-0 flex min-h-dvh w-full items-center justify-center px-5">
       <form
         action={url.origin}
         method="GET"
-        className="bg-contrast-0 border-contrast-100 shadow-card rounded-card w-full max-w-md border p-10 text-center"
+        className="bg-contrast-100 border-contrast-200 shadow-card rounded-card w-full max-w-md border p-10 text-center"
       >
         {Array.from(new Map(url.searchParams)).map(([key, value]) => (
           <input key={key} type="hidden" name={key} value={value} />

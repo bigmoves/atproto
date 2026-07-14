@@ -62,8 +62,8 @@ const COLORING: Record<ButtonColor, Record<ButtonColoring, string>> = {
     transparent: 'text-primary hover:bg-primary/10 bg-transparent',
   },
   gray: {
-    solid: 'bg-contrast-50 text-text-default hover:bg-contrast-100',
-    transparent: 'text-text-light hover:bg-contrast-50 bg-transparent',
+    solid: 'bg-contrast-200 text-text-default hover:bg-contrast-300',
+    transparent: 'text-text-light hover:bg-contrast-200 bg-transparent',
   },
   error: {
     solid: 'bg-error-500 dark:bg-error-700 text-error-contrast hover:opacity-90',
