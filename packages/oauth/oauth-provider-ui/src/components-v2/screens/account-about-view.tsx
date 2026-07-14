@@ -1,18 +1,15 @@
 import { Trans } from '@lingui/react/macro'
+import type { Account } from '@atproto/oauth-provider-api'
 import { CustomizationName } from '#/components/customization-name.tsx'
-import { AccountIdentifier } from '#/components/utils/account-identifier'
-import { LinkExternal } from '#/components/utils/link-external'
-import { AccountAboutView } from '#/components-v2/screens/account-about-view.tsx'
-import { useAuthenticatedSession } from '#/contexts/authentication'
-import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
+import { AccountIdentifier } from '#/components/utils/account-identifier.tsx'
+import { LinkExternal } from '#/components/utils/link-external.tsx'
 
-export function Page() {
-  const { account } = useAuthenticatedSession()
+export type AccountAboutViewProps = {
+  account: Account
+}
 
-  if (NEW_DESIGN_ENABLED) {
-    return <AccountAboutView account={account} />
-  }
-
+/** v2 restyle of `pages/account/(authenticated)/about/page.tsx`. Same copy. */
+export function AccountAboutView({ account }: AccountAboutViewProps) {
   return (
     <div className="prose-sm md:prose prose-slate dark:prose-invert max-w-none">
       <section>

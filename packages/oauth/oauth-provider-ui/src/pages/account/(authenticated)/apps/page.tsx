@@ -4,6 +4,7 @@ import { Button } from '#/components/forms/button'
 import { Admonition, AdmonitionAction } from '#/components/utils/admonition.tsx'
 import { CircularProgress } from '#/components/utils/circular-progress'
 import { DateAgo } from '#/components/utils/date-ago'
+import { AccountAppsView } from '#/components-v2/screens/account-apps-view.tsx'
 import { useAuthenticatedSession } from '#/contexts/authentication.tsx'
 import {
   useOAuthSessionsQuery,
@@ -11,8 +12,46 @@ import {
 } from '#/data/oauth-sessions.ts'
 import { useOAuthClientIdentifier } from '#/hooks/use-oauth-client-identifier.ts'
 import { useOauthClientName } from '#/hooks/use-oauth-client-name.ts'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 
 export function Page() {
+  return NEW_DESIGN_ENABLED ? <PageV2 /> : <PageV1 />
+}
+
+function PageV2() {
+  const { account } = useAuthenticatedSession()
+  const { did } = account
+  const { data, isLoading, refetch } = useOAuthSessionsQuery({ did })
+  const { mutate, isPending, variables } = useRevokeOAuthSessionMutation()
+
+  if (!data) {
+    if (isLoading) return <CircularProgress className="text-primary" size={28} />
+    return (
+      <Admonition
+        role="status"
+        action={
+          <AdmonitionAction onClick={() => refetch()}>
+            <Trans>Retry</Trans>
+          </AdmonitionAction>
+        }
+      >
+        <Trans>Failed to load connected apps</Trans>
+      </Admonition>
+    )
+  }
+
+  return (
+    <AccountAppsView
+      sessions={data}
+      revokingTokenId={isPending ? variables?.tokenId : undefined}
+      onRevoke={(tokenId) => {
+        mutate({ did, tokenId })
+      }}
+    />
+  )
+}
+
+function PageV1() {
   const { account } = useAuthenticatedSession()
   const { did } = account
   const { data, isLoading, refetch } = useOAuthSessionsQuery({ did })

@@ -2,11 +2,15 @@ import './style.css'
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ErrorView } from '#/components/error-view.tsx'
+import { ErrorView as ErrorViewV1 } from '#/components/error-view.tsx'
+import { ErrorView as ErrorViewV2 } from '#/components-v2/screens/error-view.tsx'
 import { CustomizationProvider } from '#/contexts/customization'
 import type { HydrationData } from '#/hydration-data.d.ts'
 import { parseApiErrorPayload } from '#/lib/api.ts'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import { LocaleProvider } from '#/locales/locale-provider.tsx'
+
+const ErrorView = NEW_DESIGN_ENABLED ? ErrorViewV2 : ErrorViewV1
 
 const {
   //

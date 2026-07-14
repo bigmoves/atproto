@@ -4,10 +4,12 @@ import { msg } from '@lingui/core/macro'
 import { type ReactNode, StrictMode, useCallback, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ConsentView } from '#/components/consent-view.tsx'
+import { ConsentView as ConsentViewV1 } from '#/components/consent-view.tsx'
 import { ErrorView } from '#/components/error-view.tsx'
 import { ReactivateAccountView } from '#/components/reactivate-account-view'
-import { RedirectingView } from '#/components/redirecting-view'
+import { RedirectingView as RedirectingViewV1 } from '#/components/redirecting-view'
+import { ConsentView as ConsentViewV2 } from '#/components-v2/screens/consent-view.tsx'
+import { RedirectingView as RedirectingViewV2 } from '#/components-v2/screens/redirecting-view.tsx'
 import {
   AuthenticationProvider,
   useAuthenticationContext,
@@ -19,8 +21,14 @@ import {
 } from '#/contexts/notifications.tsx'
 import { SessionProvider, useSessionContext } from '#/contexts/session.tsx'
 import type { HydrationData } from '#/hydration-data.d.ts'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import { sleep } from '#/lib/util.ts'
 import { LocaleProvider } from '#/locales/locale-provider.tsx'
+
+const ConsentView = NEW_DESIGN_ENABLED ? ConsentViewV2 : ConsentViewV1
+const RedirectingView = NEW_DESIGN_ENABLED
+  ? RedirectingViewV2
+  : RedirectingViewV1
 
 const {
   __authorizeData: authorizeData,

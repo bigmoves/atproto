@@ -26,8 +26,10 @@ import {
   LayoutPage,
   type LayoutPageLink,
 } from '#/components/layouts/layout-page.tsx'
+import { AccountAppShell } from '#/components-v2/templates/account-app-shell.tsx'
 import { AuthenticationProvider } from '#/contexts/authentication.tsx'
 import { useSessionContext } from '#/contexts/session.tsx'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import type { Explicit } from '#/lib/util.ts'
 import { RootRoute } from '../../route.tsx'
 import { Page as AccountAboutPage } from './about/page.tsx'
@@ -141,6 +143,18 @@ function Page({
         }),
       )
   }, [subPages, basePath])
+
+  if (NEW_DESIGN_ENABLED) {
+    return (
+      <AccountAppShell
+        title={msg`My Atmosphere Account`}
+        basePath={basePath}
+        links={links}
+      >
+        <Outlet />
+      </AccountAppShell>
+    )
+  }
 
   return (
     <LayoutPage

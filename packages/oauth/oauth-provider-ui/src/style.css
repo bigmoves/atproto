@@ -274,3 +274,24 @@
   --color-text-default: var(--color-contrast-900);
   --color-text-light: var(--color-contrast-700);
 }
+
+/* v2 design tokens (redesign gated by NEW_DESIGN_ENABLED, see
+   #/lib/feature-flags.ts). Additive only — nothing above is renamed. */
+
+:root {
+  --shadow-card: 0 30px 70px -20px rgb(0 0 0 / 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-card: 0 30px 70px -20px rgb(0 0 0 / 0.55);
+  }
+}
+
+@theme inline {
+  --radius-card: 28px;
+  --radius-panel: 16px;
+  --radius-control: 6px;
+  --radius-pill: 999px;
+  --shadow-card: var(--shadow-card);
+}

@@ -6,8 +6,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Button } from '#/components/forms/button.tsx'
 import { Admonition } from '#/components/utils/admonition.tsx'
+import { CookieErrorView } from '#/components-v2/screens/cookie-error-view.tsx'
 import { CustomizationProvider } from '#/contexts/customization.tsx'
 import type { HydrationData } from '#/hydration-data.d.ts'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import { LocaleProvider } from '#/locales/locale-provider.tsx'
 import { LayoutApp } from './components/layouts/layout-app.js'
 
@@ -23,13 +25,17 @@ createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
       <LocaleProvider>
-        <CookieErrorView />
+        {NEW_DESIGN_ENABLED ? (
+          <CookieErrorView continueUrl={continueUrl} />
+        ) : (
+          <CookieErrorViewV1Page />
+        )}
       </LocaleProvider>
     </CustomizationProvider>
   </StrictMode>,
 )
 
-function CookieErrorView() {
+function CookieErrorViewV1Page() {
   const url = new URL(continueUrl)
 
   return (

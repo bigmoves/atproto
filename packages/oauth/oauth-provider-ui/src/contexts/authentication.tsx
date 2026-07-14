@@ -8,13 +8,26 @@ import {
   useState,
 } from 'react'
 import type { OAuthPromptMode } from '@atproto/oauth-types'
-import { AuthenticateWelcomeView } from '#/components/authenticate-welcome-view.tsx'
+import { AuthenticateWelcomeView as AuthenticateWelcomeViewV1 } from '#/components/authenticate-welcome-view.tsx'
 import { ResetPasswordView } from '#/components/reset-password-view.tsx'
-import { SignInView } from '#/components/sign-in-view.tsx'
-import { SignUpView } from '#/components/sign-up-view.tsx'
+import { SignInView as SignInViewV1 } from '#/components/sign-in-view.tsx'
+import { SignUpView as SignUpViewV1 } from '#/components/sign-up-view.tsx'
+import { AuthenticateWelcomeView as AuthenticateWelcomeViewV2 } from '#/components-v2/screens/authenticate-welcome-view.tsx'
+import { SignInView as SignInViewV2 } from '#/components-v2/screens/sign-in-view.tsx'
+import { SignUpView as SignUpViewV2 } from '#/components-v2/screens/sign-up-view.tsx'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import { type Session, useSessionContext } from '#/contexts/session.tsx'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import type { Api } from '#/lib/api'
+
+// NOTE: reset-password is not yet ported to components-v2 (see
+// docs/superpowers/specs/2026-07-14-oauth-provider-ui-redesign-design.md);
+// it renders the v1 UI regardless of the flag until that follow-up lands.
+const SignInView = NEW_DESIGN_ENABLED ? SignInViewV2 : SignInViewV1
+const SignUpView = NEW_DESIGN_ENABLED ? SignUpViewV2 : SignUpViewV1
+const AuthenticateWelcomeView = NEW_DESIGN_ENABLED
+  ? AuthenticateWelcomeViewV2
+  : AuthenticateWelcomeViewV1
 
 enum View {
   Welcome,

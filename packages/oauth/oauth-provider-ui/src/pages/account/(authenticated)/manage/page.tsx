@@ -21,6 +21,10 @@ import { UpdatePasswordDialog } from '#/components/update-password-dialog.tsx'
 import { Admonition } from '#/components/utils/admonition'
 import { Handle } from '#/components/utils/handle.tsx'
 import { VerifyEmailDialog } from '#/components/verify-email-dialog.tsx'
+import {
+  SettingsPanel,
+  SettingsRow,
+} from '#/components-v2/molecules/settings-row.tsx'
 import { useAuthenticatedSession } from '#/contexts/authentication.tsx'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import {
@@ -40,9 +44,14 @@ import {
   useResetPasswordConfirm,
   useResetPasswordRequest,
 } from '#/data/password.ts'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import type { Override } from '#/lib/util.ts'
 
 export function Page() {
+  return NEW_DESIGN_ENABLED ? <PageV2 /> : <PageV1 />
+}
+
+function PageV1() {
   return (
     <div className="flex flex-col gap-2">
       <EmailVerificationRow />
@@ -54,6 +63,179 @@ export function Page() {
       <AccountStatusRow />
       <AccountDeletionRow />
     </div>
+  )
+}
+
+/**
+ * v2 restyle: same hooks/dialogs as v1 (the dialogs' request/confirm flows
+ * are reused as-is — see docs/superpowers/specs/2026-07-14-oauth-provider-ui-redesign-design.md
+ * for why porting them wasn't worth the duplication risk). Only the trigger
+ * rows get the new `SettingsRow` visual treatment.
+ */
+function PageV2() {
+  return (
+    <div className="flex flex-col gap-4">
+      <EmailVerificationRow />
+      <SettingsPanel>
+        <EmailUpdateRowV2 />
+        <HandleUpdateRowV2 />
+        <PasswordUpdateRowV2 />
+      </SettingsPanel>
+      <SettingsPanel>
+        <AccountStatusRowV2 />
+        <AccountDeletionRowV2 />
+      </SettingsPanel>
+    </div>
+  )
+}
+
+function EmailUpdateRowV2() {
+  const { account } = useAuthenticatedSession()
+  const data = useCustomizationData()
+  const { did, email } = account
+
+  const updateRequest = useUpdateEmailRequest()
+  const updateConfirm = useUpdateEmailConfirm()
+  const verifyRequest = useVerifyEmailRequest()
+  const verifyConfirm = useVerifyEmailConfirm()
+
+  return (
+    <UpdateEmailDialog
+      email={email}
+      requestPending={updateRequest.isPending}
+      confirmPending={updateConfirm.isPending}
+      onUpdateRequest={async () => updateRequest.mutateAsync({ did })}
+      onUpdateConfirm={async ({ email, token }) => {
+        await updateConfirm.mutateAsync({ did, email, token })
+      }}
+      onVerifyRequest={async () => {
+        await verifyRequest.mutateAsync({ did })
+      }}
+      onVerifyConfirm={async ({ email, token }) => {
+        await verifyConfirm.mutateAsync({ did, email, token })
+      }}
+      introMessage={
+        data.show2FaWarningOnEmailUpdate && (
+          <Admonition role="warning" className="text-sm">
+            <Trans>
+              If you update your email address, email 2FA (if enabled) will be
+              disabled.
+            </Trans>
+          </Admonition>
+        )
+      }
+    >
+      <SettingsRow icon={EnvelopeIcon} value={email}>
+        <Trans>Email address</Trans>
+      </SettingsRow>
+    </UpdateEmailDialog>
+  )
+}
+
+function HandleUpdateRowV2() {
+  const { account } = useAuthenticatedSession()
+  const { availableUserDomains = [] } = useCustomizationData()
+  const { did, handle } = account
+  const updateHandle = useUpdateHandle()
+
+  return (
+    <UpdateHandleDialog
+      did={did}
+      currentHandle={handle}
+      domains={availableUserDomains}
+      handler={async ({ handle }) => {
+        await updateHandle.mutateAsync({ did, handle })
+      }}
+    >
+      <SettingsRow icon={AtIcon} value={<Handle handle={handle} />}>
+        <Trans>Username</Trans>
+      </SettingsRow>
+    </UpdateHandleDialog>
+  )
+}
+
+function PasswordUpdateRowV2() {
+  const { account } = useAuthenticatedSession()
+  const { email } = account
+  const resetPasswordRequest = useResetPasswordRequest()
+  const resetPasswordConfirm = useResetPasswordConfirm()
+
+  if (!email) return null
+
+  return (
+    <UpdatePasswordDialog
+      email={email}
+      requestPending={resetPasswordRequest.isPending}
+      confirmPending={resetPasswordConfirm.isPending}
+      onRequest={async () => {
+        await resetPasswordRequest.mutateAsync({ email })
+      }}
+      onConfirm={async ({ token, password }) => {
+        await resetPasswordConfirm.mutateAsync({ token, password })
+      }}
+    >
+      <SettingsRow icon={LockIcon}>
+        <Trans>Password</Trans>
+      </SettingsRow>
+    </UpdatePasswordDialog>
+  )
+}
+
+function AccountStatusRowV2() {
+  const { account } = useAuthenticatedSession()
+  const deactivate = useDeactivateAccount()
+  const reactivate = useReactivateAccount()
+
+  if (account.deactivated) {
+    return (
+      <ReactivateAccountDialog
+        onConfirm={async () => {
+          await reactivate.mutateAsync({ did: account.did })
+        }}
+      >
+        <SettingsRow icon={SnowflakeIcon}>
+          <Trans>Reactivate account</Trans>
+        </SettingsRow>
+      </ReactivateAccountDialog>
+    )
+  }
+
+  return (
+    <DeactivateAccountDialog
+      onConfirm={async () => {
+        await deactivate.mutateAsync({ did: account.did })
+      }}
+    >
+      <SettingsRow icon={SnowflakeIcon} danger>
+        <Trans>Deactivate account</Trans>
+      </SettingsRow>
+    </DeactivateAccountDialog>
+  )
+}
+
+function AccountDeletionRowV2() {
+  const { account } = useAuthenticatedSession()
+  const { did, email, handle } = account
+  const deleteRequest = useDeleteAccountRequest()
+  const deleteConfirm = useDeleteAccountConfirm()
+
+  return (
+    <DeleteAccountDialog
+      handle={handle}
+      email={email}
+      requestPending={deleteRequest.isPending}
+      confirmPending={deleteConfirm.isPending}
+      onRequest={async () => {
+        await deleteRequest.mutateAsync({ did })
+      }}
+      onConfirm={async ({ token, password }) => {
+        await deleteConfirm.mutateAsync({ did, token, password })
+      }}
+    >
+      <SettingsRow icon={TrashIcon} danger>
+        <Trans>Delete account</Trans>
+      </SettingsRow>
+    </DeleteAccountDialog>
   )
 }
 

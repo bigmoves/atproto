@@ -4,10 +4,16 @@ import type { ReactNode } from 'react'
 import type { JSX } from 'react/jsx-runtime'
 import { CustomizationName } from '#/components/customization-name.tsx'
 import { AccountOverview } from '#/components/utils/account-overview.tsx'
+import { AccountHomeView } from '#/components-v2/screens/account-home-view.tsx'
 import { useAuthenticatedSession } from '#/contexts/authentication.tsx'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 
 export function Page(): ReactNode {
   const { account } = useAuthenticatedSession()
+
+  if (NEW_DESIGN_ENABLED) {
+    return <AccountHomeView account={account} />
+  }
 
   return (
     <div className="flex min-h-full flex-col items-center gap-4">
