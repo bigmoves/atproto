@@ -16,9 +16,9 @@ import type { IconProps } from '@phosphor-icons/react'
 import { useAuthenticationContext } from '#/contexts/authentication.tsx'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import { useSessionContext } from '#/contexts/session.tsx'
-import { LocaleSelector } from '#/locales/locale-selector.tsx'
 import { AvatarBadge } from '../atoms/avatar-badge.tsx'
 import { Button } from '../atoms/button.tsx'
+import { LocaleSelector } from '../atoms/locale-selector.tsx'
 
 export type AccountAppLink = {
   to: ToPathOption<RegisteredRouter, '/', undefined>

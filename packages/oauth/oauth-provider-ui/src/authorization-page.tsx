@@ -10,6 +10,7 @@ import { ReactivateAccountView } from '#/components/reactivate-account-view'
 import { RedirectingView as RedirectingViewV1 } from '#/components/redirecting-view'
 import { ConsentView as ConsentViewV2 } from '#/components-v2/screens/consent-view.tsx'
 import { RedirectingView as RedirectingViewV2 } from '#/components-v2/screens/redirecting-view.tsx'
+import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
 import {
   AuthenticationProvider,
   useAuthenticationContext,
@@ -55,22 +56,24 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <LocaleProvider userLocales={authorizeData.uiLocales?.split(' ')}>
-        <NotificationsProvider>
-          <ErrorBoundary
-            fallbackRender={({ error, resetErrorBoundary }) => (
-              <ErrorView error={error} retry={resetErrorBoundary} />
-            )}
-          >
-            <SessionProvider
-              initialSessions={initialSessions}
-              initialSelected={authorizeData.selectedDid}
+      <DevToolsGate>
+        <LocaleProvider userLocales={authorizeData.uiLocales?.split(' ')}>
+          <NotificationsProvider>
+            <ErrorBoundary
+              fallbackRender={({ error, resetErrorBoundary }) => (
+                <ErrorView error={error} retry={resetErrorBoundary} />
+              )}
             >
-              <App />
-            </SessionProvider>
-          </ErrorBoundary>
-        </NotificationsProvider>
-      </LocaleProvider>
+              <SessionProvider
+                initialSessions={initialSessions}
+                initialSelected={authorizeData.selectedDid}
+              >
+                <App />
+              </SessionProvider>
+            </ErrorBoundary>
+          </NotificationsProvider>
+        </LocaleProvider>
+      </DevToolsGate>
     </CustomizationProvider>
   </StrictMode>,
 )

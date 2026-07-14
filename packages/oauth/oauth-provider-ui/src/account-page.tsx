@@ -6,6 +6,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorView } from '#/components/error-view.tsx'
+import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
 import { CustomizationProvider } from '#/contexts/customization.tsx'
 import { NotificationsProvider } from '#/contexts/notifications.tsx'
 import { InitialSelectedSession, SessionProvider } from '#/contexts/session.tsx'
@@ -25,24 +26,26 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <LocaleProvider>
-        <NotificationsProvider>
-          <ErrorBoundary
-            fallbackRender={({ error, resetErrorBoundary }) => (
-              <ErrorView error={error} retry={resetErrorBoundary} />
-            )}
-          >
-            <SessionProvider
-              initialSessions={deviceSessions}
-              initialSelected={InitialSelectedSession.Only}
+      <DevToolsGate>
+        <LocaleProvider>
+          <NotificationsProvider>
+            <ErrorBoundary
+              fallbackRender={({ error, resetErrorBoundary }) => (
+                <ErrorView error={error} retry={resetErrorBoundary} />
+              )}
             >
-              <QueryClientProvider client={qc}>
-                <RouterProvider router={router} />
-              </QueryClientProvider>
-            </SessionProvider>
-          </ErrorBoundary>
-        </NotificationsProvider>
-      </LocaleProvider>
+              <SessionProvider
+                initialSessions={deviceSessions}
+                initialSelected={InitialSelectedSession.Only}
+              >
+                <QueryClientProvider client={qc}>
+                  <RouterProvider router={router} />
+                </QueryClientProvider>
+              </SessionProvider>
+            </ErrorBoundary>
+          </NotificationsProvider>
+        </LocaleProvider>
+      </DevToolsGate>
     </CustomizationProvider>
   </StrictMode>,
 )

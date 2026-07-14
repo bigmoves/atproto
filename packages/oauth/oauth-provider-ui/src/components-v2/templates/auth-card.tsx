@@ -4,8 +4,8 @@ import { clsx } from 'clsx'
 import type { JSX, ReactNode } from 'react'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import type { Override } from '#/lib/util.ts'
-import { LocaleSelector } from '#/locales/locale-selector.tsx'
 import { FooterLink } from '../atoms/footer-link.tsx'
+import { LocaleSelector } from '../atoms/locale-selector.tsx'
 
 export type AuthCardProps = Override<
   JSX.IntrinsicElements['div'],
@@ -58,7 +58,7 @@ export function AuthCard({
       <div
         {...props}
         className={clsx(
-          'bg-contrast-0 border-contrast-100 shadow-card rounded-card w-full border p-8 sm:px-14 sm:py-16',
+          'bg-contrast-0 shadow-card rounded-card w-full p-8 sm:px-14 sm:py-16',
           narrow ? 'max-w-lg' : 'max-w-4xl min-h-[30rem]',
           className,
         )}

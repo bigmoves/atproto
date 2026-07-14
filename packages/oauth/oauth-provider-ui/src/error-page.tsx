@@ -4,6 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ErrorView as ErrorViewV1 } from '#/components/error-view.tsx'
 import { ErrorView as ErrorViewV2 } from '#/components-v2/screens/error-view.tsx'
+import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
 import { CustomizationProvider } from '#/contexts/customization'
 import type { HydrationData } from '#/hydration-data.d.ts'
 import { parseApiErrorPayload } from '#/lib/api.ts'
@@ -28,9 +29,11 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <LocaleProvider>
-        <ErrorView error={error ?? errorData} />
-      </LocaleProvider>
+      <DevToolsGate>
+        <LocaleProvider>
+          <ErrorView error={error ?? errorData} />
+        </LocaleProvider>
+      </DevToolsGate>
     </CustomizationProvider>
   </StrictMode>,
 )

@@ -132,7 +132,7 @@ msgstr "アカウント名"
 msgid "Account overview"
 msgstr "アカウントの概要"
 
-#: src/authorization-page.tsx:236
+#: src/authorization-page.tsx:239
 #: src/data/account.ts:46
 msgid "Account reactivated"
 msgstr "アカウント再有効化"
@@ -405,13 +405,13 @@ msgstr "確認コード"
 msgid "Confirmation email sent"
 msgstr "確認メールが送信されました"
 
-#: src/cookie-error-page.tsx:67
+#: src/cookie-error-page.tsx:70
 #: src/components-v2/screens/cookie-error-view.tsx:37
 msgid "Continue"
 msgstr "続行"
 
-#: src/cookie-error-page.tsx:42
-#: src/cookie-error-page.tsx:55
+#: src/cookie-error-page.tsx:45
+#: src/cookie-error-page.tsx:58
 msgid "Cookie Error"
 msgstr "Cookie エラー"
 
@@ -779,6 +779,7 @@ msgid "If you're trying to change your handle or email, do so before you deactiv
 msgstr "ハンドルやメールアドレスを変えるのであれば、無効化の前に変更してください。"
 
 #: src/locales/locale-selector.tsx:47
+#: src/components-v2/atoms/locale-selector.tsx:43
 msgid "Interface language selector"
 msgstr "言語選択"
 
@@ -809,7 +810,7 @@ msgid "It appears that you haven’t used this account to sign in to any apps ye
 msgstr "このアカウントをアプリにサインインするためにまだ使用していないようです。"
 
 #. placeholder {0}: url.hostname
-#: src/cookie-error-page.tsx:57
+#: src/cookie-error-page.tsx:60
 msgid "It seems that your browser is not accepting cookies. Press \"Continue\" to try again. If the error persists, please ensure that your privacy settings allow cookies for the \"{0}\" website."
 msgstr "あなたのブラウザがクッキーを受け入れていないようです。「続行」を押してもう一度試してください。エラーが続く場合は、プライバシー設定で「{0}」のウェブサイトのクッキーを許可していることを確認してください。"
 
@@ -842,11 +843,11 @@ msgstr "後で"
 msgid "Let's get your password reset!"
 msgstr "パスワードをリセットしましょう！"
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login canceled"
 msgstr "ログインキャンセル"
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login complete"
 msgstr "ログイン完了"
 
@@ -1654,7 +1655,7 @@ msgstr "あなたのアカウント"
 msgid "Your account and all associated data have been deleted."
 msgstr "あなたのアカウントと関連するすべてのデータが削除されました。"
 
-#: src/authorization-page.tsx:237
+#: src/authorization-page.tsx:240
 msgid "Your account has been successfully reactivated."
 msgstr "あなたのアカウントは再有効化されました。"
 

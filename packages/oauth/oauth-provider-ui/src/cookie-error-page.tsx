@@ -7,6 +7,7 @@ import { createRoot } from 'react-dom/client'
 import { Button } from '#/components/forms/button.tsx'
 import { Admonition } from '#/components/utils/admonition.tsx'
 import { CookieErrorView } from '#/components-v2/screens/cookie-error-view.tsx'
+import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
 import { CustomizationProvider } from '#/contexts/customization.tsx'
 import type { HydrationData } from '#/hydration-data.d.ts'
 import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
@@ -24,13 +25,15 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <LocaleProvider>
-        {NEW_DESIGN_ENABLED ? (
-          <CookieErrorView continueUrl={continueUrl} />
-        ) : (
-          <CookieErrorViewV1Page />
-        )}
-      </LocaleProvider>
+      <DevToolsGate>
+        <LocaleProvider>
+          {NEW_DESIGN_ENABLED ? (
+            <CookieErrorView continueUrl={continueUrl} />
+          ) : (
+            <CookieErrorViewV1Page />
+          )}
+        </LocaleProvider>
+      </DevToolsGate>
     </CustomizationProvider>
   </StrictMode>,
 )

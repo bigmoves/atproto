@@ -132,7 +132,7 @@ msgstr "Account name"
 msgid "Account overview"
 msgstr "Account overview"
 
-#: src/authorization-page.tsx:236
+#: src/authorization-page.tsx:239
 #: src/data/account.ts:46
 msgid "Account reactivated"
 msgstr "Account reactivated"
@@ -405,13 +405,13 @@ msgstr "Confirmation code"
 msgid "Confirmation email sent"
 msgstr "Confirmation email sent"
 
-#: src/cookie-error-page.tsx:67
+#: src/cookie-error-page.tsx:70
 #: src/components-v2/screens/cookie-error-view.tsx:37
 msgid "Continue"
 msgstr "Continue"
 
-#: src/cookie-error-page.tsx:42
-#: src/cookie-error-page.tsx:55
+#: src/cookie-error-page.tsx:45
+#: src/cookie-error-page.tsx:58
 msgid "Cookie Error"
 msgstr "Cookie Error"
 
@@ -779,6 +779,7 @@ msgid "If you're trying to change your handle or email, do so before you deactiv
 msgstr "If you're trying to change your handle or email, do so before you deactivate."
 
 #: src/locales/locale-selector.tsx:47
+#: src/components-v2/atoms/locale-selector.tsx:43
 msgid "Interface language selector"
 msgstr "Interface language selector"
 
@@ -809,7 +810,7 @@ msgid "It appears that you haven’t used this account to sign in to any apps ye
 msgstr "It appears that you haven’t used this account to sign in to any apps yet."
 
 #. placeholder {0}: url.hostname
-#: src/cookie-error-page.tsx:57
+#: src/cookie-error-page.tsx:60
 msgid "It seems that your browser is not accepting cookies. Press \"Continue\" to try again. If the error persists, please ensure that your privacy settings allow cookies for the \"{0}\" website."
 msgstr "It seems that your browser is not accepting cookies. Press \"Continue\" to try again. If the error persists, please ensure that your privacy settings allow cookies for the \"{0}\" website."
 
@@ -842,11 +843,11 @@ msgstr "Later"
 msgid "Let's get your password reset!"
 msgstr "Let's get your password reset!"
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login canceled"
 msgstr "Login canceled"
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login complete"
 msgstr "Login complete"
 
@@ -1654,7 +1655,7 @@ msgstr "Your account"
 msgid "Your account and all associated data have been deleted."
 msgstr "Your account and all associated data have been deleted."
 
-#: src/authorization-page.tsx:237
+#: src/authorization-page.tsx:240
 msgid "Your account has been successfully reactivated."
 msgstr "Your account has been successfully reactivated."
 

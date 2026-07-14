@@ -132,7 +132,7 @@ msgstr "계정 이름"
 msgid "Account overview"
 msgstr "계정 개요"
 
-#: src/authorization-page.tsx:236
+#: src/authorization-page.tsx:239
 #: src/data/account.ts:46
 msgid "Account reactivated"
 msgstr ""
@@ -405,13 +405,13 @@ msgstr "인증 코드"
 msgid "Confirmation email sent"
 msgstr ""
 
-#: src/cookie-error-page.tsx:67
+#: src/cookie-error-page.tsx:70
 #: src/components-v2/screens/cookie-error-view.tsx:37
 msgid "Continue"
 msgstr "계속"
 
-#: src/cookie-error-page.tsx:42
-#: src/cookie-error-page.tsx:55
+#: src/cookie-error-page.tsx:45
+#: src/cookie-error-page.tsx:58
 msgid "Cookie Error"
 msgstr "쿠키 오류"
 
@@ -769,6 +769,7 @@ msgid "If you're trying to change your handle or email, do so before you deactiv
 msgstr ""
 
 #: src/locales/locale-selector.tsx:47
+#: src/components-v2/atoms/locale-selector.tsx:43
 msgid "Interface language selector"
 msgstr "인터페이스 언어 선택기"
 
@@ -799,7 +800,7 @@ msgid "It appears that you haven’t used this account to sign in to any apps ye
 msgstr "이 계정으로 아직 어떤 앱에도 로그인한 적이 없는 것 같습니다."
 
 #. placeholder {0}: url.hostname
-#: src/cookie-error-page.tsx:57
+#: src/cookie-error-page.tsx:60
 msgid "It seems that your browser is not accepting cookies. Press \"Continue\" to try again. If the error persists, please ensure that your privacy settings allow cookies for the \"{0}\" website."
 msgstr "브라우저에서 쿠키를 허용하지 않는 것 같습니다. 다시 시도하려면 ‘계속’을 누르세요. 오류가 계속 발생하면 개인정보 설정에서 ‘{0}’ 웹사이트의 쿠키를 허용했는지 확인하세요."
 
@@ -832,11 +833,11 @@ msgstr ""
 msgid "Let's get your password reset!"
 msgstr "비밀번호를 재설정해 봅시다!"
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login canceled"
 msgstr ""
 
-#: src/authorization-page.tsx:170
+#: src/authorization-page.tsx:173
 msgid "Login complete"
 msgstr "로그인 완료"
 
@@ -1644,7 +1645,7 @@ msgstr "내 계정"
 msgid "Your account and all associated data have been deleted."
 msgstr ""
 
-#: src/authorization-page.tsx:237
+#: src/authorization-page.tsx:240
 msgid "Your account has been successfully reactivated."
 msgstr ""
 
