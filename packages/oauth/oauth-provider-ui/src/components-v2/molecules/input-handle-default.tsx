@@ -1,8 +1,8 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { AtIcon, CheckIcon, XIcon } from '@phosphor-icons/react'
+import { AtIcon, CaretDownIcon } from '@phosphor-icons/react'
 import { composeRefs } from '@radix-ui/react-compose-refs'
 import { clsx } from 'clsx'
-import { type JSX, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { type HandleString, isValidHandle } from '@atproto/syntax'
 import { useStableCallback } from '#/hooks/use-stable-callback.ts'
 import {
@@ -90,40 +90,41 @@ export function InputHandleDefault({
 
   return (
     <div>
-      <InputText
-        {...props}
-        ref={composeRefs(ref, inputRef)}
-        title={title ?? t`Type your username`}
-        type="text"
-        pattern="[a-z0-9][a-z0-9\-]+[a-z0-9]"
-        minLength={minLength}
-        maxLength={maxLength}
-        autoCapitalize={autoCapitalize}
-        autoComplete={autoComplete}
-        autoCorrect={autoCorrect}
-        dir={dir}
-        icon={icon}
-        value={segment}
-        onChange={(event) => {
-          const value = event.target.value.toLowerCase()
-          const selectionStart = event.target.selectionStart
-          const selectionEnd = event.target.selectionEnd
-          event.target.value = value
-          event.target.setSelectionRange(selectionStart, selectionEnd)
-          update(value, domainIdx)
-        }}
-        append={
-          domains.length > 1 ? (
+      <div className="flex items-start gap-2">
+        <InputText
+          {...props}
+          ref={composeRefs(ref, inputRef)}
+          title={title ?? t`Type your username`}
+          type="text"
+          pattern="[a-z0-9][a-z0-9\-]+[a-z0-9]"
+          minLength={minLength}
+          maxLength={maxLength}
+          autoCapitalize={autoCapitalize}
+          autoComplete={autoComplete}
+          autoCorrect={autoCorrect}
+          dir={dir}
+          icon={icon}
+          value={segment}
+          className="min-w-0 flex-1"
+          onChange={(event) => {
+            const value = event.target.value.toLowerCase()
+            const selectionStart = event.target.selectionStart
+            const selectionEnd = event.target.selectionEnd
+            event.target.value = value
+            event.target.setSelectionRange(selectionStart, selectionEnd)
+            update(value, domainIdx)
+          }}
+        />
+        {domains.length > 1 ? (
+          <div className="relative h-[3.125rem] shrink-0">
             <select
-              onClick={(event) => event.stopPropagation()}
-              onMouseDown={(event) => event.stopPropagation()}
               value={domainIdx}
               aria-label={t`Select domain`}
               onChange={(event) => {
                 update(segment, Number(event.target.value))
                 inputRef.current?.focus()
               }}
-              className="text-text-light hover:bg-contrast-200 accent-primary cursor-pointer rounded-md p-2 pr-1 text-sm outline-none"
+              className="border-contrast-400 rounded-control text-text-light hover:bg-contrast-200 focus:border-primary accent-primary h-[3.125rem] w-full cursor-pointer appearance-none border pl-3 pr-8 text-sm outline-none"
             >
               {domains.map((d, idx) => (
                 <option key={d} value={idx}>
@@ -131,22 +132,30 @@ export function InputHandleDefault({
                 </option>
               ))}
             </select>
-          ) : (
-            domain && <span className="text-text-light shrink-0 text-sm">{domain}</span>
+            <CaretDownIcon
+              aria-hidden
+              className="text-text-light pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2"
+            />
+          </div>
+        ) : (
+          domain && (
+            <span className="text-text-light flex h-[3.125rem] shrink-0 items-center px-1 text-sm">
+              {domain}
+            </span>
           )
-        }
+        )}
+      </div>
+      <p
+        className={clsx(
+          'mt-1.5 px-1 text-xs',
+          segment && !validity.valid ? 'text-error' : 'text-text-light',
+        )}
       >
-        <div className="flex flex-col gap-1">
-          <ValidationMessage hasValue={!!segment} valid={validity.validLength}>
-            <Trans>
-              Between {minLength} and {maxLength} characters
-            </Trans>
-          </ValidationMessage>
-          <ValidationMessage hasValue={!!segment} valid={validity.validCharset}>
-            <Trans>Only letters, numbers, and hyphens</Trans>
-          </ValidationMessage>
-        </div>
-      </InputText>
+        <Trans>
+          {minLength}–{maxLength} characters, using letters, numbers, and
+          hyphens
+        </Trans>
+      </p>
     </div>
   )
 }
@@ -167,37 +176,4 @@ function useSegmentValidator(domain: ValidDomain | null) {
   )
 
   return { minLength: minLen, maxLength: maxLen, validateSegment }
-}
-
-type ValidationMessageProps = JSX.IntrinsicElements['div'] & {
-  valid: boolean
-  hasValue: boolean
-}
-
-function ValidationMessage({
-  valid,
-  hasValue,
-
-  // div
-  children,
-  className,
-  ...props
-}: ValidationMessageProps) {
-  const { t } = useLingui()
-  return (
-    <div {...props} className={clsx('flex flex-row items-center gap-2', className)}>
-      {hasValue ? (
-        valid ? (
-          <CheckIcon className="text-success inline-block size-4" aria-label={t`Valid`} />
-        ) : (
-          <XIcon className="text-error inline-block size-4" aria-label={t`Invalid`} />
-        )
-      ) : (
-        <div aria-hidden className="flex size-4 items-center justify-center">
-          <div className="bg-contrast-200 size-2 rounded-full" />
-        </div>
-      )}
-      <div className="text-text-light text-sm">{children}</div>
-    </div>
-  )
 }

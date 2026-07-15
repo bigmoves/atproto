@@ -11,6 +11,10 @@ import {
   SignUpHcaptchaForm,
 } from '../organisms/sign-up-hcaptcha-form.tsx'
 import {
+  type SignUpInviteCodeData,
+  SignUpInviteCodeForm,
+} from '../organisms/sign-up-invite-code-form.tsx'
+import {
   type SignUpPasswordData,
   SignUpPasswordForm,
 } from '../organisms/sign-up-password-form.tsx'
@@ -22,12 +26,17 @@ export type SignUpViewProps = {
   onValidateNewHandle: (data: SignUpHandleData) => void | PromiseLike<void>
   onDone: (
     data: SignUpEmailData &
-      SignUpPasswordData & { handle: string; hcaptchaToken?: string },
+      SignUpPasswordData & {
+        handle: string
+        inviteCode?: string
+        hcaptchaToken?: string
+      },
   ) => void | PromiseLike<void>
 }
 
 type PendingData = Partial<
   SignUpHandleData &
+    SignUpInviteCodeData &
     SignUpEmailData &
     SignUpPasswordData &
     SignUpHcaptchaData & { confirmPassword?: string }
@@ -51,13 +60,13 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
     note: ReactNode
   }>({
     title: <Trans>Choose a username</Trans>,
-    subtitle: <Trans>This is how others will find you</Trans>,
-    note: (
+    subtitle: (
       <Trans>
         You can change this to any domain name you control after your
         account is set up.
       </Trans>
     ),
+    note: undefined,
   })
 
   return (
@@ -66,8 +75,9 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
         onBack={onBack}
         doneLabel={<Trans>Sign up</Trans>}
         onStepChange={(title, subtitle, note) => setHeader({ title, subtitle, note })}
-        onDone={([handle, email, password, hcaptcha]: [
+        onDone={([handle, inviteCode, email, password, hcaptcha]: [
           SignUpHandleData,
+          SignUpInviteCodeData | null,
           SignUpEmailData,
           SignUpPasswordData,
           SignUpHcaptchaData | null,
@@ -76,19 +86,20 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
             ...email,
             ...password,
             ...handle,
+            inviteCode: inviteCode?.inviteCode,
             hcaptchaToken: hcaptcha?.verify.token,
           })
         }}
         steps={[
           {
             title: <Trans>Choose a username</Trans>,
-            subtitle: <Trans>This is how others will find you</Trans>,
-            note: (
+            subtitle: (
               <Trans>
                 You can change this to any domain name you control after your
                 account is set up.
               </Trans>
             ),
+            note: undefined,
             contentRender: ({ prev, prevLabel, next, nextLabel }) => (
               <SignUpHandleForm
                 className="grow"
@@ -105,9 +116,31 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
               />
             ),
           },
+          inviteCodeRequired && {
+            title: <Trans>Enter your invite code</Trans>,
+            subtitle: (
+              <Trans>An invite code is required to create an account.</Trans>
+            ),
+            contentRender: ({ prev, prevLabel, next, nextLabel }) => (
+              <SignUpInviteCodeForm
+                className="grow"
+                onBack={prev}
+                backLabel={prevLabel}
+                submitLabel={nextLabel}
+                values={pending}
+                onValues={(val) => setPending((old) => ({ ...old, ...val }))}
+                handler={next}
+              />
+            ),
+          },
           {
-            title: <Trans>Create your account</Trans>,
-            subtitle: <Trans>Enter your email address</Trans>,
+            title: <Trans>Enter your email address</Trans>,
+            subtitle: (
+              <Trans>
+                We'll use this to verify your account and send important
+                updates.
+              </Trans>
+            ),
             contentRender: ({ prev, prevLabel, next, nextLabel }) => (
               <SignUpEmailForm
                 className="grow"
@@ -117,7 +150,6 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
                 values={pending}
                 onValues={(val) => setPending((old) => ({ ...old, ...val }))}
                 handler={next}
-                inviteCodeRequired={inviteCodeRequired}
               />
             ),
           },

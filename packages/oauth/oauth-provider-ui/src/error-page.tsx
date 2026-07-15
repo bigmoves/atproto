@@ -29,11 +29,11 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <DevToolsGate>
-        <LocaleProvider>
+      <LocaleProvider>
+        <DevToolsGate>
           <ErrorView error={error ?? errorData} />
-        </LocaleProvider>
-      </DevToolsGate>
+        </DevToolsGate>
+      </LocaleProvider>
     </CustomizationProvider>
   </StrictMode>,
 )

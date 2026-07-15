@@ -25,15 +25,15 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <DevToolsGate>
-        <LocaleProvider>
+      <LocaleProvider>
+        <DevToolsGate>
           {NEW_DESIGN_ENABLED ? (
             <CookieErrorView continueUrl={continueUrl} />
           ) : (
             <CookieErrorViewV1Page />
           )}
-        </LocaleProvider>
-      </DevToolsGate>
+        </DevToolsGate>
+      </LocaleProvider>
     </CustomizationProvider>
   </StrictMode>,
 )

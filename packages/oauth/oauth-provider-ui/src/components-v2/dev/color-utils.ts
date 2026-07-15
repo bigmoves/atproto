@@ -1,7 +1,15 @@
 export type RgbColor = { r: number; g: number; b: number }
 
 export function hexToRgb(hex: string): RgbColor | undefined {
-  const match = /^#?([0-9a-f]{6})$/i.exec(hex.trim())
+  const trimmed = hex.trim()
+
+  const shortMatch = /^#?([0-9a-f]{3})$/i.exec(trimmed)
+  if (shortMatch) {
+    const [r, g, b] = shortMatch[1]
+    return hexToRgb(`#${r}${r}${g}${g}${b}${b}`)
+  }
+
+  const match = /^#?([0-9a-f]{6})$/i.exec(trimmed)
   if (!match) return undefined
   const int = parseInt(match[1], 16)
   return { r: (int >> 16) & 255, g: (int >> 8) & 255, b: int & 255 }

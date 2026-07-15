@@ -25,18 +25,22 @@ msgstr "{deltaHours} hours ago"
 msgid "{deltaMinutes} minutes ago"
 msgstr "{deltaMinutes} minutes ago"
 
+#: src/components-v2/molecules/input-handle-default.tsx:154
+msgid "{minLength}–{maxLength} characters, using letters, numbers, and hyphens"
+msgstr "{minLength}–{maxLength} characters, using letters, numbers, and hyphens"
+
 #: src/pages/account/(authenticated)/about/page.tsx:142
-#: src/components-v2/screens/account-about-view.tsx:145
+#: src/components-v2/screens/account-about-view.tsx:146
 msgid "<0>AT Protocol</0> — Technical documentation for developers"
 msgstr "<0>AT Protocol</0> — Technical documentation for developers"
 
 #: src/pages/account/(authenticated)/about/page.tsx:134
-#: src/components-v2/screens/account-about-view.tsx:137
+#: src/components-v2/screens/account-about-view.tsx:138
 msgid "<0>Bluesky Social</0> — General information about the network"
 msgstr "<0>Bluesky Social</0> — General information about the network"
 
 #: src/pages/account/(authenticated)/about/page.tsx:125
-#: src/components-v2/screens/account-about-view.tsx:128
+#: src/components-v2/screens/account-about-view.tsx:129
 msgid "<0>Learn more</0><1>Want to learn more about the technology and network behind your Atmosphere account?</1>"
 msgstr "<0>Learn more</0><1>Want to learn more about the technology and network behind your Atmosphere account?</1>"
 
@@ -75,7 +79,7 @@ msgstr "1 hour ago"
 msgid "1 minute ago"
 msgstr "1 minute ago"
 
-#: src/components-v2/organisms/sign-in-form.tsx:221
+#: src/components-v2/organisms/sign-in-form.tsx:226
 #: src/components/sign-in-form.tsx:244
 msgid "2FA Confirmation"
 msgstr "2FA Confirmation"
@@ -88,6 +92,7 @@ msgstr "A local app"
 msgid "A second authentication factor is required ({hint})"
 msgstr "A second authentication factor is required ({hint})"
 
+#: src/components-v2/organisms/scope-description.tsx:869
 #: src/components/utils/scope-description.tsx:863
 msgid "A service controlled by <0>{domain}</0>"
 msgstr "A service controlled by <0>{domain}</0>"
@@ -97,16 +102,19 @@ msgstr "A service controlled by <0>{domain}</0>"
 msgid "About"
 msgstr "About"
 
+#: src/components-v2/organisms/scope-description.tsx:400
 #: src/components/utils/scope-description.tsx:394
 msgid "Access specific parts of your Bluesky account"
 msgstr "Access specific parts of your Bluesky account"
 
+#: src/components-v2/organisms/scope-description.tsx:395
 #: src/components/utils/scope-description.tsx:389
 msgid "Access specific parts of your Bluesky account and read your private preferences"
 msgstr "Access specific parts of your Bluesky account and read your private preferences"
 
 #: src/pages/account/(authenticated)/route.tsx:64
 #: src/pages/account/(authenticated)/manage/page.tsx:90
+#: src/components-v2/organisms/scope-description.tsx:272
 #: src/components/utils/scope-description.tsx:266
 msgid "Account"
 msgstr "Account"
@@ -178,6 +186,10 @@ msgstr "An application on your device"
 msgid "An error occurred"
 msgstr "An error occurred"
 
+#: src/components-v2/screens/sign-up-view.tsx:122
+msgid "An invite code is required to create an account."
+msgstr "An invite code is required to create an account."
+
 #: src/lib/api.ts:355
 msgid "An unexpected error occurred. Please try again."
 msgstr "An unexpected error occurred. Please try again."
@@ -192,14 +204,17 @@ msgstr "An unknown error occurred"
 msgid "Another account"
 msgstr "Another account"
 
+#: src/components-v2/organisms/scope-description.tsx:897
 #: src/components/utils/scope-description.tsx:891
 msgid "Any collection"
 msgstr "Any collection"
 
+#: src/components-v2/organisms/scope-description.tsx:839
 #: src/components/utils/scope-description.tsx:833
 msgid "Any method"
 msgstr "Any method"
 
+#: src/components-v2/organisms/scope-description.tsx:878
 #: src/components/utils/scope-description.tsx:872
 msgid "Any service"
 msgstr "Any service"
@@ -218,18 +233,20 @@ msgstr "Apps may access your account in the background (to check notifications, 
 msgid "Are you really, really sure?"
 msgstr "Are you really, really sure?"
 
-#: src/components-v2/screens/sign-up-view.tsx:127
+#: src/components-v2/screens/sign-up-view.tsx:159
 msgid "At least 8 characters, with a mix of letters, numbers, and symbols"
 msgstr "At least 8 characters, with a mix of letters, numbers, and symbols"
 
-#: src/components/authenticate-welcome-view.tsx:19
-msgctxt "AuthenticationPage"
-msgid "Authenticate"
-msgstr "Authenticate"
-
+#: src/components-v2/organisms/scope-description.tsx:510
+#: src/components-v2/organisms/scope-description.tsx:526
 #: src/components/utils/scope-description.tsx:504
 #: src/components/utils/scope-description.tsx:520
 msgctxt "OAuthScope"
+msgid "Authenticate"
+msgstr "Authenticate"
+
+#: src/components/authenticate-welcome-view.tsx:19
+msgctxt "AuthenticationPage"
 msgid "Authenticate"
 msgstr "Authenticate"
 
@@ -263,19 +280,21 @@ msgstr "Authorized on {0}"
 msgid "Back"
 msgstr "Back"
 
-#: src/components-v2/molecules/input-handle-default.tsx:141
 #: src/components/forms/input-handle-default.tsx:109
 msgid "Between {minLength} and {maxLength} characters"
 msgstr "Between {minLength} and {maxLength} characters"
 
+#: src/components-v2/organisms/scope-description.tsx:763
 #: src/components/utils/scope-description.tsx:757
 msgid "Blob storage"
 msgstr "Blob storage"
 
+#: src/components-v2/organisms/scope-description.tsx:854
 #: src/components/utils/scope-description.tsx:848
 msgid "Bluesky App services"
 msgstr "Bluesky App services"
 
+#: src/components-v2/organisms/scope-description.tsx:861
 #: src/components/utils/scope-description.tsx:855
 msgid "Bluesky Chat services"
 msgstr "Bluesky Chat services"
@@ -296,6 +315,7 @@ msgstr "By clicking <0>Authorize</0>, you will grant this application access to 
 msgid "By creating an account you agree to the {0} and the {1} of this service."
 msgstr "By creating an account you agree to the {0} and the {1} of this service."
 
+#: src/components-v2/organisms/scope-description.tsx:589
 #: src/components/utils/scope-description.tsx:583
 msgctxt "RPC lxm"
 msgid "Call"
@@ -318,6 +338,7 @@ msgstr "Cancel"
 msgid "Cannot remove current device"
 msgstr "Cannot remove current device"
 
+#: src/components-v2/organisms/scope-description.tsx:486
 #: src/components/utils/scope-description.tsx:480
 msgid "Change your <0>@handle</0>"
 msgstr "Change your <0>@handle</0>"
@@ -327,6 +348,7 @@ msgstr "Change your <0>@handle</0>"
 msgid "Change your password"
 msgstr "Change your password"
 
+#: src/components-v2/organisms/scope-description.tsx:446
 #: src/components/utils/scope-description.tsx:440
 msgid "Chat"
 msgstr "Chat"
@@ -337,7 +359,7 @@ msgid "Check <0>{email}</0> for an email with the confirmation code to enter bel
 msgstr "Check <0>{email}</0> for an email with the confirmation code to enter below:"
 
 #. placeholder {0}: secondFactorError.hint
-#: src/components-v2/organisms/sign-in-form.tsx:233
+#: src/components-v2/organisms/sign-in-form.tsx:238
 #: src/components/sign-in-form.tsx:257
 msgid "Check your {0} email for a login code and enter it here."
 msgstr "Check your {0} email for a login code and enter it here."
@@ -372,8 +394,8 @@ msgstr "Choose a new default username."
 msgid "Choose a new email address to associate with your account."
 msgstr "Choose a new email address to associate with your account."
 
-#: src/components-v2/screens/sign-up-view.tsx:53
-#: src/components-v2/screens/sign-up-view.tsx:84
+#: src/components-v2/screens/sign-up-view.tsx:62
+#: src/components-v2/screens/sign-up-view.tsx:95
 #: src/components/sign-up-view.tsx:77
 msgid "Choose a username"
 msgstr "Choose a username"
@@ -417,7 +439,7 @@ msgstr "Confirm password"
 msgid "Confirm your password to continue"
 msgstr "Confirm your password to continue"
 
-#: src/components-v2/organisms/sign-in-form.tsx:225
+#: src/components-v2/organisms/sign-in-form.tsx:230
 #: src/components-v2/organisms/delete-account-dialog.tsx:75
 #: src/components/sign-in-form.tsx:248
 #: src/components/delete-account-confirm-form.tsx:51
@@ -452,6 +474,7 @@ msgstr "Copied"
 msgid "Copy to clipboard"
 msgstr "Copy to clipboard"
 
+#: src/components-v2/organisms/scope-description.tsx:732
 #: src/components/utils/scope-description.tsx:726
 msgid "Create"
 msgstr "Create"
@@ -461,7 +484,7 @@ msgstr "Create"
 msgid "Create a new account"
 msgstr "Create a new account"
 
-#: src/components-v2/screens/sign-up-view.tsx:125
+#: src/components-v2/screens/sign-up-view.tsx:157
 msgid "Create a password"
 msgstr "Create a password"
 
@@ -469,10 +492,7 @@ msgstr "Create a password"
 msgid "Create an account"
 msgstr "Create an account"
 
-#: src/components-v2/screens/sign-up-view.tsx:109
-msgid "Create your account"
-msgstr "Create your account"
-
+#: src/components-v2/organisms/scope-description.tsx:636
 #: src/components/utils/scope-description.tsx:630
 msgid "Create, update, and delete any public data linked to your account"
 msgstr "Create, update, and delete any public data linked to your account"
@@ -481,6 +501,7 @@ msgstr "Create, update, and delete any public data linked to your account"
 msgid "Custom domains are not supported"
 msgstr "Custom domains are not supported"
 
+#: src/components-v2/organisms/scope-description.tsx:731
 #: src/components/utils/scope-description.tsx:725
 msgid "Data"
 msgstr "Data"
@@ -496,6 +517,7 @@ msgstr "Deactivate account"
 msgid "Deactivated account"
 msgstr "Deactivated account"
 
+#: src/components-v2/organisms/scope-description.tsx:734
 #: src/components/utils/scope-description.tsx:728
 msgid "Delete"
 msgstr "Delete"
@@ -553,8 +575,9 @@ msgstr "e.g. <0>alice.com</0>"
 msgid "e.g. <0>alice{0}</0>"
 msgstr "e.g. <0>alice{0}</0>"
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:50
+#: src/components-v2/organisms/sign-up-email-form.tsx:20
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:56
+#: src/components-v2/organisms/scope-description.tsx:232
 #: src/components/sign-up-credentials-form.tsx:59
 #: src/components/utils/scope-description.tsx:226
 msgid "Email"
@@ -562,7 +585,7 @@ msgstr "Email"
 
 #: src/pages/account/(authenticated)/manage/page.tsx:146
 #: src/pages/account/(authenticated)/manage/page.tsx:370
-#: src/components-v2/atoms/input-email-address.tsx:31
+#: src/components-v2/atoms/input-email-address.tsx:32
 #: src/components/reset-password-request-form.tsx:31
 #: src/components/reset-password-request-form.tsx:35
 #: src/components/forms/input-email-address.tsx:34
@@ -609,10 +632,14 @@ msgstr "Enter the domain you want to use"
 msgid "Enter the email you used to create your account. We'll send you a \"reset code\" so you can set a new password."
 msgstr "Enter the email you used to create your account. We'll send you a \"reset code\" so you can set a new password."
 
-#: src/components-v2/screens/sign-up-view.tsx:110
+#: src/components-v2/screens/sign-up-view.tsx:137
 #: src/components/reset-password-request-form.tsx:34
 msgid "Enter your email address"
 msgstr "Enter your email address"
+
+#: src/components-v2/screens/sign-up-view.tsx:120
+msgid "Enter your invite code"
+msgstr "Enter your invite code"
 
 #: src/components-v2/atoms/input-new-password.tsx:36
 #: src/components/forms/input-new-password.tsx:40
@@ -636,12 +663,13 @@ msgstr "Enter your username and password"
 msgid "Every app currently connected to your account, as well as any \"app passwords\" you've created, will be revoked. You'll need to sign back in when you reactivate."
 msgstr "Every app currently connected to your account, as well as any \"app passwords\" you've created, will be revoked. You'll need to sign back in when you reactivate."
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:41
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:29
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:47
 #: src/components/sign-up-credentials-form.tsx:50
 msgid "example-com-xxxxx-xxxxx"
 msgstr "example-com-xxxxx-xxxxx"
 
+#: src/components-v2/atoms/description-card.tsx:70
 #: src/components/utils/description-card.tsx:57
 msgid "Expand details"
 msgstr "Expand details"
@@ -729,7 +757,7 @@ msgstr "For security reasons, we'll need to send a confirmation code to your ema
 msgid "Forgot Password"
 msgstr "Forgot Password"
 
-#: src/components-v2/organisms/sign-in-form.tsx:195
+#: src/components-v2/organisms/sign-in-form.tsx:194
 #: src/components/sign-in-form.tsx:210
 msgid "Forgot?"
 msgstr "Forgot?"
@@ -798,6 +826,7 @@ msgstr "HTTP"
 msgid "Identifier"
 msgstr "Identifier"
 
+#: src/components-v2/organisms/scope-description.tsx:479
 #: src/components/utils/scope-description.tsx:473
 msgid "Identity"
 msgstr "Identity"
@@ -832,7 +861,6 @@ msgstr "If you're trying to change your handle or email, do so before you deacti
 msgid "Interface language selector"
 msgstr "Interface language selector"
 
-#: src/components-v2/molecules/input-handle-default.tsx:193
 #: src/components/forms/input-handle-default.tsx:254
 msgid "Invalid"
 msgstr "Invalid"
@@ -842,8 +870,8 @@ msgstr "Invalid"
 msgid "Invalid Handle"
 msgstr "Invalid Handle"
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:35
-#: src/components-v2/organisms/sign-up-email-form.tsx:40
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:23
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:28
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:41
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:46
 #: src/components/sign-up-credentials-form.tsx:44
@@ -934,6 +962,7 @@ msgstr "Make visible"
 msgid "Manage applications that have access to your account"
 msgstr "Manage applications that have access to your account"
 
+#: src/components-v2/organisms/scope-description.tsx:482
 #: src/components/utils/scope-description.tsx:476
 msgid "Manage your <0>full identity</0> including your <1>@handle</1>"
 msgstr "Manage your <0>full identity</0> including your <1>@handle</1>"
@@ -946,10 +975,12 @@ msgstr "Manage your account"
 msgid "Manage your active sessions"
 msgstr "Manage your active sessions"
 
+#: src/components-v2/organisms/scope-description.tsx:393
 #: src/components/utils/scope-description.tsx:387
 msgid "Manage your profile, posts, likes and follows"
 msgstr "Manage your profile, posts, likes and follows"
 
+#: src/components-v2/organisms/scope-description.tsx:388
 #: src/components/utils/scope-description.tsx:382
 msgid "Manage your profile, posts, likes and follows as well as read your private preferences"
 msgstr "Manage your profile, posts, likes and follows as well as read your private preferences"
@@ -1007,11 +1038,10 @@ msgstr "Next"
 msgid "Okay"
 msgstr "Okay"
 
-#: src/components-v2/screens/sign-up-view.tsx:146
+#: src/components-v2/screens/sign-up-view.tsx:178
 msgid "One last step before you're done"
 msgstr "One last step before you're done"
 
-#: src/components-v2/molecules/input-handle-default.tsx:146
 #: src/components/forms/input-handle-default.tsx:114
 msgid "Only letters, numbers, and hyphens"
 msgstr "Only letters, numbers, and hyphens"
@@ -1020,7 +1050,7 @@ msgstr "Only letters, numbers, and hyphens"
 #: src/pages/account/(authenticated)/manage/page.tsx:402
 #: src/components-v2/organisms/sign-up-password-form.tsx:35
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:68
-#: src/components-v2/organisms/sign-in-form.tsx:176
+#: src/components-v2/organisms/sign-in-form.tsx:180
 #: src/components-v2/organisms/delete-account-dialog.tsx:90
 #: src/components-v2/atoms/input-password.tsx:43
 #: src/components/sign-up-credentials-form.tsx:71
@@ -1070,10 +1100,12 @@ msgctxt "Error"
 msgid "Payload"
 msgstr "Payload"
 
+#: src/components-v2/organisms/scope-description.tsx:527
 #: src/components/utils/scope-description.tsx:521
 msgid "Perform actions on your behalf"
 msgstr "Perform actions on your behalf"
 
+#: src/components-v2/organisms/scope-description.tsx:512
 #: src/components/utils/scope-description.tsx:506
 msgid "Perform authenticated actions towards <0>any service</0> on your behalf"
 msgstr "Perform authenticated actions towards <0>any service</0> on your behalf"
@@ -1130,6 +1162,7 @@ msgstr "Please wait {remainingSeconds} seconds before trying again."
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
+#: src/components-v2/organisms/scope-description.tsx:650
 #: src/components/utils/scope-description.tsx:644
 msgid "Publish changes"
 msgstr "Publish changes"
@@ -1150,32 +1183,38 @@ msgstr "Reactivate"
 msgid "Reactivate account"
 msgstr "Reactivate account"
 
+#: src/components-v2/organisms/scope-description.tsx:447
 #: src/components/utils/scope-description.tsx:441
 msgid "Read and send messages"
 msgstr "Read and send messages"
 
+#: src/components-v2/organisms/scope-description.tsx:235
 #: src/components/utils/scope-description.tsx:229
 msgid "Read and update your account's email address"
 msgstr "Read and update your account's email address"
 
+#: src/components-v2/organisms/scope-description.tsx:237
 #: src/components/utils/scope-description.tsx:231
 msgid "Read your account's email address"
 msgstr "Read your account's email address"
 
+#: src/components-v2/organisms/scope-description.tsx:402
 #: src/components/utils/scope-description.tsx:396
 msgid "Read your private preferences"
 msgstr "Read your private preferences"
 
-#: src/components-v2/organisms/sign-in-form.tsx:209
+#: src/components-v2/organisms/sign-in-form.tsx:214
 #: src/components/sign-in-form.tsx:231
 #: src/components/sign-in-form.tsx:236
 msgid "Remember this account on this device"
 msgstr "Remember this account on this device"
 
-#: src/components-v2/organisms/sign-in-form.tsx:213
+#: src/components-v2/organisms/sign-in-form.tsx:218
 msgid "Remember this device"
 msgstr "Remember this device"
 
+#: src/components-v2/organisms/scope-description.tsx:634
+#: src/components-v2/organisms/scope-description.tsx:649
 #: src/components/utils/scope-description.tsx:628
 #: src/components/utils/scope-description.tsx:643
 msgid "Repository"
@@ -1194,7 +1233,7 @@ msgstr "Reset code"
 msgid "Reset Password"
 msgstr "Reset Password"
 
-#: src/components-v2/organisms/sign-in-form.tsx:193
+#: src/components-v2/organisms/sign-in-form.tsx:192
 #: src/components/sign-in-form.tsx:208
 msgid "Reset your password"
 msgstr "Reset your password"
@@ -1237,7 +1276,7 @@ msgstr "Security step required"
 msgid "Select another account"
 msgstr "Select another account"
 
-#: src/components-v2/molecules/input-handle-default.tsx:121
+#: src/components-v2/molecules/input-handle-default.tsx:122
 #: src/components/forms/input-handle-default.tsx:150
 msgid "Select domain"
 msgstr "Select domain"
@@ -1295,7 +1334,7 @@ msgstr "Sign out"
 msgid "Sign out this device"
 msgstr "Sign out this device"
 
-#: src/components-v2/screens/sign-up-view.tsx:67
+#: src/components-v2/screens/sign-up-view.tsx:76
 #: src/components/sign-up-view.tsx:54
 #: src/components/sign-up-view.tsx:59
 #: src/components/sign-in-picker.tsx:85
@@ -1346,6 +1385,7 @@ msgstr "Support"
 msgid "Technical details"
 msgstr "Technical details"
 
+#: src/components-v2/organisms/scope-description.tsx:273
 #: src/components/utils/scope-description.tsx:267
 msgid "Temporarily activate or deactivate your account"
 msgstr "Temporarily activate or deactivate your account"
@@ -1358,18 +1398,22 @@ msgstr "Temporarily activate or deactivate your account"
 msgid "Terms of Service"
 msgstr "Terms of Service"
 
+#: src/components-v2/organisms/scope-description.tsx:196
 #: src/components/utils/scope-description.tsx:190
 msgid "The application is asking for full control over your network identity, meaning that it could <0>permanently break</0>, or even <1>steal</1>, your account. Only grant this permission to applications you really trust."
 msgstr "The application is asking for full control over your network identity, meaning that it could <0>permanently break</0>, or even <1>steal</1>, your account. Only grant this permission to applications you really trust."
 
+#: src/components-v2/organisms/scope-description.tsx:176
 #: src/components/utils/scope-description.tsx:170
 msgid "The application requests the permissions necessary to perform the following actions on your behalf:"
 msgstr "The application requests the permissions necessary to perform the following actions on your behalf:"
 
+#: src/components-v2/organisms/scope-description.tsx:415
 #: src/components/utils/scope-description.tsx:409
 msgid "The application requests the permissions necessary to perform the following actions on your Bluesky account:"
 msgstr "The application requests the permissions necessary to perform the following actions on your Bluesky account:"
 
+#: src/components-v2/organisms/scope-description.tsx:530
 #: src/components/utils/scope-description.tsx:524
 msgid "The AT Protocol network uses an authentication mechanism that allows to uniquely identify users when communicating with external services. This is typically used to retrieve or update data linked to your account, such as chat messages, feeds or moderation content. The application requests the permissions necessary to perform the following authenticated actions on your behalf:"
 msgstr "The AT Protocol network uses an authentication mechanism that allows to uniquely identify users when communicating with external services. This is typically used to retrieve or update data linked to your account, such as chat messages, feeds or moderation content. The application requests the permissions necessary to perform the following authenticated actions on your behalf:"
@@ -1436,11 +1480,6 @@ msgstr "This device"
 msgid "This email is already used"
 msgstr "This email is already used"
 
-#: src/components-v2/screens/sign-up-view.tsx:54
-#: src/components-v2/screens/sign-up-view.tsx:85
-msgid "This is how others will find you"
-msgstr "This is how others will find you"
-
 #: src/lib/api.ts:364
 #: src/lib/api.ts:515
 #: src/lib/api.ts:546
@@ -1471,6 +1510,7 @@ msgstr "To change your password, you'll need to enter a security code sent to yo
 msgid "To verify your email, you'll need to enter a security code sent to <0>{email}</0>."
 msgstr "To verify your email, you'll need to enter a security code sent to <0>{email}</0>."
 
+#: src/components-v2/organisms/scope-description.tsx:592
 #: src/components/utils/scope-description.tsx:586
 msgctxt "RPC aud"
 msgid "Towards"
@@ -1495,7 +1535,7 @@ msgstr "Type"
 msgid "Type your domain"
 msgstr "Type your domain"
 
-#: src/components-v2/molecules/input-handle-default.tsx:96
+#: src/components-v2/molecules/input-handle-default.tsx:97
 #: src/components/forms/input-handle-default.tsx:121
 msgid "Type your username"
 msgstr "Type your username"
@@ -1514,6 +1554,7 @@ msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "Unknown user agent"
 
+#: src/components-v2/organisms/scope-description.tsx:733
 #: src/components/utils/scope-description.tsx:727
 msgid "Update"
 msgstr "Update"
@@ -1539,6 +1580,7 @@ msgstr "Update your username"
 msgid "Update your username to a domain name you own to self-verify your identity."
 msgstr "Update your username to a domain name you own to self-verify your identity."
 
+#: src/components-v2/organisms/scope-description.tsx:766
 #: src/components/utils/scope-description.tsx:760
 msgid "Upload files"
 msgstr "Upload files"
@@ -1576,7 +1618,6 @@ msgstr "Username or email address"
 msgid "Username updated"
 msgstr "Username updated"
 
-#: src/components-v2/molecules/input-handle-default.tsx:191
 #: src/components/forms/input-handle-default.tsx:249
 msgid "Valid"
 msgstr "Valid"
@@ -1624,7 +1665,7 @@ msgstr "Verify now"
 msgid "Verify the website address before entering your password. Only sign in on sites you recognize and trust."
 msgstr "Verify the website address before entering your password. Only sign in on sites you recognize and trust."
 
-#: src/components-v2/screens/sign-up-view.tsx:145
+#: src/components-v2/screens/sign-up-view.tsx:177
 #: src/components/sign-up-view.tsx:114
 msgid "Verify you are human"
 msgstr "Verify you are human"
@@ -1653,6 +1694,10 @@ msgstr "wants to uniquely identify you through your <0/> account"
 #: src/components/sign-in-form.tsx:221
 msgid "Warning"
 msgstr "Warning"
+
+#: src/components-v2/screens/sign-up-view.tsx:139
+msgid "We'll use this to verify your account and send important updates."
+msgstr "We'll use this to verify your account and send important updates."
 
 #: src/components/sign-up-view.tsx:55
 msgid "We're so excited to have you join us!"
@@ -1717,8 +1762,8 @@ msgstr "You are being redirected..."
 msgid "You can also temporarily deactivate your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 msgstr "You can also temporarily deactivate your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 
-#: src/components-v2/screens/sign-up-view.tsx:56
-#: src/components-v2/screens/sign-up-view.tsx:87
+#: src/components-v2/screens/sign-up-view.tsx:64
+#: src/components-v2/screens/sign-up-view.tsx:97
 msgid "You can change this to any domain name you control after your account is set up."
 msgstr "You can change this to any domain name you control after your account is set up."
 
@@ -1815,6 +1860,7 @@ msgstr "Your password has been updated!"
 msgid "Your profile, posts, feeds, and lists will become visible again across the Atmosphere network — that includes the Bluesky app and any other Atmosphere app you use with this account."
 msgstr "Your profile, posts, feeds, and lists will become visible again across the Atmosphere network — that includes the Bluesky app and any other Atmosphere app you use with this account."
 
+#: src/components-v2/organisms/scope-description.tsx:653
 #: src/components/utils/scope-description.tsx:647
 msgid "Your repository contains all the data publicly available on the AT Protocol network, such as Bluesky posts, likes, and follows. It also contains data created through other apps you've signed into using this account. The application requests the permissions necessary to publish the following changes to your repository:"
 msgstr "Your repository contains all the data publicly available on the AT Protocol network, such as Bluesky posts, likes, and follows. It also contains data created through other apps you've signed into using this account. The application requests the permissions necessary to publish the following changes to your repository:"

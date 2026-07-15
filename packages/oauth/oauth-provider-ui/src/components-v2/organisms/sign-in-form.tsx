@@ -173,16 +173,15 @@ export function SignInForm({
             />
           </FormField>
 
-          <FormField disabled={loading} label={<Trans>Password</Trans>}>
-            <InputPassword
-              name="password"
-              defaultValue={values.password}
-              onPassword={setterFor('password')}
-              append={
-                onForgotPassword && (
+          <FormField
+            disabled={loading}
+            label={
+              <span className="flex w-full items-center justify-between">
+                <Trans>Password</Trans>
+                {onForgotPassword && (
                   <button
                     type="button"
-                    className="text-primary text-sm font-medium hover:underline"
+                    className="text-primary font-medium hover:underline"
                     onClick={() => {
                       onForgotPassword(
                         values.username?.includes('@')
@@ -194,8 +193,14 @@ export function SignInForm({
                   >
                     <Trans>Forgot?</Trans>
                   </button>
-                )
-              }
+                )}
+              </span>
+            }
+          >
+            <InputPassword
+              name="password"
+              defaultValue={values.password}
+              onPassword={setterFor('password')}
               enterKeyHint={secondFactorError ? 'next' : 'done'}
               disabled={loading}
               autoFocus={usernameReadonly}

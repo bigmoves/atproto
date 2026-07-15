@@ -56,8 +56,8 @@ const container = document.getElementById('root')!
 createRoot(container).render(
   <StrictMode>
     <CustomizationProvider value={customizationData}>
-      <DevToolsGate>
-        <LocaleProvider userLocales={authorizeData.uiLocales?.split(' ')}>
+      <LocaleProvider userLocales={authorizeData.uiLocales?.split(' ')}>
+        <DevToolsGate>
           <NotificationsProvider>
             <ErrorBoundary
               fallbackRender={({ error, resetErrorBoundary }) => (
@@ -72,8 +72,8 @@ createRoot(container).render(
               </SessionProvider>
             </ErrorBoundary>
           </NotificationsProvider>
-        </LocaleProvider>
-      </DevToolsGate>
+        </DevToolsGate>
+      </LocaleProvider>
     </CustomizationProvider>
   </StrictMode>,
 )

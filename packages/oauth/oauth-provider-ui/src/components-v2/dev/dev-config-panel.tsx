@@ -1,4 +1,5 @@
 import { XIcon } from '@phosphor-icons/react'
+import { clsx } from 'clsx'
 import type { ReactNode } from 'react'
 import type { CustomizationData, LinkDefinition } from '@atproto/oauth-provider-api'
 import { Button } from '../atoms/button.tsx'
@@ -8,6 +9,7 @@ import {
   type DevColorName,
   type DevConfigOverrides,
 } from './dev-config-store.ts'
+import { DEV_SCREENS, type DevScreenId } from './dev-screen-store.ts'
 
 export type DevConfigPanelProps = {
   base: CustomizationData
@@ -20,6 +22,8 @@ export type DevConfigPanelProps = {
   ) => void
   onReset: () => void
   onClose: () => void
+  previewScreen: DevScreenId | null
+  onPreviewScreen: (id: DevScreenId | null) => void
 }
 
 const COLOR_LABEL: Record<DevColorName, string> = {
@@ -49,6 +53,8 @@ export function DevConfigPanel({
   onCustomization,
   onReset,
   onClose,
+  previewScreen,
+  onPreviewScreen,
 }: DevConfigPanelProps) {
   const links = overrides.customization.links ?? base.links ?? []
 
@@ -83,6 +89,31 @@ export function DevConfigPanel({
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-3">
+        <Section title="Preview screens">
+          <p className="text-text-light mb-2 text-xs leading-snug">
+            Renders a screen full-screen with mock data, for checking style
+            against the current branding. Error/cookie-error can't be
+            reached for real without faking server state.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {DEV_SCREENS.map(({ id, label }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onPreviewScreen(previewScreen === id ? null : id)}
+                className={clsx(
+                  'rounded-full border px-2.5 py-1 text-xs font-medium',
+                  previewScreen === id
+                    ? 'bg-primary text-primary-contrast border-primary'
+                    : 'border-contrast-200 text-text-default hover:bg-contrast-200',
+                )}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </Section>
+
         <Section title="Branding colors">
           {DEV_COLOR_NAMES.map((name) => {
             const overrideHex = overrides.colors[name]
@@ -303,7 +334,7 @@ function FieldRow({
       <span
         className={
           overridden
-            ? 'text-primary w-24 shrink-0 text-xs font-medium'
+            ? 'text-text-default w-24 shrink-0 text-xs font-bold'
             : 'text-text-light w-24 shrink-0 text-xs'
         }
       >

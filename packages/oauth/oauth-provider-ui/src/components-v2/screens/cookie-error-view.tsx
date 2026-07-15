@@ -33,7 +33,7 @@ export function CookieErrorView({ continueUrl }: CookieErrorViewProps) {
             enable cookies for the "{url.hostname}" website and try again.
           </Trans>
         </p>
-        <Button type="submit" color="primary">
+        <Button className="mx-auto" type="submit" color="primary">
           <Trans>Continue</Trans>
         </Button>
       </form>

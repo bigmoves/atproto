@@ -6,6 +6,7 @@ export type LinkExternalProps = Override<
   JSX.IntrinsicElements['a'],
   {
     noUtm?: boolean
+    arrow?: boolean
   }
 >
 
@@ -14,6 +15,7 @@ export function LinkExternal({
   children,
   className,
   noUtm = false,
+  arrow = true,
   role = 'link',
   target = '_blank',
   rel = 'noopener noreferrer',
@@ -42,7 +44,8 @@ export function LinkExternal({
       rel={rel}
       role={role}
       className={clsx(
-        'text-primary after:content-[" ↗"] after:text-[1em] hover:underline',
+        'text-primary hover:underline',
+        arrow && 'after:content-[" ↗"] after:text-[1em]',
         !href && 'cursor-not-allowed opacity-50',
         className,
       )}

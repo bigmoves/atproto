@@ -1,5 +1,5 @@
 import { GearIcon } from '@phosphor-icons/react'
-import { type ReactNode, useEffect, useState } from 'react'
+import { type ReactNode, Suspense, lazy, useEffect, useState } from 'react'
 import { CustomizationContext, useCustomizationData } from '#/contexts/customization.tsx'
 import {
   hexToRgb,
@@ -9,6 +9,13 @@ import {
 } from './color-utils.ts'
 import { DEV_COLOR_NAMES, useDevConfigOverrides } from './dev-config-store.ts'
 import { DevConfigPanel } from './dev-config-panel.tsx'
+import { useDevPreviewScreen } from './dev-screen-store.ts'
+
+// Lazy: this pulls in every v2 auth-flow/consent/error screen just for the
+// preview gallery. Since dev-tools ships to every production page load
+// (gated on render only, see isDevEnvironment below), loading it eagerly
+// would add real download weight for real users who'll never open it.
+const DevScreenGallery = lazy(() => import('./dev-screen-gallery.tsx'))
 
 /**
  * Dev-only floating config panel + live theme/customization override layer.
@@ -26,6 +33,7 @@ function DevTools({ children }: { children: ReactNode }) {
   const { overrides, setColor, setContrastSaturation, setCustomization, reset } =
     useDevConfigOverrides()
   const [open, setOpen] = useState(false)
+  const [previewScreen, setPreviewScreen] = useDevPreviewScreen()
 
   useEffect(() => {
     const root = document.documentElement
@@ -79,7 +87,18 @@ function DevTools({ children }: { children: ReactNode }) {
           onCustomization={setCustomization}
           onReset={reset}
           onClose={() => setOpen(false)}
+          previewScreen={previewScreen}
+          onPreviewScreen={setPreviewScreen}
         />
+      )}
+
+      {previewScreen && (
+        <Suspense fallback={null}>
+          <DevScreenGallery
+            screenId={previewScreen}
+            onClose={() => setPreviewScreen(null)}
+          />
+        </Suspense>
       )}
     </CustomizationContext>
   )

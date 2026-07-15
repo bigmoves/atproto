@@ -43,7 +43,7 @@ export function ErrorView({
         </p>
         {children}
         {retry && (
-          <Button color="primary" onClick={retry}>
+          <Button className="mx-auto" color="primary" onClick={retry}>
             {retryLabel || <Trans>Try again</Trans>}
           </Button>
         )}

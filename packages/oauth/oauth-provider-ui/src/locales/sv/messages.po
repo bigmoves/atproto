@@ -25,18 +25,22 @@ msgstr "{deltaHours} timmar sedan"
 msgid "{deltaMinutes} minutes ago"
 msgstr "{deltaMinutes} minuter sedan"
 
+#: src/components-v2/molecules/input-handle-default.tsx:154
+msgid "{minLength}–{maxLength} characters, using letters, numbers, and hyphens"
+msgstr ""
+
 #: src/pages/account/(authenticated)/about/page.tsx:142
-#: src/components-v2/screens/account-about-view.tsx:145
+#: src/components-v2/screens/account-about-view.tsx:146
 msgid "<0>AT Protocol</0> — Technical documentation for developers"
 msgstr "<0>AT-protokollet</0> – Teknisk dokumentation för utvecklare"
 
 #: src/pages/account/(authenticated)/about/page.tsx:134
-#: src/components-v2/screens/account-about-view.tsx:137
+#: src/components-v2/screens/account-about-view.tsx:138
 msgid "<0>Bluesky Social</0> — General information about the network"
 msgstr "<0>Bluesky Social</0> – Allmän information om nätverket"
 
 #: src/pages/account/(authenticated)/about/page.tsx:125
-#: src/components-v2/screens/account-about-view.tsx:128
+#: src/components-v2/screens/account-about-view.tsx:129
 msgid "<0>Learn more</0><1>Want to learn more about the technology and network behind your Atmosphere account?</1>"
 msgstr "<0>Läs mer</0><1>Vill du veta mer om tekniken och nätverket bakom ditt Atmosphere-konto?</1>"
 
@@ -75,7 +79,7 @@ msgstr "1 timme sedan"
 msgid "1 minute ago"
 msgstr "1 minut sedan"
 
-#: src/components-v2/organisms/sign-in-form.tsx:221
+#: src/components-v2/organisms/sign-in-form.tsx:226
 #: src/components/sign-in-form.tsx:244
 msgid "2FA Confirmation"
 msgstr "2FA-bekräftelse"
@@ -88,6 +92,7 @@ msgstr "En lokal app"
 msgid "A second authentication factor is required ({hint})"
 msgstr "En andra autentiseringsfaktor krävs ({hint})"
 
+#: src/components-v2/organisms/scope-description.tsx:869
 #: src/components/utils/scope-description.tsx:863
 msgid "A service controlled by <0>{domain}</0>"
 msgstr "En tjänst som kontrolleras av <0>{domain}</0>"
@@ -97,16 +102,19 @@ msgstr "En tjänst som kontrolleras av <0>{domain}</0>"
 msgid "About"
 msgstr "Om"
 
+#: src/components-v2/organisms/scope-description.tsx:400
 #: src/components/utils/scope-description.tsx:394
 msgid "Access specific parts of your Bluesky account"
 msgstr "Komma åt specifika delar av ditt Bluesky-konto"
 
+#: src/components-v2/organisms/scope-description.tsx:395
 #: src/components/utils/scope-description.tsx:389
 msgid "Access specific parts of your Bluesky account and read your private preferences"
 msgstr "Komma åt specifika delar av ditt Bluesky-konto och läsa dina privata inställningar"
 
 #: src/pages/account/(authenticated)/route.tsx:64
 #: src/pages/account/(authenticated)/manage/page.tsx:90
+#: src/components-v2/organisms/scope-description.tsx:272
 #: src/components/utils/scope-description.tsx:266
 msgid "Account"
 msgstr "Konto"
@@ -178,6 +186,10 @@ msgstr "En applikation på din enhet"
 msgid "An error occurred"
 msgstr "Ett fel uppstod"
 
+#: src/components-v2/screens/sign-up-view.tsx:122
+msgid "An invite code is required to create an account."
+msgstr ""
+
 #: src/lib/api.ts:355
 msgid "An unexpected error occurred. Please try again."
 msgstr "Ett oväntat fel uppstod. Försök igen."
@@ -192,14 +204,17 @@ msgstr "Ett okänt fel uppstod"
 msgid "Another account"
 msgstr "Annat konto"
 
+#: src/components-v2/organisms/scope-description.tsx:897
 #: src/components/utils/scope-description.tsx:891
 msgid "Any collection"
 msgstr "Vilken samling som helst"
 
+#: src/components-v2/organisms/scope-description.tsx:839
 #: src/components/utils/scope-description.tsx:833
 msgid "Any method"
 msgstr "Vilken metod som helst"
 
+#: src/components-v2/organisms/scope-description.tsx:878
 #: src/components/utils/scope-description.tsx:872
 msgid "Any service"
 msgstr "Vilken tjänst som helst"
@@ -218,18 +233,20 @@ msgstr "Appar kan utföra aktiviteter på ditt konto i bakgrunden (t.ex. för at
 msgid "Are you really, really sure?"
 msgstr "Är du verkligen, verkligen säker?"
 
-#: src/components-v2/screens/sign-up-view.tsx:127
+#: src/components-v2/screens/sign-up-view.tsx:159
 msgid "At least 8 characters, with a mix of letters, numbers, and symbols"
 msgstr ""
 
-#: src/components/authenticate-welcome-view.tsx:19
-msgctxt "AuthenticationPage"
-msgid "Authenticate"
-msgstr "Autentisera"
-
+#: src/components-v2/organisms/scope-description.tsx:510
+#: src/components-v2/organisms/scope-description.tsx:526
 #: src/components/utils/scope-description.tsx:504
 #: src/components/utils/scope-description.tsx:520
 msgctxt "OAuthScope"
+msgid "Authenticate"
+msgstr "Autentisera"
+
+#: src/components/authenticate-welcome-view.tsx:19
+msgctxt "AuthenticationPage"
 msgid "Authenticate"
 msgstr "Autentisera"
 
@@ -263,19 +280,21 @@ msgstr "Auktoriserades {0}"
 msgid "Back"
 msgstr "Tillbaka"
 
-#: src/components-v2/molecules/input-handle-default.tsx:141
 #: src/components/forms/input-handle-default.tsx:109
 msgid "Between {minLength} and {maxLength} characters"
 msgstr "Mellan {minLength} och {maxLength} tecken"
 
+#: src/components-v2/organisms/scope-description.tsx:763
 #: src/components/utils/scope-description.tsx:757
 msgid "Blob storage"
 msgstr "Blob-lagring"
 
+#: src/components-v2/organisms/scope-description.tsx:854
 #: src/components/utils/scope-description.tsx:848
 msgid "Bluesky App services"
 msgstr "Bluesky apptjänster"
 
+#: src/components-v2/organisms/scope-description.tsx:861
 #: src/components/utils/scope-description.tsx:855
 msgid "Bluesky Chat services"
 msgstr "Bluesky chattjänster"
@@ -296,6 +315,7 @@ msgstr "Genom att klicka på <0>Auktorisera</0> ger du den här applikationen å
 msgid "By creating an account you agree to the {0} and the {1} of this service."
 msgstr "Genom att skapa ett konto samtycker du till den här tjänstens {0} och {1}."
 
+#: src/components-v2/organisms/scope-description.tsx:589
 #: src/components/utils/scope-description.tsx:583
 msgctxt "RPC lxm"
 msgid "Call"
@@ -318,6 +338,7 @@ msgstr "Avbryt"
 msgid "Cannot remove current device"
 msgstr "Det går inte att ta bort den enhet som du använder just nu"
 
+#: src/components-v2/organisms/scope-description.tsx:486
 #: src/components/utils/scope-description.tsx:480
 msgid "Change your <0>@handle</0>"
 msgstr "Ändra ditt <0>@användarnamn</0>"
@@ -327,6 +348,7 @@ msgstr "Ändra ditt <0>@användarnamn</0>"
 msgid "Change your password"
 msgstr "Ändra ditt lösenord"
 
+#: src/components-v2/organisms/scope-description.tsx:446
 #: src/components/utils/scope-description.tsx:440
 msgid "Chat"
 msgstr "Chatt"
@@ -337,7 +359,7 @@ msgid "Check <0>{email}</0> for an email with the confirmation code to enter bel
 msgstr "Titta i inkorgen för <0>{email}</0> efter bekräftelsekoden och ange den nedan:"
 
 #. placeholder {0}: secondFactorError.hint
-#: src/components-v2/organisms/sign-in-form.tsx:233
+#: src/components-v2/organisms/sign-in-form.tsx:238
 #: src/components/sign-in-form.tsx:257
 msgid "Check your {0} email for a login code and enter it here."
 msgstr "Titta i inkorgen för {0} efter en inloggningskod och ange den här."
@@ -372,8 +394,8 @@ msgstr "Välj ett nytt användarnamn med standarddomän"
 msgid "Choose a new email address to associate with your account."
 msgstr "Välj en ny e-postadress för att koppla den till ditt konto."
 
-#: src/components-v2/screens/sign-up-view.tsx:53
-#: src/components-v2/screens/sign-up-view.tsx:84
+#: src/components-v2/screens/sign-up-view.tsx:62
+#: src/components-v2/screens/sign-up-view.tsx:95
 #: src/components/sign-up-view.tsx:77
 msgid "Choose a username"
 msgstr "Välj ett användarnamn"
@@ -417,7 +439,7 @@ msgstr ""
 msgid "Confirm your password to continue"
 msgstr "Ange ditt lösenord för att fortsätta"
 
-#: src/components-v2/organisms/sign-in-form.tsx:225
+#: src/components-v2/organisms/sign-in-form.tsx:230
 #: src/components-v2/organisms/delete-account-dialog.tsx:75
 #: src/components/sign-in-form.tsx:248
 #: src/components/delete-account-confirm-form.tsx:51
@@ -452,6 +474,7 @@ msgstr "Kopierat"
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
 
+#: src/components-v2/organisms/scope-description.tsx:732
 #: src/components/utils/scope-description.tsx:726
 msgid "Create"
 msgstr "Skapa"
@@ -461,7 +484,7 @@ msgstr "Skapa"
 msgid "Create a new account"
 msgstr "Skapa ett nytt konto"
 
-#: src/components-v2/screens/sign-up-view.tsx:125
+#: src/components-v2/screens/sign-up-view.tsx:157
 msgid "Create a password"
 msgstr ""
 
@@ -469,10 +492,7 @@ msgstr ""
 msgid "Create an account"
 msgstr ""
 
-#: src/components-v2/screens/sign-up-view.tsx:109
-msgid "Create your account"
-msgstr ""
-
+#: src/components-v2/organisms/scope-description.tsx:636
 #: src/components/utils/scope-description.tsx:630
 msgid "Create, update, and delete any public data linked to your account"
 msgstr "Skapa, ändra och radera vilken publik data som helst som är kopplad till ditt konto"
@@ -481,6 +501,7 @@ msgstr "Skapa, ändra och radera vilken publik data som helst som är kopplad ti
 msgid "Custom domains are not supported"
 msgstr "Anpassade domäner stöds inte"
 
+#: src/components-v2/organisms/scope-description.tsx:731
 #: src/components/utils/scope-description.tsx:725
 msgid "Data"
 msgstr "Data"
@@ -496,6 +517,7 @@ msgstr "Inaktivera konto"
 msgid "Deactivated account"
 msgstr "Inaktiverat konto"
 
+#: src/components-v2/organisms/scope-description.tsx:734
 #: src/components/utils/scope-description.tsx:728
 msgid "Delete"
 msgstr "Radera"
@@ -553,8 +575,9 @@ msgstr "t.ex. <0>alice.com</0>"
 msgid "e.g. <0>alice{0}</0>"
 msgstr "t.ex <0>alice{0}</0>"
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:50
+#: src/components-v2/organisms/sign-up-email-form.tsx:20
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:56
+#: src/components-v2/organisms/scope-description.tsx:232
 #: src/components/sign-up-credentials-form.tsx:59
 #: src/components/utils/scope-description.tsx:226
 msgid "Email"
@@ -562,7 +585,7 @@ msgstr "E-post"
 
 #: src/pages/account/(authenticated)/manage/page.tsx:146
 #: src/pages/account/(authenticated)/manage/page.tsx:370
-#: src/components-v2/atoms/input-email-address.tsx:31
+#: src/components-v2/atoms/input-email-address.tsx:32
 #: src/components/reset-password-request-form.tsx:31
 #: src/components/reset-password-request-form.tsx:35
 #: src/components/forms/input-email-address.tsx:34
@@ -609,10 +632,14 @@ msgstr "Ange den domän du vill använda"
 msgid "Enter the email you used to create your account. We'll send you a \"reset code\" so you can set a new password."
 msgstr "Ange den e-postadress som du använde för att skapa ditt konto. Vi skickar ”återställningskod” till dig så att du kan ange ett nytt lösenord."
 
-#: src/components-v2/screens/sign-up-view.tsx:110
+#: src/components-v2/screens/sign-up-view.tsx:137
 #: src/components/reset-password-request-form.tsx:34
 msgid "Enter your email address"
 msgstr "Ange din e-postadress"
+
+#: src/components-v2/screens/sign-up-view.tsx:120
+msgid "Enter your invite code"
+msgstr ""
 
 #: src/components-v2/atoms/input-new-password.tsx:36
 #: src/components/forms/input-new-password.tsx:40
@@ -636,12 +663,13 @@ msgstr "Ange ditt användarnamn och lösenord"
 msgid "Every app currently connected to your account, as well as any \"app passwords\" you've created, will be revoked. You'll need to sign back in when you reactivate."
 msgstr "Alla appar som är kopplade till ditt konto kommer att loggas ut, och alla applösenord du har skapat kommer att sluta gälla. Du måste logga in på nytt om du återaktiverar kontot."
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:41
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:29
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:47
 #: src/components/sign-up-credentials-form.tsx:50
 msgid "example-com-xxxxx-xxxxx"
 msgstr "exempel-com-xxxxx-xxxxx"
 
+#: src/components-v2/atoms/description-card.tsx:70
 #: src/components/utils/description-card.tsx:57
 msgid "Expand details"
 msgstr "Utöka detaljer"
@@ -729,7 +757,7 @@ msgstr "Av säkerhetsskäl kommer vi att skicka en bekräftelsekod till din e-po
 msgid "Forgot Password"
 msgstr "Glömt lösenord"
 
-#: src/components-v2/organisms/sign-in-form.tsx:195
+#: src/components-v2/organisms/sign-in-form.tsx:194
 #: src/components/sign-in-form.tsx:210
 msgid "Forgot?"
 msgstr "Glömt?"
@@ -798,6 +826,7 @@ msgstr "HTTP"
 msgid "Identifier"
 msgstr "Identifierare"
 
+#: src/components-v2/organisms/scope-description.tsx:479
 #: src/components/utils/scope-description.tsx:473
 msgid "Identity"
 msgstr "Identitet"
@@ -832,7 +861,6 @@ msgstr "Om du vill ändra ditt användarnamn eller din e-postadress måste du g�
 msgid "Interface language selector"
 msgstr "Val av gränssnittsspråk"
 
-#: src/components-v2/molecules/input-handle-default.tsx:193
 #: src/components/forms/input-handle-default.tsx:254
 msgid "Invalid"
 msgstr "Ogiltigt"
@@ -842,8 +870,8 @@ msgstr "Ogiltigt"
 msgid "Invalid Handle"
 msgstr "Ogiltigt användarnamn"
 
-#: src/components-v2/organisms/sign-up-email-form.tsx:35
-#: src/components-v2/organisms/sign-up-email-form.tsx:40
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:23
+#: src/components-v2/organisms/sign-up-invite-code-form.tsx:28
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:41
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:46
 #: src/components/sign-up-credentials-form.tsx:44
@@ -934,6 +962,7 @@ msgstr "Gör synligt"
 msgid "Manage applications that have access to your account"
 msgstr "Hantera de applikationer som har åtkomst till ditt konto"
 
+#: src/components-v2/organisms/scope-description.tsx:482
 #: src/components/utils/scope-description.tsx:476
 msgid "Manage your <0>full identity</0> including your <1>@handle</1>"
 msgstr "Hantera din <0>fullständiga identitet</0>, inklusive ditt <1>@användarnamn</1>"
@@ -946,10 +975,12 @@ msgstr "Hantera ditt konto"
 msgid "Manage your active sessions"
 msgstr "Hantera dina aktiva sessioner"
 
+#: src/components-v2/organisms/scope-description.tsx:393
 #: src/components/utils/scope-description.tsx:387
 msgid "Manage your profile, posts, likes and follows"
 msgstr "Hantera din profil, inlägg, gillamarkeringar och följningar"
 
+#: src/components-v2/organisms/scope-description.tsx:388
 #: src/components/utils/scope-description.tsx:382
 msgid "Manage your profile, posts, likes and follows as well as read your private preferences"
 msgstr "Hantera din profil, inlägg, gillamarkeringar och följningar samt läsa dina privata inställningar."
@@ -1007,11 +1038,10 @@ msgstr ""
 msgid "Okay"
 msgstr "OK"
 
-#: src/components-v2/screens/sign-up-view.tsx:146
+#: src/components-v2/screens/sign-up-view.tsx:178
 msgid "One last step before you're done"
 msgstr ""
 
-#: src/components-v2/molecules/input-handle-default.tsx:146
 #: src/components/forms/input-handle-default.tsx:114
 msgid "Only letters, numbers, and hyphens"
 msgstr "Endast bokstäver, siffror och bindestreck"
@@ -1020,7 +1050,7 @@ msgstr "Endast bokstäver, siffror och bindestreck"
 #: src/pages/account/(authenticated)/manage/page.tsx:402
 #: src/components-v2/organisms/sign-up-password-form.tsx:35
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:68
-#: src/components-v2/organisms/sign-in-form.tsx:176
+#: src/components-v2/organisms/sign-in-form.tsx:180
 #: src/components-v2/organisms/delete-account-dialog.tsx:90
 #: src/components-v2/atoms/input-password.tsx:43
 #: src/components/sign-up-credentials-form.tsx:71
@@ -1070,10 +1100,12 @@ msgctxt "Error"
 msgid "Payload"
 msgstr "Nyttolast"
 
+#: src/components-v2/organisms/scope-description.tsx:527
 #: src/components/utils/scope-description.tsx:521
 msgid "Perform actions on your behalf"
 msgstr "Utföra åtgärder för din räkning"
 
+#: src/components-v2/organisms/scope-description.tsx:512
 #: src/components/utils/scope-description.tsx:506
 msgid "Perform authenticated actions towards <0>any service</0> on your behalf"
 msgstr "Utföra autentiserade åtgärder gentemot <0>vilken tjänst som helst</0> för din räkning"
@@ -1130,6 +1162,7 @@ msgstr "Vänta {remainingSeconds} sekunder innan du försöker igen."
 msgid "Privacy Policy"
 msgstr "Integritetspolicy"
 
+#: src/components-v2/organisms/scope-description.tsx:650
 #: src/components/utils/scope-description.tsx:644
 msgid "Publish changes"
 msgstr "Publicera ändringar"
@@ -1150,32 +1183,38 @@ msgstr "Återaktivera"
 msgid "Reactivate account"
 msgstr "Återaktivera konto"
 
+#: src/components-v2/organisms/scope-description.tsx:447
 #: src/components/utils/scope-description.tsx:441
 msgid "Read and send messages"
 msgstr "Läsa och skicka meddelanden"
 
+#: src/components-v2/organisms/scope-description.tsx:235
 #: src/components/utils/scope-description.tsx:229
 msgid "Read and update your account's email address"
 msgstr "Läsa och uppdatera ditt kontos e-postadress"
 
+#: src/components-v2/organisms/scope-description.tsx:237
 #: src/components/utils/scope-description.tsx:231
 msgid "Read your account's email address"
 msgstr "Läsa ditt kontos e-postadress"
 
+#: src/components-v2/organisms/scope-description.tsx:402
 #: src/components/utils/scope-description.tsx:396
 msgid "Read your private preferences"
 msgstr "Läsa dina privata inställningar"
 
-#: src/components-v2/organisms/sign-in-form.tsx:209
+#: src/components-v2/organisms/sign-in-form.tsx:214
 #: src/components/sign-in-form.tsx:231
 #: src/components/sign-in-form.tsx:236
 msgid "Remember this account on this device"
 msgstr "Kom ihåg det här kontot på den här enheten"
 
-#: src/components-v2/organisms/sign-in-form.tsx:213
+#: src/components-v2/organisms/sign-in-form.tsx:218
 msgid "Remember this device"
 msgstr ""
 
+#: src/components-v2/organisms/scope-description.tsx:634
+#: src/components-v2/organisms/scope-description.tsx:649
 #: src/components/utils/scope-description.tsx:628
 #: src/components/utils/scope-description.tsx:643
 msgid "Repository"
@@ -1194,7 +1233,7 @@ msgstr "Återställningskod"
 msgid "Reset Password"
 msgstr "Återställ lösenord"
 
-#: src/components-v2/organisms/sign-in-form.tsx:193
+#: src/components-v2/organisms/sign-in-form.tsx:192
 #: src/components/sign-in-form.tsx:208
 msgid "Reset your password"
 msgstr "Återställ ditt lösenord"
@@ -1237,7 +1276,7 @@ msgstr "Säkerhetskontroll"
 msgid "Select another account"
 msgstr "Välj ett annat konto"
 
-#: src/components-v2/molecules/input-handle-default.tsx:121
+#: src/components-v2/molecules/input-handle-default.tsx:122
 #: src/components/forms/input-handle-default.tsx:150
 msgid "Select domain"
 msgstr "Välj domän"
@@ -1295,7 +1334,7 @@ msgstr "Logga ut"
 msgid "Sign out this device"
 msgstr ""
 
-#: src/components-v2/screens/sign-up-view.tsx:67
+#: src/components-v2/screens/sign-up-view.tsx:76
 #: src/components/sign-up-view.tsx:54
 #: src/components/sign-up-view.tsx:59
 #: src/components/sign-in-picker.tsx:85
@@ -1346,6 +1385,7 @@ msgstr "Support"
 msgid "Technical details"
 msgstr "Tekniska detaljer"
 
+#: src/components-v2/organisms/scope-description.tsx:273
 #: src/components/utils/scope-description.tsx:267
 msgid "Temporarily activate or deactivate your account"
 msgstr "Tillfälligt aktivera eller avaktivera ditt konto"
@@ -1358,18 +1398,22 @@ msgstr "Tillfälligt aktivera eller avaktivera ditt konto"
 msgid "Terms of Service"
 msgstr "Användarvillkor"
 
+#: src/components-v2/organisms/scope-description.tsx:196
 #: src/components/utils/scope-description.tsx:190
 msgid "The application is asking for full control over your network identity, meaning that it could <0>permanently break</0>, or even <1>steal</1>, your account. Only grant this permission to applications you really trust."
 msgstr "Applikationen begär full kontroll över din nätverksidentitet, vilket innebär att den kan <0>slå ut ditt konto permanent</0> och till och med <1>kapa det</1>. Bevilja bara den här behörigheten till applikationer du verkligen litar på."
 
+#: src/components-v2/organisms/scope-description.tsx:176
 #: src/components/utils/scope-description.tsx:170
 msgid "The application requests the permissions necessary to perform the following actions on your behalf:"
 msgstr "Applikationen begär de behörigheter som krävs för att utföra följande åtgärder för din räkning:"
 
+#: src/components-v2/organisms/scope-description.tsx:415
 #: src/components/utils/scope-description.tsx:409
 msgid "The application requests the permissions necessary to perform the following actions on your Bluesky account:"
 msgstr "Applikationen begär de behörigheter som krävs för att utföra följande åtgärder på ditt Bluesky-konto:"
 
+#: src/components-v2/organisms/scope-description.tsx:530
 #: src/components/utils/scope-description.tsx:524
 msgid "The AT Protocol network uses an authentication mechanism that allows to uniquely identify users when communicating with external services. This is typically used to retrieve or update data linked to your account, such as chat messages, feeds or moderation content. The application requests the permissions necessary to perform the following authenticated actions on your behalf:"
 msgstr "AT‑protokollnätverket använder en autentiserings­mekanism som gör det möjligt att entydigt identifiera användare vid kommunikation med externa tjänster. Den används vanligtvis för att hämta eller ändra data som är kopplad till ditt konto, till exempel chattmeddelanden, flöden eller modererat innehåll. Applikationen begär de behörigheter som krävs för att utföra följande autentiserade åtgärder å dina vägnar:"
@@ -1436,11 +1480,6 @@ msgstr ""
 msgid "This email is already used"
 msgstr "Den här e-postadressen används redan"
 
-#: src/components-v2/screens/sign-up-view.tsx:54
-#: src/components-v2/screens/sign-up-view.tsx:85
-msgid "This is how others will find you"
-msgstr ""
-
 #: src/lib/api.ts:364
 #: src/lib/api.ts:515
 #: src/lib/api.ts:546
@@ -1471,6 +1510,7 @@ msgstr "För att byta lösenord behöver du ange den säkerhetskod som har skick
 msgid "To verify your email, you'll need to enter a security code sent to <0>{email}</0>."
 msgstr "För att verifiera din e-postadress behöver du ange den säkerhetskod som har skickats till <0>{email}</0>."
 
+#: src/components-v2/organisms/scope-description.tsx:592
 #: src/components/utils/scope-description.tsx:586
 msgctxt "RPC aud"
 msgid "Towards"
@@ -1495,7 +1535,7 @@ msgstr "Typ"
 msgid "Type your domain"
 msgstr "Ange din domän"
 
-#: src/components-v2/molecules/input-handle-default.tsx:96
+#: src/components-v2/molecules/input-handle-default.tsx:97
 #: src/components/forms/input-handle-default.tsx:121
 msgid "Type your username"
 msgstr "Ange ditt användarnamn"
@@ -1514,6 +1554,7 @@ msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "Okänd användaragent"
 
+#: src/components-v2/organisms/scope-description.tsx:733
 #: src/components/utils/scope-description.tsx:727
 msgid "Update"
 msgstr "Ändra"
@@ -1539,6 +1580,7 @@ msgstr "Uppdatera ditt användarnamn"
 msgid "Update your username to a domain name you own to self-verify your identity."
 msgstr "Uppdatera ditt användarnamn till ett domännamn som du äger för att själv verifiera din identitet."
 
+#: src/components-v2/organisms/scope-description.tsx:766
 #: src/components/utils/scope-description.tsx:760
 msgid "Upload files"
 msgstr "Uppladdning av filer"
@@ -1576,7 +1618,6 @@ msgstr "Användarnamn eller e-postadress"
 msgid "Username updated"
 msgstr "Användarnamn uppdaterat"
 
-#: src/components-v2/molecules/input-handle-default.tsx:191
 #: src/components/forms/input-handle-default.tsx:249
 msgid "Valid"
 msgstr "Giltigt"
@@ -1624,7 +1665,7 @@ msgstr "Verifiera nu"
 msgid "Verify the website address before entering your password. Only sign in on sites you recognize and trust."
 msgstr "Kontrollera webbadressen innan du anger ditt lösenord. Logga bara in på webbplatser som du känner igen och litar på."
 
-#: src/components-v2/screens/sign-up-view.tsx:145
+#: src/components-v2/screens/sign-up-view.tsx:177
 #: src/components/sign-up-view.tsx:114
 msgid "Verify you are human"
 msgstr "Verifiera att du är människa"
@@ -1653,6 +1694,10 @@ msgstr "vill entydigt identifiera dig via ditt konto <0/>"
 #: src/components/sign-in-form.tsx:221
 msgid "Warning"
 msgstr "Varning"
+
+#: src/components-v2/screens/sign-up-view.tsx:139
+msgid "We'll use this to verify your account and send important updates."
+msgstr ""
 
 #: src/components/sign-up-view.tsx:55
 msgid "We're so excited to have you join us!"
@@ -1717,8 +1762,8 @@ msgstr "Du omdirigeras…"
 msgid "You can also temporarily deactivate your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
 msgstr "Om du vill kan du <0>tillfälligt inaktivera</0> ditt konto istället. Det gör att din profil samt dina inlägg, flöden och listor slutar att synas för andra Bluesky-användare. Du kan återaktivera ditt konto när som helst genom att logga in."
 
-#: src/components-v2/screens/sign-up-view.tsx:56
-#: src/components-v2/screens/sign-up-view.tsx:87
+#: src/components-v2/screens/sign-up-view.tsx:64
+#: src/components-v2/screens/sign-up-view.tsx:97
 msgid "You can change this to any domain name you control after your account is set up."
 msgstr ""
 
@@ -1815,6 +1860,7 @@ msgstr "Ditt lösenord har uppdaterats!"
 msgid "Your profile, posts, feeds, and lists will become visible again across the Atmosphere network — that includes the Bluesky app and any other Atmosphere app you use with this account."
 msgstr "Din profil samt dina inlägg, flöden och listor kommer återigen att bli synliga över hela Atmosphere-nätverket. Det gäller för Bluesky-appen och alla andra appar som du använder med det här kontot."
 
+#: src/components-v2/organisms/scope-description.tsx:653
 #: src/components/utils/scope-description.tsx:647
 msgid "Your repository contains all the data publicly available on the AT Protocol network, such as Bluesky posts, likes, and follows. It also contains data created through other apps you've signed into using this account. The application requests the permissions necessary to publish the following changes to your repository:"
 msgstr "Ditt dataarkiv innehåller all din publika data som finns tillgänglig i AT‑protokollnätverket, till exempel Bluesky-inlägg, gillamarkeringar och följningar. Det innehåller också data som skapats via andra appar som du har loggat in på med det här kontot. Applikationen begär de behörigheter som krävs för att utföra följande åtgärder å dina vägnar:"

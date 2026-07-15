@@ -2,7 +2,7 @@ import { Trans } from '@lingui/react/macro'
 import type { Account } from '@atproto/oauth-provider-api'
 import { CustomizationName } from '#/components/customization-name.tsx'
 import { AccountIdentifier } from '#/components/utils/account-identifier.tsx'
-import { LinkExternal } from '#/components/utils/link-external.tsx'
+import { LinkExternal } from '../atoms/link-external.tsx'
 import { PageHeader } from '../molecules/page-header.tsx'
 
 export type AccountAboutViewProps = {
@@ -34,7 +34,7 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
             <h3>Use it across multiple apps</h3>
             <p>
               Your Atmosphere account works with the{' '}
-              <LinkExternal className="underline" href="https://bsky.app">
+              <LinkExternal className="underline" href="https://bsky.app" arrow={false}>
                 Bluesky Social App
               </LinkExternal>{' '}
               and any other social apps built on the same network.
@@ -110,6 +110,7 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
               like the profile you have on the{' '}
               <LinkExternal
                 href={`https://bsky.app/profile/${account.handle ?? account.did}`}
+                arrow={false}
               >
                 Bluesky social app
               </LinkExternal>
@@ -135,7 +136,7 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
           <ul>
             <li>
               <Trans>
-                <LinkExternal className="underline" href="https://bsky.social">
+                <LinkExternal className="underline" href="https://bsky.social" arrow={false}>
                   Bluesky Social
                 </LinkExternal>{' '}
                 — General information about the network
@@ -143,7 +144,7 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
             </li>
             <li>
               <Trans>
-                <LinkExternal className="underline" href="https://atproto.com">
+                <LinkExternal className="underline" href="https://atproto.com" arrow={false}>
                   AT Protocol
                 </LinkExternal>{' '}
                 — Technical documentation for developers

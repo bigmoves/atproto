@@ -4,14 +4,14 @@ import type { Account } from '@atproto/oauth-provider-api'
 import { AccountPermission } from '@atproto/oauth-scopes'
 import type { OAuthClientMetadata } from '@atproto/oauth-types'
 import { AccountIdentifier } from '#/components/utils/account-identifier.tsx'
-import { ClientImage } from '#/components/utils/client-image.tsx'
 import { ClientName } from '#/components/utils/client-name.tsx'
-import { ScopeDescription } from '#/components/utils/scope-description.tsx'
 import { useAsyncAction } from '#/hooks/use-async-action.ts'
 import type { PermissionSets } from '#/hydration-data.d.ts'
 import { Button } from '../atoms/button.tsx'
+import { ClientImage } from '../atoms/client-image.tsx'
 import type { FormHandler } from '../molecules/smart-form.tsx'
 import { SmartForm } from '../molecules/smart-form.tsx'
+import { ScopeDescription } from './scope-description.tsx'
 
 export type ConsentCardProps = {
   clientId: string
@@ -46,11 +46,11 @@ function stripAccountEmailScope(scope?: string): string | undefined {
 }
 
 /**
- * v2 restyle of `#/components/consent-form.tsx`. The permission list itself
- * (`ScopeDescription`) is reused as-is from v1 — it's ~900 lines of AT
- * Protocol scope-parsing logic, not visual chrome, and forking it would be a
- * real duplication/maintenance liability. This is a deliberate, documented
- * seam: the granular permission rows keep v1's look inside the new card.
+ * v2 restyle of `#/components/consent-form.tsx`. The permission list
+ * (`./scope-description.tsx`) is a full v2 fork of v1's ~900-line AT
+ * Protocol scope-parsing component — same logic, own presentational
+ * primitives (`../atoms/description-card.tsx` renders each permission row
+ * inline instead of v1's stacked title/description).
  */
 export function ConsentCard({
   clientId,
