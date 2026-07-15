@@ -30,13 +30,10 @@ const ICONS: Record<Variant, PhosphorIcon> = {
 }
 
 const CARD_COLORS: Record<Variant, string> = {
-  info: 'bg-info-100 dark:bg-info-800 border-info-500 dark:border-info-700',
-  warning:
-    'bg-warning-100 dark:bg-warning-800 border-warning-500 dark:border-warning-700',
-  error:
-    'bg-error-100 dark:bg-error-800 border-error-500 dark:border-error-400',
-  success:
-    'bg-success-100 dark:bg-success-800 border-success-500 dark:border-success-700',
+  info: 'bg-info-100 dark:bg-info-800',
+  warning: 'bg-warning-100 dark:bg-warning-800',
+  error: 'bg-error-100 dark:bg-error-800',
+  success: 'bg-success-100 dark:bg-success-800',
 }
 
 const ICON_COLORS: Record<Variant, string> = {
@@ -74,7 +71,7 @@ export function Admonition({
       {...props}
       role={role}
       className={clsx(
-        'flex items-center gap-3 rounded-md border py-3 pl-3 pr-4',
+        'rounded-panel flex items-center gap-3 py-3 pl-3 pr-4',
         'text-text-default',
         CARD_COLORS[variant],
         className,
