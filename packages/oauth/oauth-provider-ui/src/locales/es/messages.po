@@ -220,11 +220,12 @@ msgid "Any service"
 msgstr "Cualquier servicio"
 
 #: src/pages/account/(authenticated)/route.tsx:78
+#: src/pages/account/(authenticated)/apps/page.tsx:31
 #: src/components-v2/screens/account-apps-view.tsx:25
 msgid "Apps"
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:97
+#: src/pages/account/(authenticated)/apps/page.tsx:115
 msgid "Apps may access your account in the background (to check notifications, sync data, etc.) even when you're not actively using them. This is normal behavior and will update the \"last accessed\" time shown above."
 msgstr ""
 
@@ -265,7 +266,7 @@ msgid "Authorized {0}"
 msgstr ""
 
 #. placeholder {0}: i18n.date(createdAt, { year: 'numeric', month: 'short', day: 'numeric', })
-#: src/pages/account/(authenticated)/apps/page.tsx:147
+#: src/pages/account/(authenticated)/apps/page.tsx:165
 msgctxt "OAuthApp"
 msgid "Authorized on {0}"
 msgstr ""
@@ -334,7 +335,7 @@ msgstr "Llamar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:146
+#: src/pages/account/(authenticated)/devices/page.tsx:164
 msgid "Cannot remove current device"
 msgstr ""
 
@@ -554,6 +555,7 @@ msgid "Details"
 msgstr ""
 
 #: src/pages/account/(authenticated)/route.tsx:71
+#: src/pages/account/(authenticated)/devices/page.tsx:33
 #: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Devices"
 msgstr ""
@@ -695,10 +697,10 @@ msgstr ""
 msgid "Failed to delete account"
 msgstr ""
 
-#: src/pages/account/(authenticated)/devices/page.tsx:40
-#: src/pages/account/(authenticated)/devices/page.tsx:74
-#: src/pages/account/(authenticated)/apps/page.tsx:38
-#: src/pages/account/(authenticated)/apps/page.tsx:73
+#: src/pages/account/(authenticated)/devices/page.tsx:57
+#: src/pages/account/(authenticated)/devices/page.tsx:92
+#: src/pages/account/(authenticated)/apps/page.tsx:55
+#: src/pages/account/(authenticated)/apps/page.tsx:91
 msgid "Failed to load connected apps"
 msgstr "Error al cargar las aplicaciones conectadas"
 
@@ -877,7 +879,7 @@ msgstr "Código de invitación"
 msgid "It appears that you haven't used this account to sign in to any apps yet."
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:107
+#: src/pages/account/(authenticated)/apps/page.tsx:125
 msgid "It appears that you haven’t used this account to sign in to any apps yet."
 msgstr "Parece que aún no has usado esta cuenta para iniciar sesión en ninguna aplicación."
 
@@ -890,13 +892,13 @@ msgstr ""
 msgid "just now"
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:156
+#: src/pages/account/(authenticated)/apps/page.tsx:174
 #: src/components-v2/screens/account-apps-view.tsx:96
 msgctxt "OAuthApp"
 msgid "Last accessed <0/>"
 msgstr ""
 
-#: src/pages/account/(authenticated)/devices/page.tsx:132
+#: src/pages/account/(authenticated)/devices/page.tsx:150
 msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr ""
@@ -916,6 +918,10 @@ msgstr ""
 msgid "Let's get your password reset!"
 msgstr "¡Vamos a restablecer tu contraseña!"
 
+#: src/components-v2/molecules/list-skeleton.tsx:14
+msgid "Loading"
+msgstr ""
+
 #: src/authorization-page.tsx:173
 msgid "Login canceled"
 msgstr ""
@@ -933,7 +939,7 @@ msgstr "Iniciar sesión en una cuenta que no está en la lista"
 msgid "Logo"
 msgstr "Logo"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:103
+#: src/pages/account/(authenticated)/devices/page.tsx:121
 #: src/components-v2/screens/account-devices-view.tsx:40
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "Parece que no has iniciado sesión en otros dispositivos."
@@ -1232,10 +1238,10 @@ msgstr "Restablecer contraseña"
 msgid "Reset your password"
 msgstr "Restablecer tu contraseña"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:36
-#: src/pages/account/(authenticated)/devices/page.tsx:70
-#: src/pages/account/(authenticated)/apps/page.tsx:34
-#: src/pages/account/(authenticated)/apps/page.tsx:69
+#: src/pages/account/(authenticated)/devices/page.tsx:53
+#: src/pages/account/(authenticated)/devices/page.tsx:88
+#: src/pages/account/(authenticated)/apps/page.tsx:51
+#: src/pages/account/(authenticated)/apps/page.tsx:87
 #: src/components/utils/error-card.tsx:85
 msgid "Retry"
 msgstr ""
@@ -1250,7 +1256,7 @@ msgctxt "OAuthApp"
 msgid "Revoke"
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:171
+#: src/pages/account/(authenticated)/apps/page.tsx:189
 msgctxt "OAuthApp"
 msgid "Revoke access"
 msgstr ""
@@ -1312,7 +1318,7 @@ msgstr "Iniciar sesión como {0}"
 msgid "Sign in as..."
 msgstr "Iniciar sesión como..."
 
-#: src/pages/account/(authenticated)/devices/page.tsx:149
+#: src/pages/account/(authenticated)/devices/page.tsx:167
 #: src/components-v2/screens/account-devices-view.tsx:114
 msgctxt "device list"
 msgid "Sign out"
@@ -1452,7 +1458,7 @@ msgstr ""
 msgid "These apps have access to your account. An app may appear multiple times if you use it on different devices. Revoking access will log the app out until you sign in again."
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:81
+#: src/pages/account/(authenticated)/apps/page.tsx:99
 msgid "These apps have access to your account. An app may appear multiple times if you use it on different devices. You can revoke access to log out the app until you sign in again."
 msgstr ""
 
@@ -1541,7 +1547,7 @@ msgstr ""
 msgid "Unexpected server response"
 msgstr "Respuesta inesperada del servidor"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:127
+#: src/pages/account/(authenticated)/devices/page.tsx:145
 #: src/components-v2/screens/account-devices-view.tsx:92
 msgctxt "device list"
 msgid "Unknown user agent"
@@ -1814,7 +1820,7 @@ msgstr ""
 msgid "Your account is now deactivated."
 msgstr ""
 
-#: src/pages/account/(authenticated)/devices/page.tsx:82
+#: src/pages/account/(authenticated)/devices/page.tsx:100
 #: src/components-v2/screens/account-devices-view.tsx:45
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr ""

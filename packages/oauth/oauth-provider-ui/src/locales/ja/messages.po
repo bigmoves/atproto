@@ -220,11 +220,12 @@ msgid "Any service"
 msgstr "すべてのサービス"
 
 #: src/pages/account/(authenticated)/route.tsx:78
+#: src/pages/account/(authenticated)/apps/page.tsx:31
 #: src/components-v2/screens/account-apps-view.tsx:25
 msgid "Apps"
 msgstr "アプリ"
 
-#: src/pages/account/(authenticated)/apps/page.tsx:97
+#: src/pages/account/(authenticated)/apps/page.tsx:115
 msgid "Apps may access your account in the background (to check notifications, sync data, etc.) even when you're not actively using them. This is normal behavior and will update the \"last accessed\" time shown above."
 msgstr "アプリは、あなたが積極的に使用していないときでも、バックグラウンドであなたのアカウントにアクセスすることがあります（通知の確認、データの同期など）。これは正常な動作であり、上記に表示されている「最終アクセス」時間が更新されます。"
 
@@ -265,7 +266,7 @@ msgid "Authorized {0}"
 msgstr ""
 
 #. placeholder {0}: i18n.date(createdAt, { year: 'numeric', month: 'short', day: 'numeric', })
-#: src/pages/account/(authenticated)/apps/page.tsx:147
+#: src/pages/account/(authenticated)/apps/page.tsx:165
 msgctxt "OAuthApp"
 msgid "Authorized on {0}"
 msgstr "{0} に承認されました"
@@ -334,7 +335,7 @@ msgstr "呼び出し"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:146
+#: src/pages/account/(authenticated)/devices/page.tsx:164
 msgid "Cannot remove current device"
 msgstr "現在のデバイスを削除できません"
 
@@ -554,6 +555,7 @@ msgid "Details"
 msgstr "詳細"
 
 #: src/pages/account/(authenticated)/route.tsx:71
+#: src/pages/account/(authenticated)/devices/page.tsx:33
 #: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Devices"
 msgstr "デバイス"
@@ -695,10 +697,10 @@ msgstr "アカウントの無効化に失敗しました"
 msgid "Failed to delete account"
 msgstr "アカウントの削除に失敗しました"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:40
-#: src/pages/account/(authenticated)/devices/page.tsx:74
-#: src/pages/account/(authenticated)/apps/page.tsx:38
-#: src/pages/account/(authenticated)/apps/page.tsx:73
+#: src/pages/account/(authenticated)/devices/page.tsx:57
+#: src/pages/account/(authenticated)/devices/page.tsx:92
+#: src/pages/account/(authenticated)/apps/page.tsx:55
+#: src/pages/account/(authenticated)/apps/page.tsx:91
 msgid "Failed to load connected apps"
 msgstr "接続されたアプリの読み込みに失敗しました"
 
@@ -887,7 +889,7 @@ msgstr "招待コード"
 msgid "It appears that you haven't used this account to sign in to any apps yet."
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:107
+#: src/pages/account/(authenticated)/apps/page.tsx:125
 msgid "It appears that you haven’t used this account to sign in to any apps yet."
 msgstr "このアカウントをアプリにサインインするためにまだ使用していないようです。"
 
@@ -900,13 +902,13 @@ msgstr "あなたのブラウザがクッキーを受け入れていないよう
 msgid "just now"
 msgstr "たった今"
 
-#: src/pages/account/(authenticated)/apps/page.tsx:156
+#: src/pages/account/(authenticated)/apps/page.tsx:174
 #: src/components-v2/screens/account-apps-view.tsx:96
 msgctxt "OAuthApp"
 msgid "Last accessed <0/>"
 msgstr "最終アクセス <0/>"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:132
+#: src/pages/account/(authenticated)/devices/page.tsx:150
 msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr "最終閲覧 {lastUsedAgo}"
@@ -926,6 +928,10 @@ msgstr "後で"
 msgid "Let's get your password reset!"
 msgstr "パスワードをリセットしましょう！"
 
+#: src/components-v2/molecules/list-skeleton.tsx:14
+msgid "Loading"
+msgstr ""
+
 #: src/authorization-page.tsx:173
 msgid "Login canceled"
 msgstr "ログインキャンセル"
@@ -943,7 +949,7 @@ msgstr "リストにないアカウントにログイン"
 msgid "Logo"
 msgstr "ロゴ"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:103
+#: src/pages/account/(authenticated)/devices/page.tsx:121
 #: src/components-v2/screens/account-devices-view.tsx:40
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "他のデバイスでログインしていないようです。"
@@ -1242,10 +1248,10 @@ msgstr "パスワードをリセット"
 msgid "Reset your password"
 msgstr "パスワードをリセット"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:36
-#: src/pages/account/(authenticated)/devices/page.tsx:70
-#: src/pages/account/(authenticated)/apps/page.tsx:34
-#: src/pages/account/(authenticated)/apps/page.tsx:69
+#: src/pages/account/(authenticated)/devices/page.tsx:53
+#: src/pages/account/(authenticated)/devices/page.tsx:88
+#: src/pages/account/(authenticated)/apps/page.tsx:51
+#: src/pages/account/(authenticated)/apps/page.tsx:87
 #: src/components/utils/error-card.tsx:85
 msgid "Retry"
 msgstr "再試行"
@@ -1260,7 +1266,7 @@ msgctxt "OAuthApp"
 msgid "Revoke"
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:171
+#: src/pages/account/(authenticated)/apps/page.tsx:189
 msgctxt "OAuthApp"
 msgid "Revoke access"
 msgstr "アクセスを取り消す"
@@ -1322,7 +1328,7 @@ msgstr "{0} でサインイン"
 msgid "Sign in as..."
 msgstr "アカウントの選択"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:149
+#: src/pages/account/(authenticated)/devices/page.tsx:167
 #: src/components-v2/screens/account-devices-view.tsx:114
 msgctxt "device list"
 msgid "Sign out"
@@ -1462,7 +1468,7 @@ msgstr "アカウントの無効化に期限はありません。いつでも戻
 msgid "These apps have access to your account. An app may appear multiple times if you use it on different devices. Revoking access will log the app out until you sign in again."
 msgstr ""
 
-#: src/pages/account/(authenticated)/apps/page.tsx:81
+#: src/pages/account/(authenticated)/apps/page.tsx:99
 msgid "These apps have access to your account. An app may appear multiple times if you use it on different devices. You can revoke access to log out the app until you sign in again."
 msgstr "これらのアプリはあなたのアカウントにアクセスできます。異なるデバイスで使用している場合、アプリが複数回表示されることがあります。アクセスを取り消すと、再度サインインするまでアプリがログアウトされます。"
 
@@ -1551,7 +1557,7 @@ msgstr "未承認"
 msgid "Unexpected server response"
 msgstr "予期しないサーバー応答"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:127
+#: src/pages/account/(authenticated)/devices/page.tsx:145
 #: src/components-v2/screens/account-devices-view.tsx:92
 msgctxt "device list"
 msgid "Unknown user agent"
@@ -1824,7 +1830,7 @@ msgstr "アカウントを現在無効化しています。"
 msgid "Your account is now deactivated."
 msgstr "アカウントは現在無効化されています。"
 
-#: src/pages/account/(authenticated)/devices/page.tsx:82
+#: src/pages/account/(authenticated)/devices/page.tsx:100
 #: src/components-v2/screens/account-devices-view.tsx:45
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr "あなたのアカウントは以下にリストされたデバイスでサインインしています。アカウントが侵害された場合は、すべてのデバイスからサインアウトし、パスワードを変更し、接続されている<0>アプリ</0>を確認してください。"

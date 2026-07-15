@@ -7,6 +7,8 @@ import type {
 import { Button } from '#/components/forms/button'
 import { Admonition, AdmonitionAction } from '#/components/utils/admonition.tsx'
 import { CircularProgress } from '#/components/utils/circular-progress'
+import { ListSkeleton } from '#/components-v2/molecules/list-skeleton.tsx'
+import { PageHeader } from '#/components-v2/molecules/page-header.tsx'
 import { AccountDevicesView } from '#/components-v2/screens/account-devices-view.tsx'
 import { useAuthenticatedSession } from '#/contexts/authentication.tsx'
 import {
@@ -26,19 +28,35 @@ function PageV2() {
   const { data, refetch, isLoading } = useAccountSessionsQuery(account)
   const { mutate, isPending, variables } = useRevokeAccountSessionMutation()
 
+  const header = (
+    <PageHeader back>
+      <Trans>Devices</Trans>
+    </PageHeader>
+  )
+
   if (!data) {
-    if (isLoading) return <CircularProgress className="text-primary" size={28} />
+    if (isLoading) {
+      return (
+        <div>
+          {header}
+          <ListSkeleton />
+        </div>
+      )
+    }
     return (
-      <Admonition
-        role="status"
-        action={
-          <AdmonitionAction onClick={() => refetch()}>
-            <Trans>Retry</Trans>
-          </AdmonitionAction>
-        }
-      >
-        <Trans>Failed to load connected apps</Trans>
-      </Admonition>
+      <div>
+        {header}
+        <Admonition
+          role="status"
+          action={
+            <AdmonitionAction onClick={() => refetch()}>
+              <Trans>Retry</Trans>
+            </AdmonitionAction>
+          }
+        >
+          <Trans>Failed to load connected apps</Trans>
+        </Admonition>
+      </div>
     )
   }
 
