@@ -1,5 +1,5 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { AtIcon, CaretDownIcon } from '@phosphor-icons/react'
+import { AtIcon } from '@phosphor-icons/react'
 import { composeRefs } from '@radix-ui/react-compose-refs'
 import { clsx } from 'clsx'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -13,7 +13,9 @@ import {
   isValidDomain,
 } from '#/lib/handle.ts'
 import type { Override } from '#/lib/util.ts'
+import { InputRadioGroup } from '../atoms/input-radio-group.tsx'
 import { InputText, type InputTextProps } from '../atoms/input-text.tsx'
+import { DialogSimple } from './dialog-simple.tsx'
 
 export type InputHandleProvidedProps = Override<
   Omit<
@@ -35,7 +37,14 @@ export type InputHandleProvidedProps = Override<
   }
 >
 
-/** v2 restyle of `#/components/forms/input-handle-default.tsx`. Same validation logic. */
+/**
+ * v2 restyle of `#/components/forms/input-handle-default.tsx`. Same
+ * validation logic. Unlike v1, the domain defaults quietly (like the
+ * official Bluesky app does at signup) instead of showing an
+ * always-visible, awkwardly-sized selector next to the input — when more
+ * than one domain is configured, a "Use a different domain" link opens a
+ * full-width picker instead, which scales to long domains.
+ */
 export function InputHandleDefault({
   domains: availableDomains,
   handle: handleInit,
@@ -55,6 +64,7 @@ export function InputHandleDefault({
   const domains = availableDomains.filter(isValidDomain)
 
   const inputRef = useRef<HTMLInputElement>(null)
+  const [domainPickerOpen, setDomainPickerOpen] = useState(false)
 
   const [domainIdx, setDomainIdx] = useState(() => {
     if (!handleInit) return 0
@@ -64,7 +74,9 @@ export function InputHandleDefault({
   const [segment, setSegment] = useState(() => {
     if (!handleInit) return ''
     const domain = domains[domainIdx]
-    return handleInit.endsWith(domain) ? handleInit.slice(0, -domain.length) : ''
+    return handleInit.endsWith(domain)
+      ? handleInit.slice(0, -domain.length)
+      : ''
   })
 
   const domain: ValidDomain | null = domains[domainIdx] || domains[0] || null
@@ -90,61 +102,30 @@ export function InputHandleDefault({
 
   return (
     <div>
-      <div className="flex items-start gap-2">
-        <InputText
-          {...props}
-          ref={composeRefs(ref, inputRef)}
-          title={title ?? t`Type your username`}
-          type="text"
-          pattern="[a-z0-9][a-z0-9\-]+[a-z0-9]"
-          minLength={minLength}
-          maxLength={maxLength}
-          autoCapitalize={autoCapitalize}
-          autoComplete={autoComplete}
-          autoCorrect={autoCorrect}
-          dir={dir}
-          icon={icon}
-          value={segment}
-          className="min-w-0 flex-1"
-          onChange={(event) => {
-            const value = event.target.value.toLowerCase()
-            const selectionStart = event.target.selectionStart
-            const selectionEnd = event.target.selectionEnd
-            event.target.value = value
-            event.target.setSelectionRange(selectionStart, selectionEnd)
-            update(value, domainIdx)
-          }}
-        />
-        {domains.length > 1 ? (
-          <div className="relative h-[3.125rem] shrink-0">
-            <select
-              value={domainIdx}
-              aria-label={t`Select domain`}
-              onChange={(event) => {
-                update(segment, Number(event.target.value))
-                inputRef.current?.focus()
-              }}
-              className="border-contrast-400 rounded-control text-text-light hover:bg-contrast-200 focus:border-primary accent-primary h-[3.125rem] w-full cursor-pointer appearance-none border pl-3 pr-8 text-sm outline-none"
-            >
-              {domains.map((d, idx) => (
-                <option key={d} value={idx}>
-                  {d}
-                </option>
-              ))}
-            </select>
-            <CaretDownIcon
-              aria-hidden
-              className="text-text-light pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2"
-            />
-          </div>
-        ) : (
-          domain && (
-            <span className="text-text-light flex h-[3.125rem] shrink-0 items-center px-1 text-sm">
-              {domain}
-            </span>
-          )
-        )}
-      </div>
+      <InputText
+        {...props}
+        ref={composeRefs(ref, inputRef)}
+        title={title ?? t`Type your username`}
+        type="text"
+        pattern="[a-z0-9][a-z0-9\-]+[a-z0-9]"
+        minLength={minLength}
+        maxLength={maxLength}
+        autoCapitalize={autoCapitalize}
+        autoComplete={autoComplete}
+        autoCorrect={autoCorrect}
+        dir={dir}
+        icon={icon}
+        value={segment}
+        onChange={(event) => {
+          const value = event.target.value.toLowerCase()
+          const selectionStart = event.target.selectionStart
+          const selectionEnd = event.target.selectionEnd
+          event.target.value = value
+          event.target.setSelectionRange(selectionStart, selectionEnd)
+          update(value, domainIdx)
+        }}
+      />
+
       <p
         className={clsx(
           'mt-1.5 px-1 text-xs',
@@ -156,6 +137,41 @@ export function InputHandleDefault({
           hyphens
         </Trans>
       </p>
+
+      <div className="bg-contrast-200 rounded-control mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3">
+        <div className="min-w-0 flex-1 truncate text-sm">
+          <span className={segment ? 'text-text-default' : 'text-text-light'}>
+            {segment || t`username`}
+          </span>
+          {domain && <span className="text-text-light">{domain}</span>}
+        </div>
+        {domains.length > 1 && (
+          <DialogSimple
+            title={t`Choose a domain`}
+            open={domainPickerOpen}
+            onOpenChange={setDomainPickerOpen}
+            trigger={
+              <button
+                type="button"
+                className="text-primary shrink-0 text-xs font-medium hover:underline"
+              >
+                <Trans>Use a different domain</Trans>
+              </button>
+            }
+          >
+            <InputRadioGroup
+              maxColumns={1}
+              value={domainIdx}
+              onChange={(idx) => {
+                update(segment, idx)
+                setDomainPickerOpen(false)
+                inputRef.current?.focus()
+              }}
+              options={domains.map((d, idx) => ({ value: idx, label: d }))}
+            />
+          </DialogSimple>
+        )}
+      </div>
     </div>
   )
 }

@@ -34,7 +34,7 @@ export function InputText({
     <div className={className}>
       <div
         className={clsx(
-          'border-contrast-400 focus-within:border-primary rounded-control flex items-center gap-2 border px-4 py-3',
+          'border-contrast-400 focus-within:border-primary rounded-control flex items-center gap-2 border px-4 py-3 focus-within:border-2 focus-within:px-[15px] focus-within:py-[11px]',
           isDisabled && 'opacity-60',
         )}
       >

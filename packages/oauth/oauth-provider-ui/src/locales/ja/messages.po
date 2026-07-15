@@ -25,7 +25,7 @@ msgstr "{deltaHours} 時間前"
 msgid "{deltaMinutes} minutes ago"
 msgstr "{deltaMinutes} 分前"
 
-#: src/components-v2/molecules/input-handle-default.tsx:154
+#: src/components-v2/molecules/input-handle-default.tsx:135
 msgid "{minLength}–{maxLength} characters, using letters, numbers, and hyphens"
 msgstr ""
 
@@ -381,6 +381,10 @@ msgstr "確認コードが記載されたメールを確認してください。
 #: src/data/email.ts:23
 msgid "Check your inbox."
 msgstr "受信トレイを確認してください。"
+
+#: src/components-v2/molecules/input-handle-default.tsx:150
+msgid "Choose a domain"
+msgstr ""
 
 #: src/components-v2/organisms/update-handle-dialog.tsx:138
 #: src/components/update-handle-dialog.tsx:58
@@ -1276,7 +1280,6 @@ msgstr "セキュリティステップが必要です"
 msgid "Select another account"
 msgstr "別のアカウントを選択"
 
-#: src/components-v2/molecules/input-handle-default.tsx:122
 #: src/components/forms/input-handle-default.tsx:150
 msgid "Select domain"
 msgstr "ドメインを選択"
@@ -1535,7 +1538,7 @@ msgstr "タイプ"
 msgid "Type your domain"
 msgstr "ドメイン名を入力"
 
-#: src/components-v2/molecules/input-handle-default.tsx:97
+#: src/components-v2/molecules/input-handle-default.tsx:108
 #: src/components/forms/input-handle-default.tsx:121
 msgid "Type your username"
 msgstr "ユーザー名を入力"
@@ -1595,6 +1598,10 @@ msgstr "URL"
 msgid "Use a default username"
 msgstr "デフォルトのユーザー名を使用"
 
+#: src/components-v2/molecules/input-handle-default.tsx:158
+msgid "Use a different domain"
+msgstr ""
+
 #: src/components-v2/organisms/update-handle-dialog.tsx:218
 #: src/components/update-handle-dialog.tsx:141
 msgid "Use a domain name I own"
@@ -1602,6 +1609,10 @@ msgstr "自分が所有するドメイン名を使用"
 
 #: src/components-v2/organisms/sign-in-picker.tsx:61
 msgid "Use another account"
+msgstr ""
+
+#: src/components-v2/molecules/input-handle-default.tsx:144
+msgid "username"
 msgstr ""
 
 #: src/pages/account/(authenticated)/manage/page.tsx:168
