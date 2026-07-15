@@ -528,7 +528,7 @@ msgid "Details"
 msgstr "詳細"
 
 #: src/pages/account/(authenticated)/route.tsx:71
-#: src/components-v2/screens/account-devices-view.tsx:25
+#: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Devices"
 msgstr "デバイス"
 
@@ -879,7 +879,7 @@ msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr "最終閲覧 {lastUsedAgo}"
 
-#: src/components-v2/screens/account-devices-view.tsx:86
+#: src/components-v2/screens/account-devices-view.tsx:96
 msgctxt "device list"
 msgid "Last seen <0/>"
 msgstr ""
@@ -912,7 +912,7 @@ msgid "Logo"
 msgstr "ロゴ"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:103
-#: src/components-v2/screens/account-devices-view.tsx:30
+#: src/components-v2/screens/account-devices-view.tsx:40
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "他のデバイスでログインしていないようです。"
 
@@ -1281,7 +1281,7 @@ msgid "Sign in as..."
 msgstr "アカウントの選択"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:149
-#: src/components-v2/screens/account-devices-view.tsx:104
+#: src/components-v2/screens/account-devices-view.tsx:114
 msgctxt "device list"
 msgid "Sign out"
 msgstr "サインアウト"
@@ -1291,7 +1291,7 @@ msgstr "サインアウト"
 msgid "Sign out"
 msgstr "サインアウト"
 
-#: src/components-v2/screens/account-devices-view.tsx:102
+#: src/components-v2/screens/account-devices-view.tsx:112
 msgid "Sign out this device"
 msgstr ""
 
@@ -1427,7 +1427,7 @@ msgstr "このアプリケーションは、あなたのアカウントにアク
 msgid "This authorization request has been denied. Please try again."
 msgstr "この承認リクエストは拒否されました。もう一度お試しください。"
 
-#: src/components-v2/screens/account-devices-view.tsx:93
+#: src/components-v2/screens/account-devices-view.tsx:103
 msgctxt "device list"
 msgid "This device"
 msgstr ""
@@ -1509,7 +1509,7 @@ msgid "Unexpected server response"
 msgstr "予期しないサーバー応答"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:127
-#: src/components-v2/screens/account-devices-view.tsx:82
+#: src/components-v2/screens/account-devices-view.tsx:92
 msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "不明なユーザーエージェント"
@@ -1769,7 +1769,7 @@ msgid "Your account is now deactivated."
 msgstr "アカウントは現在無効化されています。"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:82
-#: src/components-v2/screens/account-devices-view.tsx:35
+#: src/components-v2/screens/account-devices-view.tsx:45
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr "あなたのアカウントは以下にリストされたデバイスでサインインしています。アカウントが侵害された場合は、すべてのデバイスからサインアウトし、パスワードを変更し、接続されている<0>アプリ</0>を確認してください。"
 

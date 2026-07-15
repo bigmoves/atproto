@@ -528,7 +528,7 @@ msgid "Details"
 msgstr "Detaljer"
 
 #: src/pages/account/(authenticated)/route.tsx:71
-#: src/components-v2/screens/account-devices-view.tsx:25
+#: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Devices"
 msgstr "Enheter"
 
@@ -879,7 +879,7 @@ msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr "Sågs senast {lastUsedAgo}"
 
-#: src/components-v2/screens/account-devices-view.tsx:86
+#: src/components-v2/screens/account-devices-view.tsx:96
 msgctxt "device list"
 msgid "Last seen <0/>"
 msgstr ""
@@ -912,7 +912,7 @@ msgid "Logo"
 msgstr "Logga"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:103
-#: src/components-v2/screens/account-devices-view.tsx:30
+#: src/components-v2/screens/account-devices-view.tsx:40
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "Det ser ut som att du inte är inloggad på någon annan enhet."
 
@@ -1281,7 +1281,7 @@ msgid "Sign in as..."
 msgstr "Logga in som…"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:149
-#: src/components-v2/screens/account-devices-view.tsx:104
+#: src/components-v2/screens/account-devices-view.tsx:114
 msgctxt "device list"
 msgid "Sign out"
 msgstr "Logga ut"
@@ -1291,7 +1291,7 @@ msgstr "Logga ut"
 msgid "Sign out"
 msgstr "Logga ut"
 
-#: src/components-v2/screens/account-devices-view.tsx:102
+#: src/components-v2/screens/account-devices-view.tsx:112
 msgid "Sign out this device"
 msgstr ""
 
@@ -1427,7 +1427,7 @@ msgstr "Den här applikationen begär följande behörigheter (omfång) för att
 msgid "This authorization request has been denied. Please try again."
 msgstr "Denna auktoriseringsbegäran har nekats. Försök igen."
 
-#: src/components-v2/screens/account-devices-view.tsx:93
+#: src/components-v2/screens/account-devices-view.tsx:103
 msgctxt "device list"
 msgid "This device"
 msgstr ""
@@ -1509,7 +1509,7 @@ msgid "Unexpected server response"
 msgstr "Oväntat svar från server"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:127
-#: src/components-v2/screens/account-devices-view.tsx:82
+#: src/components-v2/screens/account-devices-view.tsx:92
 msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "Okänd användaragent"
@@ -1769,7 +1769,7 @@ msgid "Your account is now deactivated."
 msgstr "Ditt konto är nu inaktiverat."
 
 #: src/pages/account/(authenticated)/devices/page.tsx:82
-#: src/components-v2/screens/account-devices-view.tsx:35
+#: src/components-v2/screens/account-devices-view.tsx:45
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr "Ditt konto är inloggat på enheterna i listan nedan. Om säkerheten för ditt konto har äventyrats, logga ut från alla enheter, byt lösenord och kontrollera dina anslutna appar."
 

@@ -528,7 +528,7 @@ msgid "Details"
 msgstr "Details"
 
 #: src/pages/account/(authenticated)/route.tsx:71
-#: src/components-v2/screens/account-devices-view.tsx:25
+#: src/components-v2/screens/account-devices-view.tsx:35
 msgid "Devices"
 msgstr "Devices"
 
@@ -879,7 +879,7 @@ msgctxt "device list"
 msgid "Last seen {lastUsedAgo}"
 msgstr "Last seen {lastUsedAgo}"
 
-#: src/components-v2/screens/account-devices-view.tsx:86
+#: src/components-v2/screens/account-devices-view.tsx:96
 msgctxt "device list"
 msgid "Last seen <0/>"
 msgstr "Last seen <0/>"
@@ -912,7 +912,7 @@ msgid "Logo"
 msgstr "Logo"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:103
-#: src/components-v2/screens/account-devices-view.tsx:30
+#: src/components-v2/screens/account-devices-view.tsx:40
 msgid "Looks like you aren't logged in on any other devices."
 msgstr "Looks like you aren't logged in on any other devices."
 
@@ -1281,7 +1281,7 @@ msgid "Sign in as..."
 msgstr "Sign in as..."
 
 #: src/pages/account/(authenticated)/devices/page.tsx:149
-#: src/components-v2/screens/account-devices-view.tsx:104
+#: src/components-v2/screens/account-devices-view.tsx:114
 msgctxt "device list"
 msgid "Sign out"
 msgstr "Sign out"
@@ -1291,7 +1291,7 @@ msgstr "Sign out"
 msgid "Sign out"
 msgstr "Sign out"
 
-#: src/components-v2/screens/account-devices-view.tsx:102
+#: src/components-v2/screens/account-devices-view.tsx:112
 msgid "Sign out this device"
 msgstr "Sign out this device"
 
@@ -1427,7 +1427,7 @@ msgstr "This application is requesting the following permissions (scopes) to acc
 msgid "This authorization request has been denied. Please try again."
 msgstr "This authorization request has been denied. Please try again."
 
-#: src/components-v2/screens/account-devices-view.tsx:93
+#: src/components-v2/screens/account-devices-view.tsx:103
 msgctxt "device list"
 msgid "This device"
 msgstr "This device"
@@ -1509,7 +1509,7 @@ msgid "Unexpected server response"
 msgstr "Unexpected server response"
 
 #: src/pages/account/(authenticated)/devices/page.tsx:127
-#: src/components-v2/screens/account-devices-view.tsx:82
+#: src/components-v2/screens/account-devices-view.tsx:92
 msgctxt "device list"
 msgid "Unknown user agent"
 msgstr "Unknown user agent"
@@ -1769,7 +1769,7 @@ msgid "Your account is now deactivated."
 msgstr "Your account is now deactivated."
 
 #: src/pages/account/(authenticated)/devices/page.tsx:82
-#: src/components-v2/screens/account-devices-view.tsx:35
+#: src/components-v2/screens/account-devices-view.tsx:45
 msgid "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 msgstr "Your account is signed in on the devices listed below. If your account was compromised, sign out all devices, change your password, and check your connected <0>apps</0>."
 

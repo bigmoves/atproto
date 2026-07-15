@@ -19,6 +19,16 @@ export function AccountDevicesView({
   revokingId,
   onRevoke,
 }: AccountDevicesViewProps) {
+  const sortedDevices = [...devices].sort((a, b) => {
+    if (a.isCurrentDevice !== b.isCurrentDevice) {
+      return a.isCurrentDevice ? -1 : 1
+    }
+    return (
+      Date.parse(b.deviceMetadata.lastSeenAt) -
+      Date.parse(a.deviceMetadata.lastSeenAt)
+    )
+  })
+
   return (
     <div>
       <PageHeader back>
@@ -44,7 +54,7 @@ export function AccountDevicesView({
           </p>
 
           <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
-            {devices.map((session) => (
+            {sortedDevices.map((session) => (
               <DeviceRow
                 key={session.deviceId}
                 session={session}
