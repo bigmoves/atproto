@@ -36,20 +36,14 @@ export type AccountAppShellProps = {
   children?: ReactNode
 }
 
-// Cycled by nav-item position. Deliberately NOT derived from --color-primary
-// (or any branding/semantic token) — those are hue-tinted by the operator's
-// configurable branding color, so a badge built from them can end up nearly
-// invisible against the active pill (which is a solid --color-primary fill)
-// or against the page background itself if the brand hue is dark/muted.
-// This uses Tailwind's fixed default palette instead, so contrast holds
-// regardless of what branding color is configured.
-const NAV_BADGE_COLORS = [
-  'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300',
-  'bg-violet-100 text-violet-600 dark:bg-violet-900 dark:text-violet-300',
-  'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300',
-  'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300',
-  'bg-rose-100 text-rose-600 dark:bg-rose-900 dark:text-rose-300',
-] as const
+// Single accent-tinted badge, same for every nav item — icon shape and label
+// differentiate destinations instead of a per-item color. A light tint (not
+// a solid fill) so it stays legible regardless of the operator's branding
+// hue. On the desktop sidebar, the active item's pill is a *solid*
+// --color-primary fill, so the badge there is overridden separately (via
+// the `.nav-badge` hook below) rather than reusing this tint, which would
+// nearly disappear against a solid fill of the same hue.
+const NAV_BADGE_COLOR = 'bg-primary/10 text-primary'
 
 /**
  * Restyle of `#/components/layouts/layout-page.tsx` + `layout-app.tsx`:
@@ -100,7 +94,7 @@ export function AccountAppShell({
         role="navigation"
       >
         <nav className="flex flex-col gap-1 pt-2">
-          {visibleLinks.map(({ to, title, icon: Icon }, index) => (
+          {visibleLinks.map(({ to, title, icon: Icon }) => (
             <Link
               key={to}
               to={to}
@@ -110,13 +104,14 @@ export function AccountAppShell({
                 'flex items-center gap-3 rounded-full py-1.5 pl-1.5 pr-4 text-sm font-medium',
                 'text-text-default hover:bg-contrast-100',
                 '[&.active]:bg-primary [&.active]:text-primary-contrast [&.active]:font-semibold',
+                '[&.active_.nav-badge]:bg-primary-contrast/20 [&.active_.nav-badge]:text-primary-contrast',
               )}
             >
               {Icon && (
                 <span
                   className={clsx(
-                    'flex size-11 flex-none items-center justify-center rounded-full',
-                    NAV_BADGE_COLORS[index % NAV_BADGE_COLORS.length],
+                    'nav-badge flex size-11 flex-none items-center justify-center rounded-full',
+                    NAV_BADGE_COLOR,
                   )}
                 >
                   <Icon className="size-5" weight="bold" />
@@ -192,7 +187,7 @@ function MobileHomeNav({
         </div>
 
         <nav className="flex flex-col gap-3">
-          {links.map(({ to, title, description, icon: Icon }, index) => (
+          {links.map(({ to, title, description, icon: Icon }) => (
             <Link
               key={to}
               to={to}
@@ -202,7 +197,7 @@ function MobileHomeNav({
                 <span
                   className={clsx(
                     'flex size-12 flex-none items-center justify-center rounded-full',
-                    NAV_BADGE_COLORS[index % NAV_BADGE_COLORS.length],
+                    NAV_BADGE_COLOR,
                   )}
                 >
                   <Icon className="size-5" weight="bold" />

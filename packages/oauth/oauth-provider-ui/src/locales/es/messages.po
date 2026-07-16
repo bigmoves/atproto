@@ -149,7 +149,7 @@ msgstr ""
 msgid "Account reactivated"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:251
+#: src/components-v2/templates/account-app-shell.tsx:246
 #: src/components/utils/account-selector.tsx:25
 msgid "Account selector"
 msgstr ""
@@ -410,7 +410,7 @@ msgstr "Elige un nombre de usuario"
 msgid "Click here if nothing happens"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:288
+#: src/components-v2/templates/account-app-shell.tsx:283
 #: src/components-v2/molecules/dialog-simple.tsx:64
 #: src/components/utils/dialog-simple.tsx:85
 msgid "Close"
@@ -1271,7 +1271,7 @@ msgstr ""
 msgid "Security step required"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:282
+#: src/components-v2/templates/account-app-shell.tsx:277
 #: src/components/utils/account-selector.tsx:60
 msgid "Select another account"
 msgstr ""
@@ -1324,7 +1324,7 @@ msgctxt "device list"
 msgid "Sign out"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:277
+#: src/components-v2/templates/account-app-shell.tsx:272
 #: src/components/utils/account-selector.tsx:55
 msgid "Sign out"
 msgstr "Cerrar sesión"
