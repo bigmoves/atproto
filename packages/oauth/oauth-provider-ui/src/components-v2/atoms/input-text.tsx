@@ -43,7 +43,11 @@ export function InputText({
           placeholder={placeholder}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy ?? ctx.labelId}
-          className="text-ink placeholder:text-ink-light w-full min-w-0 bg-transparent font-mono text-[15px] outline-none"
+          // `text-base` (16px) below `sm` prevents iOS Safari from
+          // auto-zooming the viewport when the field is focused (it zooms any
+          // editable field with font-size < 16px); the 15px design is kept on
+          // `sm+`, where there's no touch-zoom.
+          className="text-ink placeholder:text-ink-light w-full min-w-0 bg-transparent font-mono text-base outline-none sm:text-[15px]"
         />
         {append}
       </div>

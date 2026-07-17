@@ -149,7 +149,7 @@ msgstr "계정 개요"
 msgid "Account reactivated"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:223
+#: src/components-v2/templates/account-app-shell.tsx:219
 #: src/components/utils/account-selector.tsx:25
 msgid "Account selector"
 msgstr "계정 선택기"
@@ -243,7 +243,7 @@ msgid "At least 8 characters, with a mix of letters, numbers, and symbols"
 msgstr ""
 
 #: src/pages/account/(authenticated)/route.tsx:150
-#: src/components-v2/templates/auth-card.tsx:82
+#: src/components-v2/templates/auth-card.tsx:91
 #: src/components-v2/screens/error-view.tsx:44
 #: src/components-v2/screens/cookie-error-view.tsx:33
 msgid "Atmosphere Account"
@@ -435,7 +435,7 @@ msgstr "사용자 이름 선택"
 msgid "Click here if nothing happens"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:263
+#: src/components-v2/templates/account-app-shell.tsx:259
 #: src/components-v2/molecules/dialog-simple.tsx:53
 #: src/components/utils/dialog-simple.tsx:85
 msgid "Close"
@@ -1052,7 +1052,7 @@ msgctxt "Error"
 msgid "Name"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:108
+#: src/components-v2/templates/account-app-shell.tsx:104
 msgid "Navigation"
 msgstr ""
 
@@ -1329,7 +1329,7 @@ msgstr ""
 msgid "Security step required"
 msgstr ""
 
-#: src/components-v2/templates/account-app-shell.tsx:257
+#: src/components-v2/templates/account-app-shell.tsx:253
 #: src/components/utils/account-selector.tsx:60
 msgid "Select another account"
 msgstr "다른 계정 선택"
@@ -1394,7 +1394,7 @@ msgctxt "device list"
 msgid "Sign out"
 msgstr "로그아웃"
 
-#: src/components-v2/templates/account-app-shell.tsx:252
+#: src/components-v2/templates/account-app-shell.tsx:248
 #: src/components/utils/account-selector.tsx:55
 msgid "Sign out"
 msgstr "로그아웃"

@@ -82,11 +82,7 @@ export function AccountAppShell({
       <div className="relative mx-auto flex min-h-dvh w-full max-w-[1600px] flex-col md:fixed md:inset-y-0 md:left-1/2 md:mx-0 md:block md:min-h-0 md:-translate-x-1/2">
         <header className="bg-surface-0 border-surface-border sticky top-0 z-20 flex h-14 flex-none items-center justify-between gap-4 border-b px-6 md:absolute md:inset-x-0">
           <Link to={basePath} className="flex min-w-0 items-center gap-2.5">
-            {logo ? (
-              <img src={logo} alt={name || 'Logo'} className="h-6" />
-            ) : (
-              <div className="bg-primary rounded-panel size-6" />
-            )}
+            {logo && <img src={logo} alt={name || 'Logo'} className="h-6" />}
             {titleString && (
               <span className="flex min-w-0 items-baseline gap-0.5 truncate font-mono text-[15px]">
                 <title>{titleString}</title>

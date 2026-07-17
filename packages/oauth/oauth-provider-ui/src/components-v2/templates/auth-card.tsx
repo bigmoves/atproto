@@ -1,6 +1,7 @@
 import type { MessageDescriptor } from '@lingui/core'
 import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
+import { GlobeIcon } from '@phosphor-icons/react'
 import { clsx } from 'clsx'
 import type { JSX, ReactNode } from 'react'
 import { useCustomizationData } from '#/contexts/customization.tsx'
@@ -74,24 +75,41 @@ export function AuthCard({
         className,
       )}
     >
-      <div className="border-surface-border text-ink-light hidden items-center justify-between border-b px-5 py-3 font-mono text-xs sm:flex">
-        <span className="flex items-baseline gap-0.5 truncate">
-          {/* Fixed product wordmark, not the operator's configured service
-              name — the brand identity for this UI. */}
+      {/* Mobile: centered wordmark, no divider. sm+: bordered header with the
+          wordmark left and the status tag right. */}
+      <div className="sm:border-surface-border text-ink-light flex items-center justify-center px-5 py-3 font-mono text-xs sm:justify-between sm:border-b">
+        <span className="flex items-center gap-1.5 truncate">
+          {/* Globe glyph + fixed product wordmark (not the operator's
+              configured service name) — the brand identity for this UI. Scoped
+              to the auth screens: the dashboard header has its own wordmark. */}
+          <GlobeIcon
+            weight="bold"
+            aria-hidden
+            className="text-ink size-4 flex-none"
+          />
           <span className="text-ink font-bold">
             <Trans>Atmosphere Account</Trans>
           </span>
         </span>
-        {tag && <span className="uppercase tracking-wide">{tag}</span>}
+        {tag && (
+          <span className="hidden uppercase tracking-wide sm:inline">
+            {tag}
+          </span>
+        )}
       </div>
 
-      <div className="hidden justify-center pb-1.5 pt-7 sm:flex">
-        <BrandMark logo={logo} name={name} size="lg" />
-      </div>
+      {logo && (
+        <div className="hidden justify-center pb-1.5 pt-7 sm:flex">
+          <BrandMark logo={logo} name={name} size="lg" />
+        </div>
+      )}
 
       <div
         className={clsx(
-          'flex flex-col px-5 pb-10 pt-10 sm:px-10 sm:pb-10 sm:pt-3.5',
+          // `sm:pt-3.5` only when a logo sits above; without one keep the
+          // fuller `pt-10` so the content doesn't crowd the meta bar.
+          'flex flex-col px-5 pb-10 pt-10 sm:px-10 sm:pb-10',
+          logo && 'sm:pt-3.5',
           narrow ? 'items-center gap-4' : 'items-center',
         )}
       >
@@ -133,10 +151,12 @@ export function AuthCard({
 }
 
 const BRAND_MARK_SIZES = {
-  sm: { box: 'size-7', dot: 'size-5' },
-  lg: { box: 'size-14', dot: 'size-9' },
+  sm: 'size-7',
+  lg: 'size-14',
 }
 
+// Renders the operator's configured logo, or nothing when none is set — no
+// decorative fallback mark.
 function BrandMark({
   logo,
   name,
@@ -148,33 +168,13 @@ function BrandMark({
   size?: keyof typeof BRAND_MARK_SIZES
   className?: string
 }) {
-  const { box, dot } = BRAND_MARK_SIZES[size]
+  if (!logo) return null
 
-  if (logo) {
-    return (
-      <img
-        src={logo}
-        alt={name || ''}
-        className={clsx(box, 'object-contain', className)}
-      />
-    )
-  }
-
-  // Decorative fallback mark for deployments that haven't configured a logo.
   return (
-    <div className={clsx('relative', box, className)}>
-      <div
-        className={clsx(
-          'bg-primary absolute left-0 top-0 rounded-full opacity-85',
-          dot,
-        )}
-      />
-      <div
-        className={clsx(
-          'bg-primary absolute bottom-0 right-0 rounded-full opacity-60',
-          dot,
-        )}
-      />
-    </div>
+    <img
+      src={logo}
+      alt={name || ''}
+      className={clsx(BRAND_MARK_SIZES[size], 'object-contain', className)}
+    />
   )
 }
