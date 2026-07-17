@@ -26,11 +26,10 @@ export function AuthShell({ children }: { children?: ReactNode }) {
         <div className="pointer-events-none absolute inset-0 z-0 hidden items-center justify-center sm:flex">
           <AsciiGlobe
             lines={36}
-            // Fixed decorative palette matching atproto.com's own globe
-            // (`text-blue-600` light / `text-yellow-500` dark) — a deliberate
-            // constant, not the operator's brand hue, so it's exempt from the
-            // "brand color only on buttons/links/nav" rule.
-            className="text-[10px] text-blue-600/40 sm:text-sm md:text-base lg:text-lg dark:text-yellow-500/40"
+            // Fixed decorative gold palette in both light and dark — a
+            // deliberate constant, not the operator's brand hue, so it's exempt
+            // from the "brand color only on buttons/links/nav" rule.
+            className="text-[10px] text-yellow-500/40 sm:text-sm md:text-base lg:text-lg"
           />
         </div>
 
