@@ -79,7 +79,7 @@ msgstr "1時間前"
 msgid "1 minute ago"
 msgstr "1分前"
 
-#: src/components-v2/organisms/sign-in-form.tsx:224
+#: src/components-v2/organisms/sign-in-form.tsx:268
 #: src/components/sign-in-form.tsx:244
 msgid "2FA Confirmation"
 msgstr "2要素認証の確認"
@@ -250,10 +250,10 @@ msgid "Atmosphere Account"
 msgstr ""
 
 #: src/components-v2/screens/sign-in-view.tsx:52
-#: src/components-v2/screens/sign-in-view.tsx:74
-#: src/components-v2/screens/sign-in-view.tsx:96
-#: src/components-v2/screens/sign-in-view.tsx:116
-#: src/components-v2/screens/sign-in-view.tsx:134
+#: src/components-v2/screens/sign-in-view.tsx:75
+#: src/components-v2/screens/sign-in-view.tsx:97
+#: src/components-v2/screens/sign-in-view.tsx:117
+#: src/components-v2/screens/sign-in-view.tsx:135
 #: src/components-v2/screens/authenticate-welcome-view.tsx:20
 msgid "Authenticate"
 msgstr ""
@@ -385,7 +385,7 @@ msgid "Check <0>{email}</0> for an email with the confirmation code to enter bel
 msgstr "確認コードが記載されたメール <0>{email}</0> を確認し、ここに入力してください。"
 
 #. placeholder {0}: secondFactorError.hint
-#: src/components-v2/organisms/sign-in-form.tsx:236
+#: src/components-v2/organisms/sign-in-form.tsx:280
 #: src/components/sign-in-form.tsx:257
 msgid "Check your {0} email for a login code and enter it here."
 msgstr "確認コードが記載されたメール {0} を確認し、ここに入力してください。"
@@ -454,7 +454,7 @@ msgctxt "Error"
 msgid "Code"
 msgstr "コード"
 
-#: src/components-v2/organisms/sign-in-form.tsx:88
+#: src/components-v2/organisms/sign-in-form.tsx:100
 #: src/components/sign-in-form.tsx:86
 msgctxt "verb"
 msgid "Confirm"
@@ -464,12 +464,11 @@ msgstr "確認"
 msgid "Confirm password"
 msgstr ""
 
-#: src/components-v2/screens/sign-in-view.tsx:55
 #: src/components/sign-in-view.tsx:55
 msgid "Confirm your password to continue"
 msgstr "続けるにはパスワードを確認してください"
 
-#: src/components-v2/organisms/sign-in-form.tsx:228
+#: src/components-v2/organisms/sign-in-form.tsx:272
 #: src/components-v2/organisms/delete-account-dialog.tsx:75
 #: src/components/sign-in-form.tsx:248
 #: src/components/delete-account-confirm-form.tsx:51
@@ -681,13 +680,17 @@ msgstr ""
 msgid "Enter your new password"
 msgstr "新しいパスワードを入力してください"
 
-#: src/components-v2/screens/sign-in-view.tsx:77
+#: src/components-v2/screens/sign-in-view.tsx:78
 #: src/components/sign-in-view.tsx:73
 msgid "Enter your password"
 msgstr "パスワードを入力"
 
-#: src/components-v2/screens/sign-in-view.tsx:99
-#: src/components-v2/screens/sign-in-view.tsx:119
+#: src/components-v2/screens/sign-in-view.tsx:55
+msgid "Enter your password to continue"
+msgstr ""
+
+#: src/components-v2/screens/sign-in-view.tsx:100
+#: src/components-v2/screens/sign-in-view.tsx:120
 #: src/components/sign-in-view.tsx:92
 #: src/components/sign-in-view.tsx:110
 msgid "Enter your username and password"
@@ -797,7 +800,7 @@ msgstr "セキュリティ上の理由から、あなたのメールアドレス
 msgid "Forgot Password"
 msgstr "パスワードを忘れた"
 
-#: src/components-v2/organisms/sign-in-form.tsx:192
+#: src/components-v2/organisms/sign-in-form.tsx:236
 #: src/components/sign-in-form.tsx:210
 msgid "Forgot?"
 msgstr "忘れた？"
@@ -866,7 +869,7 @@ msgstr "ホスト"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/components-v2/organisms/sign-in-form.tsx:139
+#: src/components-v2/organisms/sign-in-form.tsx:182
 #: src/components/sign-in-form.tsx:151
 msgid "Identifier"
 msgstr "識別子"
@@ -1085,7 +1088,7 @@ msgstr "新しいパスワード"
 msgid "Next"
 msgstr "次へ"
 
-#: src/components-v2/organisms/sign-in-form.tsx:90
+#: src/components-v2/organisms/sign-in-form.tsx:102
 msgctxt "verb"
 msgid "Next"
 msgstr ""
@@ -1110,7 +1113,7 @@ msgstr "英数字とハイフンのみ"
 #: src/pages/account/(authenticated)/manage/page.tsx:399
 #: src/components-v2/organisms/sign-up-password-form.tsx:38
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:69
-#: src/components-v2/organisms/sign-in-form.tsx:178
+#: src/components-v2/organisms/sign-in-form.tsx:222
 #: src/components-v2/organisms/delete-account-dialog.tsx:90
 #: src/components-v2/atoms/input-password.tsx:42
 #: src/components/sign-up-credentials-form.tsx:71
@@ -1271,13 +1274,13 @@ msgstr ""
 msgid "Register / new"
 msgstr ""
 
-#: src/components-v2/organisms/sign-in-form.tsx:212
+#: src/components-v2/organisms/sign-in-form.tsx:256
 #: src/components/sign-in-form.tsx:231
 #: src/components/sign-in-form.tsx:236
 msgid "Remember this account on this device"
 msgstr "このアカウントをこのデバイスに記憶する"
 
-#: src/components-v2/organisms/sign-in-form.tsx:216
+#: src/components-v2/organisms/sign-in-form.tsx:260
 msgid "Remember this device"
 msgstr ""
 
@@ -1301,7 +1304,7 @@ msgstr "リセットコード"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
-#: src/components-v2/organisms/sign-in-form.tsx:190
+#: src/components-v2/organisms/sign-in-form.tsx:234
 #: src/components/sign-in-form.tsx:208
 msgid "Reset your password"
 msgstr "パスワードをリセット"
@@ -1348,7 +1351,7 @@ msgstr "別のアカウントを選択"
 msgid "Select domain"
 msgstr "ドメインを選択"
 
-#: src/components-v2/screens/sign-in-view.tsx:137
+#: src/components-v2/screens/sign-in-view.tsx:138
 #: src/components/sign-in-view.tsx:126
 msgid "Select from an existing account"
 msgstr "既存のアカウントから選択"
@@ -1364,10 +1367,13 @@ msgid "Send verification code"
 msgstr "確認コードを送信"
 
 #: src/components-v2/screens/sign-in-view.tsx:53
-#: src/components-v2/screens/sign-in-view.tsx:75
-#: src/components-v2/screens/sign-in-view.tsx:97
-#: src/components-v2/screens/sign-in-view.tsx:117
-#: src/components-v2/screens/sign-in-view.tsx:135
+msgid "Session / found"
+msgstr ""
+
+#: src/components-v2/screens/sign-in-view.tsx:76
+#: src/components-v2/screens/sign-in-view.tsx:98
+#: src/components-v2/screens/sign-in-view.tsx:118
+#: src/components-v2/screens/sign-in-view.tsx:136
 msgid "Session / new"
 msgstr ""
 
@@ -1700,7 +1706,7 @@ msgstr ""
 msgid "Username"
 msgstr "ユーザー名"
 
-#: src/components-v2/organisms/sign-in-form.tsx:143
+#: src/components-v2/organisms/sign-in-form.tsx:186
 #: src/components/sign-in-form.tsx:156
 msgid "Username or email address"
 msgstr "ユーザー名またはメールアドレス"

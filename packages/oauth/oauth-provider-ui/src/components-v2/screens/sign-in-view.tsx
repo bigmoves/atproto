@@ -50,9 +50,9 @@ export function SignInView({
     return (
       <AuthCard
         eyebrow={<Trans>Authenticate</Trans>}
-        tag={<Trans>Session / new</Trans>}
+        tag={<Trans>Session / found</Trans>}
         title={title}
-        subtitle={<Trans>Confirm your password to continue</Trans>}
+        subtitle={<Trans>Enter your password to continue</Trans>}
       >
         <SignInForm
           domains={availableUserDomains}
@@ -60,6 +60,7 @@ export function SignInView({
           onSignIn={onSignIn}
           onForgotPassword={onForgotPassword}
           onBack={clearSession}
+          account={session.account}
           usernameDefault={session.account.handle || session.account.did}
           usernameReadonly={true}
           rememberDefault={true}

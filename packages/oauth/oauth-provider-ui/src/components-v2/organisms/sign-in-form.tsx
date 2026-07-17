@@ -1,5 +1,8 @@
 import { Trans, useLingui } from '@lingui/react/macro'
 import { type Ref, useCallback, useRef, useState } from 'react'
+import type { Account } from '@atproto/oauth-provider-api'
+import { AccountIdentifier } from '#/components/utils/account-identifier.tsx'
+import { AccountName } from '#/components/utils/account-name.tsx'
 import { useMergedRefs } from '#/hooks/use-merged-refs.ts'
 import {
   InvalidCredentialsError,
@@ -7,6 +10,7 @@ import {
 } from '#/lib/api.ts'
 import { isValidDomain } from '#/lib/handle.ts'
 import type { Override } from '#/lib/util.ts'
+import { AvatarBadge } from '../atoms/avatar-badge.tsx'
 import { InputCheckbox } from '../atoms/input-checkbox.tsx'
 import { InputPassword } from '../atoms/input-password.tsx'
 import { InputText } from '../atoms/input-text.tsx'
@@ -34,6 +38,13 @@ export type SignInFormProps = Override<
   {
     usernameDefault?: string
     usernameReadonly?: boolean
+    /**
+     * When the identifier belongs to a known account (e.g. re-authenticating
+     * an existing session), pass it to show an avatar + name + handle card in
+     * place of the read-only identifier field — "we found your account, enter
+     * your password". `usernameDefault` should still carry the identifier.
+     */
+    account?: Account
     rememberDefault?: boolean
     disableRemember?: boolean
     domains?: readonly string[]
@@ -56,6 +67,7 @@ export type SignInFormProps = Override<
 export function SignInForm({
   usernameDefault = '',
   usernameReadonly = false,
+  account,
   rememberDefault = false,
   disableRemember = false,
   domains: availableDomains = [],
@@ -136,40 +148,72 @@ export function SignInForm({
       }}
       fields={({ values, loading, set, setterFor }) => (
         <>
-          <FormField disabled={loading} label={<Trans>Identifier</Trans>}>
-            <InputText
-              name="username"
-              type="text"
-              title={t`Username or email address`}
-              autoCapitalize="none"
-              autoCorrect="off"
-              autoComplete="username"
-              spellCheck="false"
-              dir="auto"
-              enterKeyHint="next"
-              required
-              readOnly={usernameReadonly}
-              disabled={usernameReadonly}
-              autoFocus={!usernameReadonly}
-              pattern="([^@]+@[^@]+|[^.@]+(\.[^.@]+)+)|did:[a-z0-9]+:.+"
-              value={values.username}
-              onChange={(event) => set('username', event.target.value)}
-              onBlur={(event) => {
-                if (usernameReadonly) return
-                let value = event.target.value.trim().toLowerCase()
-                if (value.startsWith('@')) value = value.slice(1)
-                if (
-                  value.length > 0 &&
-                  !value.startsWith('did:') &&
-                  !value.includes('@') &&
-                  !value.includes('.') &&
-                  domains.length > 0
-                ) {
-                  set('username', `${value}${domains[0]}`)
-                }
-              }}
-            />
-          </FormField>
+          {account ? (
+            // Known account (session re-auth): show an identity card instead
+            // of the identifier field. The username still travels in form
+            // state; a hidden field keeps password managers associating the
+            // saved credential with the right account.
+            <>
+              <div className="bg-surface-2 border-surface-border rounded-control flex items-center gap-3 border px-4 py-3">
+                <AvatarBadge account={account} size="md" />
+                <div className="min-w-0 flex-1">
+                  {account.name && (
+                    <AccountName
+                      account={account}
+                      className="text-ink block truncate font-serif text-base font-semibold"
+                    />
+                  )}
+                  <AccountIdentifier
+                    account={account}
+                    className="text-ink-light block truncate text-sm"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                name="username"
+                autoComplete="username"
+                value={values.username}
+                readOnly
+                hidden
+              />
+            </>
+          ) : (
+            <FormField disabled={loading} label={<Trans>Identifier</Trans>}>
+              <InputText
+                name="username"
+                type="text"
+                title={t`Username or email address`}
+                autoCapitalize="none"
+                autoCorrect="off"
+                autoComplete="username"
+                spellCheck="false"
+                dir="auto"
+                enterKeyHint="next"
+                required
+                readOnly={usernameReadonly}
+                disabled={usernameReadonly}
+                autoFocus={!usernameReadonly}
+                pattern="([^@]+@[^@]+|[^.@]+(\.[^.@]+)+)|did:[a-z0-9]+:.+"
+                value={values.username}
+                onChange={(event) => set('username', event.target.value)}
+                onBlur={(event) => {
+                  if (usernameReadonly) return
+                  let value = event.target.value.trim().toLowerCase()
+                  if (value.startsWith('@')) value = value.slice(1)
+                  if (
+                    value.length > 0 &&
+                    !value.startsWith('did:') &&
+                    !value.includes('@') &&
+                    !value.includes('.') &&
+                    domains.length > 0
+                  ) {
+                    set('username', `${value}${domains[0]}`)
+                  }
+                }}
+              />
+            </FormField>
+          )}
 
           <FormField
             disabled={loading}

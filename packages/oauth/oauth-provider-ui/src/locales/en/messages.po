@@ -79,7 +79,7 @@ msgstr "1 hour ago"
 msgid "1 minute ago"
 msgstr "1 minute ago"
 
-#: src/components-v2/organisms/sign-in-form.tsx:224
+#: src/components-v2/organisms/sign-in-form.tsx:268
 #: src/components/sign-in-form.tsx:244
 msgid "2FA Confirmation"
 msgstr "2FA Confirmation"
@@ -250,10 +250,10 @@ msgid "Atmosphere Account"
 msgstr "Atmosphere Account"
 
 #: src/components-v2/screens/sign-in-view.tsx:52
-#: src/components-v2/screens/sign-in-view.tsx:74
-#: src/components-v2/screens/sign-in-view.tsx:96
-#: src/components-v2/screens/sign-in-view.tsx:116
-#: src/components-v2/screens/sign-in-view.tsx:134
+#: src/components-v2/screens/sign-in-view.tsx:75
+#: src/components-v2/screens/sign-in-view.tsx:97
+#: src/components-v2/screens/sign-in-view.tsx:117
+#: src/components-v2/screens/sign-in-view.tsx:135
 #: src/components-v2/screens/authenticate-welcome-view.tsx:20
 msgid "Authenticate"
 msgstr "Authenticate"
@@ -385,7 +385,7 @@ msgid "Check <0>{email}</0> for an email with the confirmation code to enter bel
 msgstr "Check <0>{email}</0> for an email with the confirmation code to enter below:"
 
 #. placeholder {0}: secondFactorError.hint
-#: src/components-v2/organisms/sign-in-form.tsx:236
+#: src/components-v2/organisms/sign-in-form.tsx:280
 #: src/components/sign-in-form.tsx:257
 msgid "Check your {0} email for a login code and enter it here."
 msgstr "Check your {0} email for a login code and enter it here."
@@ -454,7 +454,7 @@ msgctxt "Error"
 msgid "Code"
 msgstr "Code"
 
-#: src/components-v2/organisms/sign-in-form.tsx:88
+#: src/components-v2/organisms/sign-in-form.tsx:100
 #: src/components/sign-in-form.tsx:86
 msgctxt "verb"
 msgid "Confirm"
@@ -464,12 +464,11 @@ msgstr "Confirm"
 msgid "Confirm password"
 msgstr "Confirm password"
 
-#: src/components-v2/screens/sign-in-view.tsx:55
 #: src/components/sign-in-view.tsx:55
 msgid "Confirm your password to continue"
 msgstr "Confirm your password to continue"
 
-#: src/components-v2/organisms/sign-in-form.tsx:228
+#: src/components-v2/organisms/sign-in-form.tsx:272
 #: src/components-v2/organisms/delete-account-dialog.tsx:75
 #: src/components/sign-in-form.tsx:248
 #: src/components/delete-account-confirm-form.tsx:51
@@ -681,13 +680,17 @@ msgstr "Enter your invite code"
 msgid "Enter your new password"
 msgstr "Enter your new password"
 
-#: src/components-v2/screens/sign-in-view.tsx:77
+#: src/components-v2/screens/sign-in-view.tsx:78
 #: src/components/sign-in-view.tsx:73
 msgid "Enter your password"
 msgstr "Enter your password"
 
-#: src/components-v2/screens/sign-in-view.tsx:99
-#: src/components-v2/screens/sign-in-view.tsx:119
+#: src/components-v2/screens/sign-in-view.tsx:55
+msgid "Enter your password to continue"
+msgstr "Enter your password to continue"
+
+#: src/components-v2/screens/sign-in-view.tsx:100
+#: src/components-v2/screens/sign-in-view.tsx:120
 #: src/components/sign-in-view.tsx:92
 #: src/components/sign-in-view.tsx:110
 msgid "Enter your username and password"
@@ -797,7 +800,7 @@ msgstr "For security reasons, we'll need to send a confirmation code to your ema
 msgid "Forgot Password"
 msgstr "Forgot Password"
 
-#: src/components-v2/organisms/sign-in-form.tsx:192
+#: src/components-v2/organisms/sign-in-form.tsx:236
 #: src/components/sign-in-form.tsx:210
 msgid "Forgot?"
 msgstr "Forgot?"
@@ -866,7 +869,7 @@ msgstr "Host"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/components-v2/organisms/sign-in-form.tsx:139
+#: src/components-v2/organisms/sign-in-form.tsx:182
 #: src/components/sign-in-form.tsx:151
 msgid "Identifier"
 msgstr "Identifier"
@@ -1085,7 +1088,7 @@ msgstr "New password"
 msgid "Next"
 msgstr "Next"
 
-#: src/components-v2/organisms/sign-in-form.tsx:90
+#: src/components-v2/organisms/sign-in-form.tsx:102
 msgctxt "verb"
 msgid "Next"
 msgstr "Next"
@@ -1110,7 +1113,7 @@ msgstr "Only letters, numbers, and hyphens"
 #: src/pages/account/(authenticated)/manage/page.tsx:399
 #: src/components-v2/organisms/sign-up-password-form.tsx:38
 #: src/components-v2/organisms/sign-up-credentials-form.tsx:69
-#: src/components-v2/organisms/sign-in-form.tsx:178
+#: src/components-v2/organisms/sign-in-form.tsx:222
 #: src/components-v2/organisms/delete-account-dialog.tsx:90
 #: src/components-v2/atoms/input-password.tsx:42
 #: src/components/sign-up-credentials-form.tsx:71
@@ -1271,13 +1274,13 @@ msgstr "Register"
 msgid "Register / new"
 msgstr "Register / new"
 
-#: src/components-v2/organisms/sign-in-form.tsx:212
+#: src/components-v2/organisms/sign-in-form.tsx:256
 #: src/components/sign-in-form.tsx:231
 #: src/components/sign-in-form.tsx:236
 msgid "Remember this account on this device"
 msgstr "Remember this account on this device"
 
-#: src/components-v2/organisms/sign-in-form.tsx:216
+#: src/components-v2/organisms/sign-in-form.tsx:260
 msgid "Remember this device"
 msgstr "Remember this device"
 
@@ -1301,7 +1304,7 @@ msgstr "Reset code"
 msgid "Reset Password"
 msgstr "Reset Password"
 
-#: src/components-v2/organisms/sign-in-form.tsx:190
+#: src/components-v2/organisms/sign-in-form.tsx:234
 #: src/components/sign-in-form.tsx:208
 msgid "Reset your password"
 msgstr "Reset your password"
@@ -1348,7 +1351,7 @@ msgstr "Select another account"
 msgid "Select domain"
 msgstr "Select domain"
 
-#: src/components-v2/screens/sign-in-view.tsx:137
+#: src/components-v2/screens/sign-in-view.tsx:138
 #: src/components/sign-in-view.tsx:126
 msgid "Select from an existing account"
 msgstr "Select from an existing account"
@@ -1364,10 +1367,13 @@ msgid "Send verification code"
 msgstr "Send verification code"
 
 #: src/components-v2/screens/sign-in-view.tsx:53
-#: src/components-v2/screens/sign-in-view.tsx:75
-#: src/components-v2/screens/sign-in-view.tsx:97
-#: src/components-v2/screens/sign-in-view.tsx:117
-#: src/components-v2/screens/sign-in-view.tsx:135
+msgid "Session / found"
+msgstr "Session / found"
+
+#: src/components-v2/screens/sign-in-view.tsx:76
+#: src/components-v2/screens/sign-in-view.tsx:98
+#: src/components-v2/screens/sign-in-view.tsx:118
+#: src/components-v2/screens/sign-in-view.tsx:136
 msgid "Session / new"
 msgstr "Session / new"
 
@@ -1700,7 +1706,7 @@ msgstr "username"
 msgid "Username"
 msgstr "Username"
 
-#: src/components-v2/organisms/sign-in-form.tsx:143
+#: src/components-v2/organisms/sign-in-form.tsx:186
 #: src/components/sign-in-form.tsx:156
 msgid "Username or email address"
 msgstr "Username or email address"
