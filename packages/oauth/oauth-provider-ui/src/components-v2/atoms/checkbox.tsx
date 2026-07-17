@@ -1,5 +1,9 @@
 import { clsx } from 'clsx'
-import { type ClassAttributes, type InputHTMLAttributes, forwardRef } from 'react'
+import {
+  type ClassAttributes,
+  type InputHTMLAttributes,
+  forwardRef,
+} from 'react'
 import type { Override } from '#/lib/util.ts'
 
 export type CheckboxProps = Override<
@@ -16,9 +20,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         ref={ref}
         disabled={disabled}
         className={clsx(
-          'accent-primary size-[18px] rounded-sm',
+          'accent-ink size-[18px] rounded-sm',
           'transition duration-200 ease-in-out',
-          'outline-none focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-1',
+          'focus-visible:ring-ink outline-none focus-visible:ring-2 focus-visible:ring-offset-1',
           disabled && 'cursor-not-allowed opacity-50',
           className,
         )}

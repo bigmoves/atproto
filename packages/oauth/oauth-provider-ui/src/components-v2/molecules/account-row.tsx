@@ -26,19 +26,19 @@ export function AccountRow({
     <button
       type="button"
       {...props}
-      className="hover:bg-contrast-200 flex w-full items-center gap-4 px-2.5 py-3 text-left"
+      className="hover:bg-surface-2 flex w-full items-center gap-4 px-2.5 py-3 text-left"
     >
       <AvatarBadge account={account} size="sm" />
       <div className="min-w-0 flex-1">
         {account.name && (
           <AccountName
             account={account}
-            className="text-text-default block truncate text-sm font-semibold"
+            className="text-ink block truncate font-serif text-base font-semibold"
           />
         )}
         <AccountIdentifier
           account={account}
-          className="text-text-light block truncate text-xs"
+          className="text-ink-light block truncate text-xs"
         />
       </div>
       {append}

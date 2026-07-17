@@ -1,5 +1,5 @@
-import { Trans } from '@lingui/react/macro'
 import type { MessageDescriptor } from '@lingui/core'
+import { Trans } from '@lingui/react/macro'
 import {
   type MouseEventHandler,
   useCallback,
@@ -52,9 +52,9 @@ export function RedirectingView({
   )
 
   return (
-    <AuthCard narrow title={title}>
+    <AuthCard narrow tag={<Trans>Session / OK</Trans>} title={title}>
       <div className="flex flex-col items-center gap-4">
-        <div className="border-contrast-200 border-t-primary size-10 animate-spin rounded-full border-[3px]" />
+        <div className="border-surface-border border-t-ink size-10 animate-spin rounded-full border-[3px]" />
         <Trans>You are being redirected...</Trans>
 
         {showLink && (
@@ -62,7 +62,10 @@ export function RedirectingView({
             href={url}
             onClick={onClick}
             aria-disabled={!canClick}
-            className={buttonClassName({ color: 'primary', disabled: !canClick })}
+            className={buttonClassName({
+              color: 'primary',
+              disabled: !canClick,
+            })}
           >
             <Trans>Click here if nothing happens</Trans>
           </a>

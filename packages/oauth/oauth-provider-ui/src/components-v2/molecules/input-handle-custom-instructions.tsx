@@ -129,13 +129,17 @@ Thank you.`
         />
       </FormField>
 
-      <p className="my-2">{currentInstructions.message}</p>
+      <p className="text-ink-light my-3 font-mono text-sm leading-snug">
+        {currentInstructions.message}
+      </p>
 
-      {currentInstructions.values.map(({ label, value, copyable }, index) => (
-        <CodeSnippet key={index} label={label} copyable={copyable}>
-          {value}
-        </CodeSnippet>
-      ))}
+      <div className="flex flex-col gap-3">
+        {currentInstructions.values.map(({ label, value, copyable }, index) => (
+          <CodeSnippet key={index} label={label} copyable={copyable}>
+            {value}
+          </CodeSnippet>
+        ))}
+      </div>
 
       <p className="my-2 flex flex-row flex-wrap gap-3">
         <LinkExternal href={tutorialHref}>

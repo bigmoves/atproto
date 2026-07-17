@@ -29,7 +29,7 @@ export function PasswordStrengthMeter({
   const { t } = useLingui()
   const strength = password ? getPasswordStrength(password) : 0
 
-  const colorBg = 'bg-contrast-200'
+  const colorBg = 'bg-surface-2'
   const color =
     strength === PasswordStrength.extra || strength === PasswordStrength.strong
       ? 'bg-success'

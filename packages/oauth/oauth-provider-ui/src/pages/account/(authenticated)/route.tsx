@@ -147,7 +147,7 @@ function Page({
   if (NEW_DESIGN_ENABLED) {
     return (
       <AccountAppShell
-        title={msg`My Atmosphere Account`}
+        title={msg`Atmosphere Account`}
         basePath={basePath}
         links={links}
       >

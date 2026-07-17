@@ -26,23 +26,23 @@ export function AccountAppsView({
       </PageHeader>
 
       {sessions.length === 0 ? (
-        <p className="text-text-light text-sm">
+        <p className="text-ink-light text-sm">
           <Trans>
-            It appears that you haven't used this account to sign in to any
-            apps yet.
+            It appears that you haven't used this account to sign in to any apps
+            yet.
           </Trans>
         </p>
       ) : (
         <>
-          <p className="text-text-light mb-4 text-sm leading-relaxed">
+          <p className="text-ink-light mb-4 text-sm leading-relaxed">
             <Trans>
-              These apps have access to your account. An app may appear
-              multiple times if you use it on different devices. Revoking
-              access will log the app out until you sign in again.
+              These apps have access to your account. An app may appear multiple
+              times if you use it on different devices. Revoking access will log
+              the app out until you sign in again.
             </Trans>
           </p>
 
-          <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+          <div className="bg-surface-1 border-surface-border divide-surface-border rounded-panel flex flex-col divide-y overflow-hidden border">
             {sessions.map((session) => (
               <AppRow
                 key={session.tokenId}
@@ -75,15 +75,13 @@ function AppRow({
 
   return (
     <div className="flex items-center gap-4 p-4">
-      <div className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
+      <div className="bg-surface-2 text-ink-light rounded-control flex size-9 flex-none items-center justify-center">
         <GlobeIcon className="size-4" />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-text-default truncate text-sm font-semibold">
-          {clientName}
-        </p>
-        <p className="text-text-light font-mono text-xs">{friendlyClientId}</p>
-        <p className="text-text-light truncate text-xs">
+        <p className="text-ink truncate text-sm font-semibold">{clientName}</p>
+        <p className="text-ink-light font-mono text-xs">{friendlyClientId}</p>
+        <p className="text-ink-light truncate text-xs">
           <Trans context="OAuthApp">
             Authorized{' '}
             {i18n.date(createdAt, {

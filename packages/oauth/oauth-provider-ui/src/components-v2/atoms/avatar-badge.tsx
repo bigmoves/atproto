@@ -29,7 +29,10 @@ function hueFromString(value: string): number {
 
 function initialsFrom(account: Account): string {
   const source = account.name || account.handle || account.did
-  const parts = source.replace(/^@/, '').split(/[\s._-]+/).filter(Boolean)
+  const parts = source
+    .replace(/^@/, '')
+    .split(/[\s._-]+/)
+    .filter(Boolean)
   const initials = parts
     .slice(0, 2)
     .map((p) => p[0])
@@ -55,7 +58,11 @@ export function AvatarBadge({
       <img
         src={src}
         alt={t`Account avatar`}
-        className={clsx('flex-none rounded-full object-cover', SIZES[size], className)}
+        className={clsx(
+          'rounded-control flex-none object-cover',
+          SIZES[size],
+          className,
+        )}
         onError={() => setErrored(true)}
       />
     )
@@ -67,7 +74,7 @@ export function AvatarBadge({
     <div
       aria-hidden
       className={clsx(
-        'flex flex-none items-center justify-center rounded-full font-bold text-white',
+        'rounded-control flex flex-none items-center justify-center font-mono font-bold text-white',
         SIZES[size],
         className,
       )}

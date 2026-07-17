@@ -14,7 +14,7 @@ export function Spinner({ size = 40, className, ...props }: SpinnerProps) {
       role="status"
       style={{ width: size, height: size }}
       className={clsx(
-        'border-contrast-200 border-t-primary animate-spin rounded-full border-[3px]',
+        'border-surface-border border-t-ink animate-spin rounded-full border-[3px]',
         className,
       )}
     />

@@ -4,14 +4,18 @@ import { CheckIcon } from '@phosphor-icons/react'
 import { useRef, useState } from 'react'
 import { useBrowserColorScheme } from '#/hooks/use-browser-color-scheme.ts'
 import { useCurrentLocale } from '#/locales/locale-provider.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type VerifyData = { token: string; ekey: string }
 export type SignUpHcaptchaData = { verify: VerifyData }
 
-export type SignUpHcaptchaFormProps = WrappedSmartFormProps<SignUpHcaptchaData> & {
-  siteKey: string
-}
+export type SignUpHcaptchaFormProps =
+  WrappedSmartFormProps<SignUpHcaptchaData> & {
+    siteKey: string
+  }
 
 /** v2 restyle. The hCaptcha widget itself is a third-party embed, reused as-is. */
 export function SignUpHcaptchaForm({

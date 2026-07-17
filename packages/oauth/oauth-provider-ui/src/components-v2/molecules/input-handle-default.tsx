@@ -1,5 +1,4 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { AtIcon } from '@phosphor-icons/react'
 import { composeRefs } from '@radix-ui/react-compose-refs'
 import { clsx } from 'clsx'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -55,7 +54,6 @@ export function InputHandleDefault({
   autoComplete = 'off',
   autoCorrect = 'off',
   dir = 'auto',
-  icon = <AtIcon aria-hidden weight="bold" className="size-5" />,
   ref,
   title,
   ...props
@@ -114,7 +112,6 @@ export function InputHandleDefault({
         autoComplete={autoComplete}
         autoCorrect={autoCorrect}
         dir={dir}
-        icon={icon}
         value={segment}
         onChange={(event) => {
           const value = event.target.value.toLowerCase()
@@ -129,7 +126,7 @@ export function InputHandleDefault({
       <p
         className={clsx(
           'mt-1.5 px-1 text-xs',
-          segment && !validity.valid ? 'text-error' : 'text-text-light',
+          segment && !validity.valid ? 'text-error' : 'text-ink-light',
         )}
       >
         <Trans>
@@ -138,12 +135,12 @@ export function InputHandleDefault({
         </Trans>
       </p>
 
-      <div className="bg-contrast-200 rounded-control mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3">
-        <div className="min-w-0 flex-1 truncate text-sm">
-          <span className={segment ? 'text-text-default' : 'text-text-light'}>
+      <div className="bg-surface-2 rounded-control mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3">
+        <div className="min-w-0 flex-1 truncate font-mono text-[15px]">
+          <span className={segment ? 'text-ink' : 'text-ink-light'}>
             {segment || t`username`}
           </span>
-          {domain && <span className="text-text-light">{domain}</span>}
+          {domain && <span className="text-ink-light">{domain}</span>}
         </div>
         {domains.length > 1 && (
           <DialogSimple

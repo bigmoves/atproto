@@ -1,5 +1,6 @@
 import { Trans } from '@lingui/react/macro'
 import {
+  Fragment,
   type ReactNode,
   createContext,
   useContext,
@@ -15,10 +16,11 @@ import { SignUpView as SignUpViewV1 } from '#/components/sign-up-view.tsx'
 import { AuthenticateWelcomeView as AuthenticateWelcomeViewV2 } from '#/components-v2/screens/authenticate-welcome-view.tsx'
 import { SignInView as SignInViewV2 } from '#/components-v2/screens/sign-in-view.tsx'
 import { SignUpView as SignUpViewV2 } from '#/components-v2/screens/sign-up-view.tsx'
+import { AuthShell } from '#/components-v2/templates/auth-shell.tsx'
 import { useCustomizationData } from '#/contexts/customization.tsx'
 import { type Session, useSessionContext } from '#/contexts/session.tsx'
-import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 import type { Api } from '#/lib/api'
+import { NEW_DESIGN_ENABLED } from '#/lib/feature-flags.ts'
 
 // NOTE: reset-password is not yet ported to components-v2 (see
 // docs/superpowers/specs/2026-07-14-oauth-provider-ui-redesign-design.md);
@@ -28,6 +30,13 @@ const SignUpView = NEW_DESIGN_ENABLED ? SignUpViewV2 : SignUpViewV1
 const AuthenticateWelcomeView = NEW_DESIGN_ENABLED
   ? AuthenticateWelcomeViewV2
   : AuthenticateWelcomeViewV1
+// Wraps the Welcome/SignUp/SignIn screens (all v2, all `AuthCard`-based) so
+// the decorative globe stays mounted while switching between them — these
+// three branches are the component's own top-level return, so as long as
+// they all resolve to the same `Shell` element type, React preserves it
+// across the switch instead of remounting. Deliberately excludes
+// `ResetPasswordView` (still v1, has its own full-page layout).
+const Shell = NEW_DESIGN_ENABLED ? AuthShell : Fragment
 
 enum View {
   Welcome,
@@ -150,30 +159,35 @@ export function AuthenticationProvider({
   if (!value) {
     if (view === View.Welcome) {
       return (
-        <AuthenticateWelcomeView
-          onSignIn={showSignIn}
-          onSignUp={showSignUpIfAllowed}
-          onCancel={onCancel}
-        />
+        <Shell>
+          <AuthenticateWelcomeView
+            onSignIn={showSignIn}
+            onSignUp={showSignUpIfAllowed}
+            onCancel={onCancel}
+          />
+        </Shell>
       )
     }
 
     if (view === View.SignUp) {
       return (
-        <SignUpView
-          onValidateNewHandle={async (data) => {
-            await api.validateHandleAvailability(data)
-          }}
-          onBack={showHome}
-          onDone={async (data) => {
-            await api.signUp(data)
-            showHome()
-          }}
-        />
+        <Shell>
+          <SignUpView
+            onValidateNewHandle={async (data) => {
+              await api.validateHandleAvailability(data)
+            }}
+            onBack={showHome}
+            onDone={async (data) => {
+              await api.signUp(data)
+              showHome()
+            }}
+          />
+        </Shell>
       )
     }
 
     if (view === View.ResetPassword) {
+      // Still v1 — has its own full-page layout, not `Shell`-wrapped.
       return (
         <ResetPasswordView
           emailDefault={resetPasswordHint}
@@ -189,23 +203,27 @@ export function AuthenticationProvider({
     }
 
     return (
-      <SignInView
-        disableRemember={disableRemember}
-        forcedIdentifier={forcedIdentifier}
-        sessions={sessions}
-        session={session}
-        setSession={setSession}
-        onSignIn={async (data) => {
-          await api.signIn(data)
-        }}
-        onSignUp={showSignUpIfAllowed}
-        onBack={homeView === View.SignIn ? onCancel : showHome}
-        backLabel={homeView === View.SignIn ? <Trans>Cancel</Trans> : undefined}
-        onForgotPassword={(email) => {
-          setView(View.ResetPassword)
-          setResetPasswordHint(email)
-        }}
-      />
+      <Shell>
+        <SignInView
+          disableRemember={disableRemember}
+          forcedIdentifier={forcedIdentifier}
+          sessions={sessions}
+          session={session}
+          setSession={setSession}
+          onSignIn={async (data) => {
+            await api.signIn(data)
+          }}
+          onSignUp={showSignUpIfAllowed}
+          onBack={homeView === View.SignIn ? onCancel : showHome}
+          backLabel={
+            homeView === View.SignIn ? <Trans>Cancel</Trans> : undefined
+          }
+          onForgotPassword={(email) => {
+            setView(View.ResetPassword)
+            setResetPasswordHint(email)
+          }}
+        />
+      </Shell>
     )
   }
 

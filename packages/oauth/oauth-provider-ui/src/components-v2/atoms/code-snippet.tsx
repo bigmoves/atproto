@@ -22,12 +22,16 @@ export function CodeSnippet({
 }: CodeSnippetProps) {
   return (
     <div {...props} className={clsx('flex flex-col', className)}>
-      {label && <span className="text-text-light text-sm">{label}</span>}
+      {label && (
+        <span className="text-ink-light mb-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em]">
+          {label}
+        </span>
+      )}
       <div className="flex items-stretch gap-2">
-        <code className="bg-contrast-200 text-text-default flex flex-1 items-center break-all rounded-md px-2 py-1 font-mono text-sm">
+        <code className="bg-surface-2 text-ink rounded-control flex flex-1 items-center break-all px-4 py-3 font-mono text-[15px]">
           {children}
         </code>
-        <ButtonCopy value={copyable ? children : undefined} size="sm" />
+        <ButtonCopy value={copyable ? children : undefined} size="md" />
       </div>
     </div>
   )

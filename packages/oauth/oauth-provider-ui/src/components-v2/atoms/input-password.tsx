@@ -1,5 +1,5 @@
 import { useLingui } from '@lingui/react/macro'
-import { EyeIcon, EyeSlashIcon, KeyIcon } from '@phosphor-icons/react'
+import { EyeIcon, EyeSlashIcon } from '@phosphor-icons/react'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import { composeRefs } from '@radix-ui/react-compose-refs'
 import { useRef, useState } from 'react'
@@ -24,7 +24,6 @@ export function InputPassword({
   onChange,
   append,
   autoComplete = 'current-password',
-  icon = <KeyIcon className="size-5" weight="bold" />,
   ref,
   title,
   dir = 'auto',
@@ -46,7 +45,6 @@ export function InputPassword({
       autoCapitalize={autoCapitalize}
       autoCorrect={autoCorrect}
       spellCheck={spellCheck}
-      icon={icon}
       onBlur={composeEventHandlers(onBlur, () => {
         if (autoHide) setVisible(false)
       })}

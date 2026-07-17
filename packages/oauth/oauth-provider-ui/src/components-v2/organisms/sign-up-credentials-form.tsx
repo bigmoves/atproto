@@ -1,10 +1,12 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { NumpadIcon } from '@phosphor-icons/react'
 import { InputEmailAddress } from '../atoms/input-email-address.tsx'
 import { InputNewPassword } from '../atoms/input-new-password.tsx'
 import { InputText } from '../atoms/input-text.tsx'
 import { FormField } from '../molecules/form-field.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type SignUpCredentialsData = {
   email: string
@@ -40,7 +42,6 @@ export function SignUpCredentialsForm({
           {inviteCodeRequired && (
             <FormField label={<Trans>Invite code</Trans>}>
               <InputText
-                icon={<NumpadIcon className="size-5" />}
                 autoFocus
                 name="inviteCode"
                 title={t`Invite code`}

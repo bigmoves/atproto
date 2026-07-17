@@ -1,7 +1,10 @@
 import { Trans } from '@lingui/react/macro'
 import { type ReactNode, useState } from 'react'
 import { useCustomizationData } from '#/contexts/customization.tsx'
-import { type SignUpEmailData, SignUpEmailForm } from '../organisms/sign-up-email-form.tsx'
+import {
+  type SignUpEmailData,
+  SignUpEmailForm,
+} from '../organisms/sign-up-email-form.tsx'
 import {
   type SignUpHandleData,
   SignUpHandleForm,
@@ -43,7 +46,11 @@ type PendingData = Partial<
 >
 
 /** v2 restyle of `#/components/sign-up-view.tsx` — same wizard-step logic, split into 4 steps (username, email, password, hCaptcha). */
-export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewProps) {
+export function SignUpView({
+  onBack,
+  onValidateNewHandle,
+  onDone,
+}: SignUpViewProps) {
   const {
     availableUserDomains = [],
     hcaptchaSiteKey = undefined,
@@ -62,19 +69,27 @@ export function SignUpView({ onBack, onValidateNewHandle, onDone }: SignUpViewPr
     title: <Trans>Choose a username</Trans>,
     subtitle: (
       <Trans>
-        You can change this to any domain name you control after your
-        account is set up.
+        You can change this to any domain name you control after your account is
+        set up.
       </Trans>
     ),
     note: undefined,
   })
 
   return (
-    <AuthCard title={header.title} subtitle={header.subtitle} note={header.note}>
+    <AuthCard
+      eyebrow={<Trans>Register</Trans>}
+      tag={<Trans>Register / new</Trans>}
+      title={header.title}
+      subtitle={header.subtitle}
+      note={header.note}
+    >
       <WizardCard
         onBack={onBack}
         doneLabel={<Trans>Sign up</Trans>}
-        onStepChange={(title, subtitle, note) => setHeader({ title, subtitle, note })}
+        onStepChange={(title, subtitle, note) =>
+          setHeader({ title, subtitle, note })
+        }
         onDone={([handle, inviteCode, email, password, hcaptcha]: [
           SignUpHandleData,
           SignUpInviteCodeData | null,

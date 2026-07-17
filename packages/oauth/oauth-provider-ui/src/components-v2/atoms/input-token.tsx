@@ -1,5 +1,4 @@
 import { Trans } from '@lingui/react/macro'
-import { TicketIcon } from '@phosphor-icons/react'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import { useRef } from 'react'
 import { useCountdown } from '#/hooks/use-countdown.ts'
@@ -44,7 +43,6 @@ export function InputToken({
   onResend,
 
   // InputTextProps
-  icon = <TicketIcon className="size-5" weight="bold" />,
   title = example,
   autoFocus = false,
   onChange,
@@ -67,7 +65,6 @@ export function InputToken({
       minLength={11}
       maxLength={11}
       dir="auto"
-      icon={icon}
       pattern="^[A-Z2-7]{5}-[A-Z2-7]{5}$"
       placeholder={example}
       title={title}
@@ -79,15 +76,15 @@ export function InputToken({
         const pos = selectionEnd ?? selectionStart
         if (pos != null) {
           const fixedSlicedValue = fix(value.slice(0, pos))
-          event.currentTarget.selectionStart = event.currentTarget.selectionEnd =
-            fixedSlicedValue.length
+          event.currentTarget.selectionStart =
+            event.currentTarget.selectionEnd = fixedSlicedValue.length
         }
 
         onToken?.(fixedValue.length === 11 ? fixedValue : null)
       })}
     >
       {onResend && (
-        <span className="text-text-light inline-flex items-center text-xs">
+        <span className="text-ink-light inline-flex items-center text-xs">
           {cooldown > 0 ? (
             <Trans>Resend available in {cooldown}s</Trans>
           ) : (

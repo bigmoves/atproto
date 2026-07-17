@@ -908,7 +908,7 @@ function ItemDescription({
   ...attrs
 }: ItemDescriptionProps) {
   return (
-    <em {...attrs} className={`text-text-light ${className}`}>
+    <em {...attrs} className={`text-ink-light ${className}`}>
       {children}
     </em>
   )
@@ -941,7 +941,7 @@ function Identifier({
   ...attrs
 }: IdentifierProps): ReactNode {
   return (
-    <code {...attrs} className={`text-text-light ${className}`}>
+    <code {...attrs} className={`text-ink-light ${className}`}>
       {children}
     </code>
   )

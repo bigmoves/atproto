@@ -73,13 +73,13 @@ function UpdateEmailForm({
             />
           </FormField>
 
-          <hr className="border-contrast-200" />
+          <hr className="border-surface-border" />
 
           <div>
-            <h3 className="text-text-default text-base font-semibold">
+            <h3 className="text-ink text-base font-semibold">
               <Trans>Security step required</Trans>
             </h3>
-            <p className="text-text-light mt-1 text-sm">
+            <p className="text-ink-light mt-1 text-sm">
               <Trans>
                 Please enter the security code that was sent to your email
                 address.

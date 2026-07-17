@@ -69,7 +69,7 @@ export function ClientImage({
         aria-hidden
         src={faviconSrc}
         alt={alt}
-        className="size-8 rounded-md object-cover"
+        className="rounded-control size-8 object-cover"
         onError={() => setFaviconIdx((i) => i + 1)}
       />
     )
@@ -78,7 +78,7 @@ export function ClientImage({
   return (
     <div
       aria-hidden
-      className="bg-primary flex size-8 items-center justify-center overflow-hidden rounded-full text-white"
+      className="bg-surface-2 text-ink-light rounded-control flex size-8 items-center justify-center overflow-hidden"
     >
       <InfoIcon className="size-4" />
     </div>

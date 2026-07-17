@@ -1,4 +1,5 @@
 import { msg } from '@lingui/core/macro'
+import { Trans } from '@lingui/react/macro'
 import type { Account } from '@atproto/oauth-provider-api'
 import type { OAuthClientMetadata } from '@atproto/oauth-types'
 import type { PermissionSets } from '#/hydration-data.d.ts'
@@ -22,7 +23,11 @@ export type ConsentViewProps = {
 
 export function ConsentView(props: ConsentViewProps) {
   return (
-    <AuthCard title={msg({ message: 'Authorize', context: 'OAuthConsent' })}>
+    <AuthCard
+      eyebrow={<Trans context="OAuthConsent">Authorize app</Trans>}
+      tag={<Trans>OAuth / grant</Trans>}
+      title={msg({ message: 'Authorize', context: 'OAuthConsent' })}
+    >
       <ConsentCard {...props} />
     </AuthCard>
   )

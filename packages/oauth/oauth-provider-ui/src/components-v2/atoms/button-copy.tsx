@@ -91,7 +91,7 @@ export function ButtonCopy({
           role="status"
           sideOffset={4}
         >
-          <div className="bg-contrast-100 shadow-card rounded-panel border-contrast-200 border px-2 py-1.5 text-xs">
+          <div className="bg-surface-1 shadow-card rounded-panel border-surface-border border px-2 py-1.5 text-xs">
             <Trans>Copied</Trans>
           </div>
         </Popover.Content>

@@ -3,9 +3,9 @@ import { Trans } from '@lingui/react/macro'
 import { type ReactNode, useCallback, useEffect, useState } from 'react'
 import type { Session } from '@atproto/oauth-provider-api'
 import { useCustomizationData } from '#/contexts/customization.tsx'
-import { AuthCard } from '../templates/auth-card.tsx'
 import { type SignInData, SignInForm } from '../organisms/sign-in-form.tsx'
 import { SignInPicker } from '../organisms/sign-in-picker.tsx'
+import { AuthCard } from '../templates/auth-card.tsx'
 
 export type SignInViewProps = {
   disableRemember?: boolean
@@ -48,7 +48,12 @@ export function SignInView({
 
   if (session) {
     return (
-      <AuthCard title={title} subtitle={<Trans>Confirm your password to continue</Trans>}>
+      <AuthCard
+        eyebrow={<Trans>Authenticate</Trans>}
+        tag={<Trans>Session / new</Trans>}
+        title={title}
+        subtitle={<Trans>Confirm your password to continue</Trans>}
+      >
         <SignInForm
           domains={availableUserDomains}
           disableRemember={disableRemember}
@@ -65,7 +70,12 @@ export function SignInView({
 
   if (forcedIdentifier) {
     return (
-      <AuthCard title={title} subtitle={<Trans>Enter your password</Trans>}>
+      <AuthCard
+        eyebrow={<Trans>Authenticate</Trans>}
+        tag={<Trans>Session / new</Trans>}
+        title={title}
+        subtitle={<Trans>Enter your password</Trans>}
+      >
         <SignInForm
           domains={availableUserDomains}
           disableRemember={disableRemember}
@@ -83,6 +93,8 @@ export function SignInView({
   if (sessions.length === 0) {
     return (
       <AuthCard
+        eyebrow={<Trans>Authenticate</Trans>}
+        tag={<Trans>Session / new</Trans>}
         title={title}
         subtitle={<Trans>Enter your username and password</Trans>}
       >
@@ -101,6 +113,8 @@ export function SignInView({
   if (showSignInForm) {
     return (
       <AuthCard
+        eyebrow={<Trans>Authenticate</Trans>}
+        tag={<Trans>Session / new</Trans>}
         title={title}
         subtitle={<Trans>Enter your username and password</Trans>}
       >
@@ -116,7 +130,12 @@ export function SignInView({
   }
 
   return (
-    <AuthCard title={title} subtitle={<Trans>Select from an existing account</Trans>}>
+    <AuthCard
+      eyebrow={<Trans>Authenticate</Trans>}
+      tag={<Trans>Session / new</Trans>}
+      title={title}
+      subtitle={<Trans>Select from an existing account</Trans>}
+    >
       <SignInPicker
         sessions={sessions}
         onSession={setSession}

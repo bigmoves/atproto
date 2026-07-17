@@ -32,7 +32,7 @@ export function FormField({
       {label && (
         <legend
           id={labelId}
-          className="text-text-light mb-1.5 block w-full text-sm font-medium"
+          className="text-ink-light mb-1.5 block w-full font-mono text-xs font-bold uppercase tracking-[0.08em]"
         >
           {label}
         </legend>

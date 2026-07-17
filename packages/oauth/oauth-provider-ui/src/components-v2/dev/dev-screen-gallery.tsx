@@ -8,6 +8,7 @@ import { ErrorView } from '../screens/error-view.tsx'
 import { RedirectingView } from '../screens/redirecting-view.tsx'
 import { SignInView } from '../screens/sign-in-view.tsx'
 import { SignUpView } from '../screens/sign-up-view.tsx'
+import { AuthShell } from '../templates/auth-shell.tsx'
 import DevComponentCatalog from './dev-component-catalog.tsx'
 import type { DevScreenId } from './dev-screen-store.ts'
 
@@ -28,7 +29,9 @@ const MOCK_SESSION: Session = {
 }
 
 const MOCK_CLIENT_METADATA: OAuthClientMetadata = {
-  redirect_uris: ['https://example.com/callback'] as OAuthClientMetadata['redirect_uris'],
+  redirect_uris: [
+    'https://example.com/callback',
+  ] as OAuthClientMetadata['redirect_uris'],
   response_types: ['code'],
   grant_types: ['authorization_code', 'refresh_token'],
   application_type: 'web',
@@ -50,55 +53,65 @@ function ScreenFor({ id }: { id: DevScreenId }) {
   switch (id) {
     case 'welcome':
       return (
-        <AuthenticateWelcomeView
-          onSignIn={noop}
-          onSignUp={noop}
-          onCancel={noop}
-        />
+        <AuthShell>
+          <AuthenticateWelcomeView
+            onSignIn={noop}
+            onSignUp={noop}
+            onCancel={noop}
+          />
+        </AuthShell>
       )
     case 'sign-in':
       return (
-        <SignInView
-          sessions={[MOCK_SESSION]}
-          session={null}
-          setSession={noop}
-          onSignIn={asyncNoop}
-          onSignUp={noop}
-          onForgotPassword={noop}
-          onBack={noop}
-        />
+        <AuthShell>
+          <SignInView
+            sessions={[MOCK_SESSION]}
+            session={null}
+            setSession={noop}
+            onSignIn={asyncNoop}
+            onSignUp={noop}
+            onForgotPassword={noop}
+            onBack={noop}
+          />
+        </AuthShell>
       )
     case 'sign-up':
       return (
-        <SignUpView
-          onBack={noop}
-          onValidateNewHandle={asyncNoop}
-          onDone={asyncNoop}
-        />
+        <AuthShell>
+          <SignUpView
+            onBack={noop}
+            onValidateNewHandle={asyncNoop}
+            onDone={asyncNoop}
+          />
+        </AuthShell>
       )
     case 'consent':
       return (
-        <ConsentView
-          clientId={MOCK_CLIENT_METADATA.client_id ?? 'https://example.com'}
-          clientMetadata={MOCK_CLIENT_METADATA}
-          clientTrusted={false}
-          clientFirstParty={false}
-          permissionSets={{}}
-          account={MOCK_ACCOUNT}
-          scope="atproto transition:generic"
-          onConsent={noop}
-          onReject={noop}
-          onBack={noop}
-        />
+        <AuthShell>
+          <ConsentView
+            clientId={MOCK_CLIENT_METADATA.client_id ?? 'https://example.com'}
+            clientMetadata={MOCK_CLIENT_METADATA}
+            clientTrusted={false}
+            clientFirstParty={false}
+            permissionSets={{}}
+            account={MOCK_ACCOUNT}
+            scope="atproto transition:generic"
+            onConsent={noop}
+            onReject={noop}
+            onBack={noop}
+          />
+        </AuthShell>
       )
     case 'redirecting':
       return (
-        <RedirectingView
-          title="Login complete"
-          redirectUrl="https://example.com/callback?code=mock"
-          redirectMode="assign"
-          redirectCooldown={999}
-        />
+        <AuthShell>
+          <RedirectingView
+            title="Login complete"
+            redirectUrl="https://example.com/callback?code=mock"
+            redirectMode="assign"
+            redirectCooldown={999}
+          />
+        </AuthShell>
       )
     case 'error':
       return (

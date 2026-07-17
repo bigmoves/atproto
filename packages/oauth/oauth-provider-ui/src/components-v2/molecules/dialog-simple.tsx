@@ -8,11 +8,10 @@ import type { DialogSimpleProps } from '#/components/utils/dialog-simple.tsx'
  * wiring/props (that file re-exports `DialogSimpleProps` as the single
  * source of truth and delegates to this component when `NEW_DESIGN_ENABLED`
  * is on, so the 7 account-management dialogs that consume `DialogSimple`
- * don't need to know which version renders). Surface uses `bg-contrast-100`
- * (raised one step above the page's `bg-contrast-0`) instead of `bg-contrast-0`
- * — sitting directly on the page bg made the v1 styling read as a flat cutout
- * rather than an elevated modal once the account app's own page background
- * switched to `bg-contrast-0` to match `<body>`.
+ * don't need to know which version renders). Surface uses `bg-surface-1`
+ * (raised one step above the page's `bg-surface-0`) instead of sitting
+ * directly on the page bg, which would read as a flat cutout rather than an
+ * elevated modal.
  */
 export function DialogSimple({
   title,
@@ -34,7 +33,7 @@ export function DialogSimple({
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-contrast-900/40 dark:bg-contrast-0/70 fixed inset-0 z-40" />
+        <Dialog.Overlay className="fixed inset-0 z-40 bg-black/40 dark:bg-black/70" />
 
         <Dialog.Content
           role="dialog"
@@ -42,29 +41,28 @@ export function DialogSimple({
           onEscapeKeyDown={preventWhenLocked}
           onPointerDownOutside={preventWhenLocked}
           onInteractOutside={preventWhenLocked}
-          className="bg-contrast-100 shadow-card rounded-card fixed left-1/2 top-1/2 z-40 flex max-h-[85vh] w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-auto p-6"
+          className="bg-surface-1 border-surface-border shadow-card rounded-card fixed left-1/2 top-1/2 z-40 flex max-h-[85vh] w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden border"
         >
-          {children}
-
-          {/* @NOTE -order-1 so the close button isn't focused first when the dialog opens */}
-          <div className="-order-1 mb-4 flex items-start justify-between gap-4">
-            <div className="flex flex-col gap-1">
-              <Dialog.Title className="text-text-default text-lg font-semibold">
-                {title}
-              </Dialog.Title>
-              {description && (
-                <Dialog.Description className="text-text-light text-sm">
-                  {description}
-                </Dialog.Description>
-              )}
-            </div>
+          <div className="border-surface-border flex shrink-0 items-center justify-between gap-4 border-b px-5 py-3.5">
+            <Dialog.Title className="text-ink font-mono text-xs font-bold uppercase tracking-wide">
+              {title}
+            </Dialog.Title>
             <Dialog.Close
               disabled={!dismissable}
-              className="text-text-light hover:bg-contrast-200 focus-visible:ring-primary shrink-0 rounded-full p-1 outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-transparent"
+              className="text-ink-light hover:bg-surface-2 focus-visible:ring-primary shrink-0 rounded-full p-1 outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-transparent"
               aria-label={t`Close`}
             >
-              <XIcon className="size-5" aria-hidden />
+              <XIcon className="size-4" aria-hidden />
             </Dialog.Close>
+          </div>
+
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-6">
+            {description && (
+              <Dialog.Description className="text-ink-light mb-5 font-mono text-sm">
+                {description}
+              </Dialog.Description>
+            )}
+            {children}
           </div>
         </Dialog.Content>
       </Dialog.Portal>

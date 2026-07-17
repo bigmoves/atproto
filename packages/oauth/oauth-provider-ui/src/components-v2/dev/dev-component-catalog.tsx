@@ -1,11 +1,12 @@
+import { AtIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import type { Account } from '@atproto/oauth-provider-api'
 import { Admonition } from '../atoms/admonition.tsx'
 import { AvatarBadge } from '../atoms/avatar-badge.tsx'
-import { Button } from '../atoms/button.tsx'
 import { ButtonCooldown } from '../atoms/button-cooldown.tsx'
 import { ButtonCopy } from '../atoms/button-copy.tsx'
 import { ButtonRequestCode } from '../atoms/button-request-code.tsx'
+import { Button } from '../atoms/button.tsx'
 import { Checkbox } from '../atoms/checkbox.tsx'
 import { CircularProgress } from '../atoms/circular-progress.tsx'
 import { CodeSnippet } from '../atoms/code-snippet.tsx'
@@ -26,12 +27,11 @@ import { PasswordStrengthMeter } from '../atoms/password-strength-meter.tsx'
 import { Spinner } from '../atoms/spinner.tsx'
 import { AccountRow } from '../molecules/account-row.tsx'
 import { FormField } from '../molecules/form-field.tsx'
-import { InputHandleCustom } from '../molecules/input-handle-custom.tsx'
 import { InputHandleCustomInstructions } from '../molecules/input-handle-custom-instructions.tsx'
+import { InputHandleCustom } from '../molecules/input-handle-custom.tsx'
 import { InputHandleDefault } from '../molecules/input-handle-default.tsx'
 import { PageHeader } from '../molecules/page-header.tsx'
 import { SettingsList, SettingsRow } from '../molecules/settings-row.tsx'
-import { AtIcon, EnvelopeIcon, LockIcon } from '@phosphor-icons/react'
 
 const MOCK_ACCOUNT: Account = {
   did: 'did:plc:mockmockmockmockmockmock',
@@ -79,7 +79,14 @@ function Row({
 }
 
 function ButtonColors() {
-  const colors = ['primary', 'gray', 'error', 'warning', 'info', 'success'] as const
+  const colors = [
+    'primary',
+    'gray',
+    'error',
+    'warning',
+    'info',
+    'success',
+  ] as const
   return (
     <>
       <Row label="Button — solid">
@@ -97,11 +104,11 @@ function ButtonColors() {
         ))}
       </Row>
       <Row label="Button — shapes/sizes">
-        <Button shape="pill" size="sm">
-          pill sm
+        <Button shape="default" size="sm">
+          default sm
         </Button>
-        <Button shape="pill" size="lg">
-          pill lg
+        <Button shape="default" size="lg">
+          default lg
         </Button>
         <Button shape="row">row (full width in context)</Button>
         <Button shape="circle" aria-label="circle">
@@ -146,8 +153,8 @@ export default function DevComponentCatalog() {
       </h1>
       <p className="text-text-light mb-8 text-sm">
         Atoms and molecules, rendered with mock data against the current
-        branding/theme. Organisms aren't included — see the screen preview
-        for those in context.
+        branding/theme. Organisms aren't included — see the screen preview for
+        those in context.
       </p>
 
       <Section title="Atoms">
@@ -161,7 +168,10 @@ export default function DevComponentCatalog() {
         </Row>
 
         <Row label="Checkbox / InputCheckbox">
-          <Checkbox checked={checked} onChange={(e) => setChecked(e.target.checked)} />
+          <Checkbox
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
+          />
           <Checkbox checked={false} disabled />
           <InputCheckbox
             checked={checked}
@@ -178,7 +188,9 @@ export default function DevComponentCatalog() {
         </Row>
 
         <Row label="ButtonCooldown / ButtonRequestCode / ButtonCopy">
-          <ButtonCooldown action={async () => {}}>Cooldown action</ButtonCooldown>
+          <ButtonCooldown action={async () => {}}>
+            Cooldown action
+          </ButtonCooldown>
           <ButtonRequestCode action={async () => {}} />
           <ButtonCopy value="copy me" />
         </Row>
@@ -201,7 +213,12 @@ export default function DevComponentCatalog() {
         </Row>
 
         <Row label="FooterLink / LinkExternal">
-          <FooterLink link={{ title: 'Terms of Service', href: 'https://example.com/tos' }} />
+          <FooterLink
+            link={{
+              title: 'Terms of Service',
+              href: 'https://example.com/tos',
+            }}
+          />
           <LinkExternal href="https://example.com">External link</LinkExternal>
         </Row>
 
@@ -213,16 +230,19 @@ export default function DevComponentCatalog() {
           {['', 'a', 'abcdefgh', 'Abcd1234!@#$'].map((pw, i) => (
             <div key={i} className="flex w-32 flex-col gap-1">
               <PasswordStrengthMeter password={pw} />
-              <PasswordStrengthLabel password={pw} className="text-text-light text-xs" />
+              <PasswordStrengthLabel
+                password={pw}
+                className="text-text-light text-xs"
+              />
             </div>
           ))}
         </Row>
 
         <Row label="InputText / InputEmailAddress / InputPassword / InputNewPassword / InputToken">
           <div className="flex w-full max-w-sm flex-col gap-3">
-            <InputText icon={<AtIcon className="size-5" />} placeholder="Plain input text" />
-            <InputEmailAddress icon={<EnvelopeIcon className="size-5" />} />
-            <InputPassword icon={<LockIcon className="size-5" />} />
+            <InputText placeholder="Plain input text" />
+            <InputEmailAddress />
+            <InputPassword />
             <InputNewPassword defaultValue="Abcd1234!@#$" />
             <InputToken onResend={async () => {}} />
           </div>
@@ -235,7 +255,11 @@ export default function DevComponentCatalog() {
               onChange={setRadioValue}
               options={[
                 { value: 'a', label: 'DNS', description: 'Via DNS TXT record' },
-                { value: 'b', label: 'HTTP', description: 'Via a file on your domain' },
+                {
+                  value: 'b',
+                  label: 'HTTP',
+                  description: 'Via a file on your domain',
+                },
               ]}
             />
           </div>
@@ -244,7 +268,7 @@ export default function DevComponentCatalog() {
 
       <Section title="Molecules">
         <Row label="AccountRow">
-          <div className="border-contrast-200 w-full max-w-sm overflow-hidden rounded-panel border">
+          <div className="border-contrast-200 rounded-panel w-full max-w-sm overflow-hidden border">
             <AccountRow account={MOCK_ACCOUNT} />
           </div>
         </Row>
@@ -258,15 +282,12 @@ export default function DevComponentCatalog() {
         <Row label="SettingsList / SettingsRow">
           <div className="w-full max-w-sm">
             <SettingsList>
-              <SettingsRow icon={EnvelopeIcon} value="alice@example.com">
-                Email address
-              </SettingsRow>
-              <SettingsRow icon={AtIcon} value={<Handle handle="alice.test" />}>
-                Username
-              </SettingsRow>
-              <SettingsRow icon={LockIcon} danger>
-                Delete account
-              </SettingsRow>
+              <SettingsRow label="Email" value="alice@example.com" />
+              <SettingsRow
+                label="Handle"
+                value={<Handle handle="alice.test" />}
+              />
+              <SettingsRow>Delete account</SettingsRow>
             </SettingsList>
           </div>
         </Row>

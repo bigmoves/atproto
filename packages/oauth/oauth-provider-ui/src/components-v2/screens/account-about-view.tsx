@@ -34,7 +34,11 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
             <h3>Use it across multiple apps</h3>
             <p>
               Your Atmosphere account works with the{' '}
-              <LinkExternal className="underline" href="https://bsky.app" arrow={false}>
+              <LinkExternal
+                className="underline"
+                href="https://bsky.app"
+                arrow={false}
+              >
                 Bluesky Social App
               </LinkExternal>{' '}
               and any other social apps built on the same network.
@@ -136,7 +140,11 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
           <ul>
             <li>
               <Trans>
-                <LinkExternal className="underline" href="https://bsky.social" arrow={false}>
+                <LinkExternal
+                  className="underline"
+                  href="https://bsky.social"
+                  arrow={false}
+                >
                   Bluesky Social
                 </LinkExternal>{' '}
                 — General information about the network
@@ -144,7 +152,11 @@ export function AccountAboutView({ account }: AccountAboutViewProps) {
             </li>
             <li>
               <Trans>
-                <LinkExternal className="underline" href="https://atproto.com" arrow={false}>
+                <LinkExternal
+                  className="underline"
+                  href="https://atproto.com"
+                  arrow={false}
+                >
                   AT Protocol
                 </LinkExternal>{' '}
                 — Technical documentation for developers

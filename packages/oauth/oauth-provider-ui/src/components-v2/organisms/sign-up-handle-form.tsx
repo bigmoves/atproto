@@ -1,6 +1,9 @@
 import type { HandleString } from '@atproto/syntax'
 import { InputHandleDefault } from '../molecules/input-handle-default.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type SignUpHandleData = { handle: HandleString }
 

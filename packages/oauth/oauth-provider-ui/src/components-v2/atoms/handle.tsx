@@ -41,6 +41,7 @@ export function Handle({
     <span
       {...props}
       className={clsx(
+        'font-mono',
         { 'whitespace-nowrap': !isInvalid },
         isInvalid ? "before:content-['⚠']" : "before:content-['@']",
         className,

@@ -1,5 +1,5 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { AtIcon, CaretRightIcon } from '@phosphor-icons/react'
+import { CaretRightIcon } from '@phosphor-icons/react'
 import type { JSX, ReactNode } from 'react'
 import type { Session } from '@atproto/oauth-provider-api'
 import { stringifyHandle } from '#/components/utils/handle.tsx'
@@ -34,13 +34,13 @@ export function SignInPicker({
 
   return (
     <div {...props} className="flex flex-col">
-      <div className="divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+      <div className="border-surface-border divide-surface-border rounded-panel flex flex-col divide-y overflow-hidden border">
         {sessions.map((session) => (
           <AccountRow
             key={session.account.did}
             account={session.account}
             append={
-              <CaretRightIcon aria-hidden className="text-text-light size-4" />
+              <CaretRightIcon aria-hidden className="text-ink-light size-4" />
             }
             onClick={() => onSession(session)}
             aria-label={t`Sign in as ${session.account.name ?? stringifyHandle(session.account.handle) ?? session.account.did}`}
@@ -52,15 +52,18 @@ export function SignInPicker({
             type="button"
             onClick={onOther}
             aria-label={t`Login to account that is not listed`}
-            className="hover:bg-contrast-200 flex w-full items-center gap-4 px-2.5 py-3 text-left"
+            className="hover:bg-surface-2 flex w-full items-center gap-4 px-2.5 py-3 text-left"
           >
-            <span className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
-              <AtIcon aria-hidden weight="bold" className="size-4" />
+            <span
+              aria-hidden
+              className="border-surface-border text-ink-light rounded-control flex size-9 flex-none items-center justify-center border border-dashed font-mono text-lg"
+            >
+              +
             </span>
-            <span className="text-text-default flex-1 text-sm font-semibold">
+            <span className="text-ink flex-1 font-serif text-base font-semibold">
               <Trans>Use another account</Trans>
             </span>
-            <CaretRightIcon aria-hidden className="text-text-light size-4" />
+            <CaretRightIcon aria-hidden className="text-ink-light size-4" />
           </button>
         )}
       </div>

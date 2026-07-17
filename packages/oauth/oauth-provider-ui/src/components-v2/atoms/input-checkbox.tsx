@@ -39,9 +39,7 @@ export function InputCheckbox({
         className="mt-0.5"
       />
       {children && (
-        <span className="text-text-default text-sm leading-[1.6]">
-          {children}
-        </span>
+        <span className="text-ink text-sm leading-[1.6]">{children}</span>
       )}
     </label>
   )

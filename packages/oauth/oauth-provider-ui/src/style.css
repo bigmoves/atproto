@@ -11,6 +11,74 @@
   --space-screen: 100vh;
 }
 
+/* v2 typography (self-hosted — see #/router/assets in oauth-provider for the
+   CSP/fetch-dest allowlisting this relies on). Latin subset only; non-Latin
+   text falls back to --font-sans via the normal CSS font-stack mechanism. */
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-mono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-mono-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-serif-600.woff2') format('woff2');
+}
+
+/* Single variable-font file covering weights 400-700 (matches how Google
+   Fonts itself serves IBM Plex Sans — each static weight below just pins a
+   different instance of the same file). */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-sans.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-sans.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-sans.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/ibm-plex-sans.woff2') format('woff2');
+}
+
+@theme inline {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas,
+    monospace;
+  --font-serif: 'IBM Plex Serif', ui-serif, Georgia, 'Times New Roman', serif;
+}
+
 /* Branding */
 
 :root {
@@ -279,19 +347,72 @@
    #/lib/feature-flags.ts). Additive only — nothing above is renamed. */
 
 :root {
-  --shadow-card: 0 30px 70px -20px rgb(0 0 0 / 0.35);
+  --shadow-card: 0 30px 70px -30px rgb(0 0 0 / 0.55);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --shadow-card: 0 30px 70px -20px rgb(0 0 0 / 0.55);
+    --shadow-card: 0 30px 70px -30px rgb(0 0 0 / 0.8);
   }
 }
 
 @theme inline {
-  --radius-card: 28px;
-  --radius-panel: 16px;
+  --radius-card: 10px;
+  --radius-panel: 8px;
   --radius-control: 6px;
-  --radius-pill: 999px;
   --shadow-card: var(--shadow-card);
+}
+
+/* Neutral (near-zero-chroma) surface tokens — deliberately NOT derived from
+   --hue-primary. The v2 direction's dark chrome (page bg, card fill, panel
+   fill, hairline borders) reads as neutral near-black/near-white regardless
+   of the operator's branding hue; only accent elements (--color-primary,
+   semantic colors) carry hue. Values match the "Atmosphere PDS" design
+   reference's own gray ramp (g0/g2/g3/g4). */
+
+:root {
+  --color-surface-0: oklch(100% 0 270);
+  --color-surface-1: oklch(100% 0 270);
+  --color-surface-2: oklch(96% 0.004 270);
+  --color-surface-border: oklch(89.5% 0.006 270);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface-0: oklch(16% 0.006 270);
+    --color-surface-1: oklch(19.5% 0.006 270);
+    --color-surface-2: oklch(24% 0.006 270);
+    --color-surface-border: oklch(30% 0.006 270);
+  }
+}
+
+@theme inline {
+  --color-surface-0: var(--color-surface-0);
+  --color-surface-1: var(--color-surface-1);
+  --color-surface-2: var(--color-surface-2);
+  --color-surface-border: var(--color-surface-border);
+}
+
+/* Neutral text tokens, same rationale as the surface tokens above: v2 body
+   copy, headings, and labels read as neutral near-black/near-white in both
+   themes — not tinted by --hue-primary like the legacy --color-text-*
+   tokens are. Primary is reserved for buttons, links, and the active nav
+   state (see components-v2/atoms/button.tsx and templates/account-app-shell.tsx),
+   never for plain text. Values match the design reference's g1/g5 grays. */
+
+:root {
+  --color-ink: oklch(5% 0.004 270);
+  --color-ink-light: oklch(42% 0.008 270);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ink: oklch(95% 0.004 270);
+    --color-ink-light: oklch(58% 0.008 270);
+  }
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-light: var(--color-ink-light);
 }

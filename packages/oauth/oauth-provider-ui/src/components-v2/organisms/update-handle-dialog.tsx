@@ -237,7 +237,7 @@ function ButtonContent({ label, example }: ButtonContentProps) {
   return (
     <span className="flex w-full flex-col gap-0.5 text-left">
       <span>{label}</span>
-      <span className="text-text-light text-sm leading-snug">{example}</span>
+      <span className="text-ink-light text-sm leading-snug">{example}</span>
     </span>
   )
 }

@@ -142,9 +142,7 @@ function EmailUpdateRowV2() {
         )
       }
     >
-      <SettingsRow icon={EnvelopeIcon} value={email}>
-        <Trans>Email address</Trans>
-      </SettingsRow>
+      <SettingsRow label={<Trans>Email</Trans>} value={email} />
     </UpdateEmailDialogV2>
   )
 }
@@ -164,9 +162,10 @@ function HandleUpdateRowV2() {
         await updateHandle.mutateAsync({ did, handle })
       }}
     >
-      <SettingsRow icon={AtIcon} value={<HandleV2 handle={handle} />}>
-        <Trans>Username</Trans>
-      </SettingsRow>
+      <SettingsRow
+        label={<Trans>Handle</Trans>}
+        value={<HandleV2 handle={handle} />}
+      />
     </UpdateHandleDialogV2>
   )
 }
@@ -191,9 +190,7 @@ function PasswordUpdateRowV2() {
         await resetPasswordConfirm.mutateAsync({ token, password })
       }}
     >
-      <SettingsRow icon={LockIcon}>
-        <Trans>Password</Trans>
-      </SettingsRow>
+      <SettingsRow label={<Trans>Password</Trans>} value="••••••••" />
     </UpdatePasswordDialogV2>
   )
 }
@@ -210,7 +207,7 @@ function AccountStatusRowV2() {
           await reactivate.mutateAsync({ did: account.did })
         }}
       >
-        <SettingsRow icon={SnowflakeIcon}>
+        <SettingsRow>
           <Trans>Reactivate account</Trans>
         </SettingsRow>
       </ReactivateAccountDialogV2>
@@ -223,7 +220,7 @@ function AccountStatusRowV2() {
         await deactivate.mutateAsync({ did: account.did })
       }}
     >
-      <SettingsRow icon={SnowflakeIcon} danger>
+      <SettingsRow>
         <Trans>Deactivate account</Trans>
       </SettingsRow>
     </DeactivateAccountDialogV2>
@@ -249,7 +246,7 @@ function AccountDeletionRowV2() {
         await deleteConfirm.mutateAsync({ did, token, password })
       }}
     >
-      <SettingsRow icon={TrashIcon} danger>
+      <SettingsRow danger>
         <Trans>Delete account</Trans>
       </SettingsRow>
     </DeleteAccountDialogV2>

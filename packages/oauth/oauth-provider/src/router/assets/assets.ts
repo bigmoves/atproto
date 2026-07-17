@@ -45,8 +45,11 @@ export const assetsMiddleware = ui.assetsMiddleware
 const SPA_CSP: CspConfig = {
   // API calls are made to the same origin
   'connect-src': ["'self'"],
-  // Allow loading of PDS logo & User avatars
-  'img-src': ['data:', 'https:'],
+  // Allow loading of PDS logo & User avatars, plus self-hosted UI images
+  // (bundled with the UI, served same-origin — e.g. the ascii-globe texture)
+  'img-src': ["'self'", 'data:', 'https:'],
+  // Self-hosted web fonts (bundled with the UI, served same-origin)
+  'font-src': ["'self'"],
   // Prevent embedding in iframes
   'frame-ancestors': ["'none'"],
 }

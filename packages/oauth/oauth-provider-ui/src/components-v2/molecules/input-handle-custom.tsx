@@ -1,5 +1,4 @@
 import { useLingui } from '@lingui/react/macro'
-import { AtIcon } from '@phosphor-icons/react'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import {
   type HandleString,
@@ -31,7 +30,6 @@ export function InputHandleCustom({
   autoComplete = 'off',
   autoCorrect = 'off',
   dir = 'auto',
-  icon = <AtIcon aria-hidden weight="bold" className="size-5" />,
   title,
   placeholder,
   ...props
@@ -48,7 +46,6 @@ export function InputHandleCustom({
       autoComplete={autoComplete}
       autoCorrect={autoCorrect}
       dir={dir}
-      icon={icon}
       onChange={composeEventHandlers(onChange, (event) => {
         onHandle?.(parseHandle(event.target.value))
       })}

@@ -1,4 +1,3 @@
-import { CaretRightIcon, type Icon } from '@phosphor-icons/react'
 import { clsx } from 'clsx'
 import type { JSX, ReactNode } from 'react'
 import type { Override } from '#/lib/util.ts'
@@ -6,7 +5,10 @@ import type { Override } from '#/lib/util.ts'
 export type SettingsRowProps = Override<
   JSX.IntrinsicElements['button'],
   {
-    icon: Icon
+    /** Short field name (e.g. "Email", "Handle") — renders as a fixed-width
+     *  mono label with `value` alongside it. Omit for a plain action row
+     *  (e.g. "Delete account"), where `children` is the row's title instead. */
+    label?: ReactNode
     value?: ReactNode
     danger?: boolean
   }
@@ -14,7 +16,7 @@ export type SettingsRowProps = Override<
 
 /** Settings row — used inside `SettingsList`, which owns the shared background/rounding. */
 export function SettingsRow({
-  icon: IconComponent,
+  label,
   value,
   danger = false,
 
@@ -28,19 +30,26 @@ export function SettingsRow({
       type="button"
       {...props}
       className={clsx(
-        'hover:bg-contrast-200 flex w-full cursor-pointer items-center gap-3 px-4 py-5 text-left',
-        danger ? 'text-error' : 'text-text-default',
+        'hover:bg-surface-2 flex w-full cursor-pointer items-center gap-3.5 px-5 py-4 text-left',
+        danger ? 'text-error' : 'text-ink',
         className,
       )}
     >
-      <IconComponent aria-hidden className="size-[18px] flex-none" />
-      <span className="flex-1 truncate text-sm font-medium">{children}</span>
-      {value != null && (
-        <span className="text-text-light hidden max-w-[40%] truncate text-sm sm:inline">
-          {value}
-        </span>
+      {label != null ? (
+        <>
+          <span className="text-ink-light w-20 flex-none font-mono text-xs uppercase tracking-wide">
+            {label}
+          </span>
+          <span className="min-w-0 flex-1 truncate font-mono text-sm">
+            {value}
+          </span>
+        </>
+      ) : (
+        <span className="flex-1 truncate text-sm font-medium">{children}</span>
       )}
-      <CaretRightIcon aria-hidden className="text-text-light size-4 flex-none" />
+      <span aria-hidden className="text-ink-light flex-none font-mono text-sm">
+        →
+      </span>
     </button>
   )
 }
@@ -48,7 +57,7 @@ export function SettingsRow({
 /** One connected panel: shared background, rounded only at the outer corners, hairline dividers between rows. */
 export function SettingsList({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+    <div className="bg-surface-1 border-surface-border divide-surface-border rounded-card flex flex-col divide-y overflow-hidden border">
       {children}
     </div>
   )

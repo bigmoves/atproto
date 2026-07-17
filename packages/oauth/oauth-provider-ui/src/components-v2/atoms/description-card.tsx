@@ -2,8 +2,8 @@ import { useLingui } from '@lingui/react/macro'
 import { QuestionIcon } from '@phosphor-icons/react'
 import type { HTMLAttributes, ReactNode } from 'react'
 import type { Override } from '#/lib/util.ts'
-import { Button } from './button.tsx'
 import { DialogSimple } from '../molecules/dialog-simple.tsx'
+import { Button } from './button.tsx'
 
 export type DescriptionCardProps = Override<
   HTMLAttributes<HTMLDivElement>,
@@ -42,20 +42,18 @@ export function DescriptionCard({
     <div {...attrs}>
       <div className="flex items-center justify-start gap-2">
         <div
-          className="text-text-light flex w-8 flex-grow-0 items-center justify-center"
+          className="text-ink-light flex w-8 flex-grow-0 items-center justify-center"
           aria-hidden
         >
           {image}
         </div>
 
         <div className="flex flex-1 flex-col">
-          <h3 className="text-text-default text-sm font-semibold leading-snug">
+          <h3 className="text-ink text-sm font-semibold leading-snug">
             {title}
           </h3>
           {description && (
-            <p className="text-text-light text-sm leading-snug">
-              {description}
-            </p>
+            <p className="text-ink-light text-sm leading-snug">{description}</p>
           )}
         </div>
 
@@ -75,7 +73,7 @@ export function DescriptionCard({
                 </Button>
               }
             >
-              <div className="text-text-light text-sm">{children}</div>
+              <div className="text-ink-light text-sm">{children}</div>
               {extra}
             </DialogSimple>
           )}

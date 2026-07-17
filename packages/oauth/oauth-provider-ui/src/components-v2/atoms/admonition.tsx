@@ -71,8 +71,8 @@ export function Admonition({
       {...props}
       role={role}
       className={clsx(
-        'rounded-panel flex items-center gap-3 py-3 pl-3 pr-4',
-        'text-text-default',
+        'rounded-panel flex items-center gap-3 border border-black/15 py-3 pl-3 pr-4 dark:border-white/15',
+        'text-ink',
         CARD_COLORS[variant],
         className,
       )}

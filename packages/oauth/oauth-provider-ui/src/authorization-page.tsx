@@ -1,16 +1,23 @@
 import './style.css'
 
 import { msg } from '@lingui/core/macro'
-import { type ReactNode, StrictMode, useCallback, useState } from 'react'
+import {
+  Fragment,
+  type ReactNode,
+  StrictMode,
+  useCallback,
+  useState,
+} from 'react'
 import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ConsentView as ConsentViewV1 } from '#/components/consent-view.tsx'
 import { ErrorView } from '#/components/error-view.tsx'
 import { ReactivateAccountView } from '#/components/reactivate-account-view'
 import { RedirectingView as RedirectingViewV1 } from '#/components/redirecting-view'
+import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
 import { ConsentView as ConsentViewV2 } from '#/components-v2/screens/consent-view.tsx'
 import { RedirectingView as RedirectingViewV2 } from '#/components-v2/screens/redirecting-view.tsx'
-import { DevToolsGate } from '#/components-v2/dev/dev-tools.tsx'
+import { AuthShell } from '#/components-v2/templates/auth-shell.tsx'
 import {
   AuthenticationProvider,
   useAuthenticationContext,
@@ -30,6 +37,12 @@ const ConsentView = NEW_DESIGN_ENABLED ? ConsentViewV2 : ConsentViewV1
 const RedirectingView = NEW_DESIGN_ENABLED
   ? RedirectingViewV2
   : RedirectingViewV1
+// Mounts once for the whole pre-auth flow so the decorative globe (and its
+// WebGL/rotation state) survives screen transitions instead of resetting
+// every time `AuthenticationProvider` swaps in a different screen — see
+// `AuthShell`'s own doc comment. V1 screens own their full page layout
+// already, so they render unwrapped.
+const Shell = NEW_DESIGN_ENABLED ? AuthShell : Fragment
 
 const {
   __authorizeData: authorizeData,
@@ -169,14 +182,16 @@ function App() {
 
   if (redirectUrl) {
     return (
-      <RedirectingView
-        title={rejected ? msg`Login canceled` : msg`Login complete`}
-        redirectUrl={redirectUrl}
-        // We don't want the user to be able to click the back button and go
-        // back to the consent screen after consenting/rejecting, so we replace
-        // the history entry instead of pushing a new one.
-        redirectMode="replace"
-      />
+      <Shell>
+        <RedirectingView
+          title={rejected ? msg`Login canceled` : msg`Login complete`}
+          redirectUrl={redirectUrl}
+          // We don't want the user to be able to click the back button and go
+          // back to the consent screen after consenting/rejecting, so we replace
+          // the history entry instead of pushing a new one.
+          redirectMode="replace"
+        />
+      </Shell>
     )
   }
 
@@ -197,19 +212,23 @@ function App() {
         {session && (
           // Note that the AuthenticationProvider acts as a gate that will
           // ensure that a "session" is available when its children are
-          // rendered.
-          <ConsentView
-            clientId={authorizeData.clientId}
-            clientMetadata={authorizeData.clientMetadata}
-            clientTrusted={authorizeData.clientTrusted}
-            clientFirstParty={authorizeData.clientFirstParty}
-            permissionSets={authorizeData.permissionSets}
-            account={session.account}
-            scope={authorizeData.scope}
-            onConsent={doConsentAndRedirect}
-            onReject={doRejectAndRedirect}
-            onBack={loginHint ? undefined : () => setSession(null)}
-          />
+          // rendered. `ReactivateAccountView` (this gate's other branch,
+          // still v1) is deliberately NOT `Shell`-wrapped — only this v2
+          // `ConsentView` branch is.
+          <Shell>
+            <ConsentView
+              clientId={authorizeData.clientId}
+              clientMetadata={authorizeData.clientMetadata}
+              clientTrusted={authorizeData.clientTrusted}
+              clientFirstParty={authorizeData.clientFirstParty}
+              permissionSets={authorizeData.permissionSets}
+              account={session.account}
+              scope={authorizeData.scope}
+              onConsent={doConsentAndRedirect}
+              onReject={doRejectAndRedirect}
+              onBack={loginHint ? undefined : () => setSession(null)}
+            />
+          </Shell>
         )}
       </ActivatedAccountGate>
     </AuthenticationProvider>

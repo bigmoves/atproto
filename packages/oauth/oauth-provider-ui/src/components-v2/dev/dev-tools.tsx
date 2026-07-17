@@ -1,14 +1,17 @@
 import { GearIcon } from '@phosphor-icons/react'
 import { type ReactNode, Suspense, lazy, useEffect, useState } from 'react'
-import { CustomizationContext, useCustomizationData } from '#/contexts/customization.tsx'
+import {
+  CustomizationContext,
+  useCustomizationData,
+} from '#/contexts/customization.tsx'
 import {
   hexToRgb,
   rgbToContrast,
   rgbToCssVar,
   rgbToHue,
 } from './color-utils.ts'
-import { DEV_COLOR_NAMES, useDevConfigOverrides } from './dev-config-store.ts'
 import { DevConfigPanel } from './dev-config-panel.tsx'
+import { DEV_COLOR_NAMES, useDevConfigOverrides } from './dev-config-store.ts'
 import { useDevPreviewScreen } from './dev-screen-store.ts'
 
 // Lazy: this pulls in every v2 auth-flow/consent/error screen just for the
@@ -30,8 +33,13 @@ const DevScreenGallery = lazy(() => import('./dev-screen-gallery.tsx'))
  */
 function DevTools({ children }: { children: ReactNode }) {
   const base = useCustomizationData()
-  const { overrides, setColor, setContrastSaturation, setCustomization, reset } =
-    useDevConfigOverrides()
+  const {
+    overrides,
+    setColor,
+    setContrastSaturation,
+    setCustomization,
+    reset,
+  } = useDevConfigOverrides()
   const [open, setOpen] = useState(false)
   const [previewScreen, setPreviewScreen] = useDevPreviewScreen()
 
@@ -53,11 +61,17 @@ function DevTools({ children }: { children: ReactNode }) {
         `--branding-color-${name}-contrast`,
         rgbToCssVar(rgbToContrast(rgb)),
       )
-      root.style.setProperty(`--branding-color-${name}-hue`, String(rgbToHue(rgb)))
+      root.style.setProperty(
+        `--branding-color-${name}-hue`,
+        String(rgbToHue(rgb)),
+      )
     }
 
     if (overrides.contrastSaturation != null) {
-      root.style.setProperty('--contrast-sat', `${overrides.contrastSaturation}%`)
+      root.style.setProperty(
+        '--contrast-sat',
+        `${overrides.contrastSaturation}%`,
+      )
     } else {
       root.style.removeProperty('--contrast-sat')
     }

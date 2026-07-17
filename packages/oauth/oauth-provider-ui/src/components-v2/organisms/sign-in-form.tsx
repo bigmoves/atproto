@@ -1,5 +1,4 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { AtIcon } from '@phosphor-icons/react'
 import { type Ref, useCallback, useRef, useState } from 'react'
 import { useMergedRefs } from '#/hooks/use-merged-refs.ts'
 import {
@@ -8,13 +7,13 @@ import {
 } from '#/lib/api.ts'
 import { isValidDomain } from '#/lib/handle.ts'
 import type { Override } from '#/lib/util.ts'
+import { InputCheckbox } from '../atoms/input-checkbox.tsx'
 import { InputPassword } from '../atoms/input-password.tsx'
 import { InputText } from '../atoms/input-text.tsx'
 import { InputToken } from '../atoms/input-token.tsx'
-import { FormField } from '../molecules/form-field.tsx'
 import type { FormCardProps } from '../molecules/form-card.tsx'
+import { FormField } from '../molecules/form-field.tsx'
 import { type FormHandler, SmartForm } from '../molecules/smart-form.tsx'
-import { InputCheckbox } from '../atoms/input-checkbox.tsx'
 
 export type SignInData = {
   username: string
@@ -139,7 +138,6 @@ export function SignInForm({
         <>
           <FormField disabled={loading} label={<Trans>Identifier</Trans>}>
             <InputText
-              icon={<AtIcon aria-hidden weight="bold" className="size-5" />}
               name="username"
               type="text"
               title={t`Username or email address`}
@@ -234,7 +232,7 @@ export function SignInForm({
                   defaultValue={values.otp ?? ''}
                   onToken={setterFor('otp')}
                 />
-                <p className="text-text-light mt-1 text-sm">
+                <p className="text-ink-light mt-1 text-sm">
                   <Trans>
                     Check your {secondFactorError.hint} email for a login code
                     and enter it here.

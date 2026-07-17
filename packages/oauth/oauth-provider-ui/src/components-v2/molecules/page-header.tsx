@@ -15,13 +15,13 @@ export function PageHeader({ children, back = false }: PageHeaderProps) {
   const router = useRouter()
 
   return (
-    <h1 className="text-text-default mb-6 flex items-center gap-2 text-2xl font-normal">
+    <h1 className="text-ink mb-6 flex items-center gap-2 font-serif text-2xl font-semibold">
       {back && (
         <button
           type="button"
           onClick={() => router.history.back()}
           aria-label={t`Back`}
-          className="text-text-default -ml-1.5 flex size-9 flex-none items-center justify-center rounded-full hover:bg-contrast-200 md:hidden"
+          className="text-ink hover:bg-surface-2 -ml-1.5 flex size-9 flex-none items-center justify-center rounded-full md:hidden"
         >
           <ArrowLeftIcon className="size-5" weight="bold" />
         </button>

@@ -43,7 +43,7 @@ export function InputNewPassword({
     >
       <PasswordStrengthMeter password={current} className="mt-2" />
       <PasswordStrengthLabel
-        className="text-text-light mt-1 min-w-max grow text-xs"
+        className="text-ink-light mt-1 min-w-max grow text-xs"
         password={current}
       />
     </InputPassword>

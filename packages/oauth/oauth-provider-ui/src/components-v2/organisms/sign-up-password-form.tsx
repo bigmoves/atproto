@@ -2,7 +2,10 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import { InputNewPassword } from '../atoms/input-new-password.tsx'
 import { InputPassword } from '../atoms/input-password.tsx'
 import { FormField } from '../molecules/form-field.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type SignUpPasswordData = { password: string }
 

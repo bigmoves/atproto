@@ -17,6 +17,7 @@ export function AuthenticateWelcomeView({
 }: AuthenticateWelcomeViewParams) {
   return (
     <AuthCard
+      eyebrow={<Trans>Authenticate</Trans>}
       title={msg({ message: 'Welcome', context: 'AuthenticationPage' })}
       subtitle={<Trans>Please authenticate to continue</Trans>}
     >
@@ -43,7 +44,7 @@ export function AuthenticateWelcomeView({
 
         {onCancel && (
           <>
-            <hr className="border-contrast-100 my-2" />
+            <hr className="border-surface-border my-2" />
             <Button className="w-full" onClick={onCancel}>
               <Trans>Cancel</Trans>
             </Button>

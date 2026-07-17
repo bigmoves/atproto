@@ -1,14 +1,17 @@
 import { Trans, useLingui } from '@lingui/react/macro'
-import { NumpadIcon } from '@phosphor-icons/react'
 import { InputText } from '../atoms/input-text.tsx'
 import { FormField } from '../molecules/form-field.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type SignUpInviteCodeData = {
   inviteCode: string
 }
 
-export type SignUpInviteCodeFormProps = WrappedSmartFormProps<SignUpInviteCodeData>
+export type SignUpInviteCodeFormProps =
+  WrappedSmartFormProps<SignUpInviteCodeData>
 
 export function SignUpInviteCodeForm(props: SignUpInviteCodeFormProps) {
   const { t } = useLingui()
@@ -22,7 +25,6 @@ export function SignUpInviteCodeForm(props: SignUpInviteCodeFormProps) {
       fields={({ values, set }) => (
         <FormField label={<Trans>Invite code</Trans>}>
           <InputText
-            icon={<NumpadIcon className="size-5" />}
             autoFocus
             name="inviteCode"
             title={t`Invite code`}

@@ -36,12 +36,12 @@ export function AccountDevicesView({
       </PageHeader>
 
       {devices.length === 0 ? (
-        <p className="text-text-light text-sm">
+        <p className="text-ink-light text-sm">
           <Trans>Looks like you aren't logged in on any other devices.</Trans>
         </p>
       ) : (
         <>
-          <p className="text-text-light mb-4 text-sm leading-relaxed">
+          <p className="text-ink-light mb-4 text-sm leading-relaxed">
             <Trans>
               Your account is signed in on the devices listed below. If your
               account was compromised, sign out all devices, change your
@@ -53,7 +53,7 @@ export function AccountDevicesView({
             </Trans>
           </p>
 
-          <div className="bg-contrast-100 divide-contrast-200 rounded-panel flex flex-col divide-y overflow-hidden">
+          <div className="bg-surface-1 border-surface-border divide-surface-border rounded-panel flex flex-col divide-y overflow-hidden border">
             {sortedDevices.map((session) => (
               <DeviceRow
                 key={session.deviceId}
@@ -84,15 +84,17 @@ function DeviceRow({
 
   return (
     <div className="flex items-center gap-4 p-4">
-      <div className="bg-contrast-200 text-text-light flex size-9 flex-none items-center justify-center rounded-full">
+      <div className="bg-surface-2 text-ink-light rounded-control flex size-9 flex-none items-center justify-center">
         <DeviceMobileIcon className="size-4" />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-text-default truncate text-sm font-semibold">
-          {browserName || <Trans context="device list">Unknown user agent</Trans>}
+        <p className="text-ink truncate text-sm font-semibold">
+          {browserName || (
+            <Trans context="device list">Unknown user agent</Trans>
+          )}
         </p>
-        <p className="text-text-light font-mono text-xs">{ipAddress}</p>
-        <p className="text-text-light truncate text-xs">
+        <p className="text-ink-light font-mono text-xs">{ipAddress}</p>
+        <p className="text-ink-light truncate text-xs">
           <Trans context="device list">
             Last seen <DateAgo date={lastSeenAt} />
           </Trans>

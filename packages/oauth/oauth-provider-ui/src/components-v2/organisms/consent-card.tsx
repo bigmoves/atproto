@@ -81,23 +81,29 @@ export function ConsentCard({
           clientTrusted={clientTrusted}
         />
         <div className="min-w-0">
-          <div className="text-text-default truncate font-semibold">
+          <div className="text-ink truncate font-serif text-lg font-semibold">
             <ClientName
               clientId={clientId}
               clientMetadata={clientMetadata}
               clientTrusted={clientTrusted}
             />
           </div>
-          <div className="text-text-light text-sm">
+          <div className="text-ink-light text-sm">
             {!scope || scope === 'atproto' ? (
               <Trans>
                 wants to uniquely identify you through your{' '}
-                <AccountIdentifier account={account} className="font-semibold" />
+                <AccountIdentifier
+                  account={account}
+                  className="font-semibold"
+                />
               </Trans>
             ) : (
               <Trans>
                 wants to access your{' '}
-                <AccountIdentifier account={account} className="font-semibold" />
+                <AccountIdentifier
+                  account={account}
+                  className="font-semibold"
+                />
               </Trans>
             )}
           </div>
@@ -156,20 +162,22 @@ function FooterNote({
   clientMetadata: OAuthClientMetadata
 }): ReactNode {
   return (
-    <p className="text-text-light text-xs leading-relaxed">
+    <p className="text-ink-light text-xs leading-relaxed">
       <Trans>
         By clicking{' '}
-        <b className="text-text-default">
+        <b className="text-ink">
           <Trans context="OAuthConsent">Authorize</Trans>
         </b>
-        , you will grant this application access to your account in
-        accordance with its{' '}
+        , you will grant this application access to your account in accordance
+        with its{' '}
         <a
           role="link"
           href={clientMetadata.tos_uri}
           rel="nofollow noopener"
           target="_blank"
-          className={clientMetadata.tos_uri ? 'text-primary underline' : undefined}
+          className={
+            clientMetadata.tos_uri ? 'text-primary underline' : undefined
+          }
         >
           <Trans>terms of service</Trans>
         </a>

@@ -1,8 +1,14 @@
 import { Trans } from '@lingui/react/macro'
 import { clsx } from 'clsx'
-import { type JSX, type ReactNode, useCallback, useLayoutEffect, useState } from 'react'
-import { type DisabledStep, useStepper } from '#/hooks/use-stepper.ts'
+import {
+  type JSX,
+  type ReactNode,
+  useCallback,
+  useLayoutEffect,
+  useState,
+} from 'react'
 import { useStableCallback } from '#/hooks/use-stable-callback.ts'
+import { type DisabledStep, useStepper } from '#/hooks/use-stepper.ts'
 import type { Override } from '#/lib/util.ts'
 
 export type WizardRenderProps<TStepData> = {
@@ -37,7 +43,11 @@ export type WizardCardProps<TWizardData extends readonly any[]> = Override<
     onDone: (data: TWizardData) => void | PromiseLike<void>
     doneLabel?: ReactNode
     /** Fires whenever the active step changes, with that step's `title`/`subtitle`/`note`. */
-    onStepChange?: (title: ReactNode, subtitle: ReactNode, note: ReactNode) => void
+    onStepChange?: (
+      title: ReactNode,
+      subtitle: ReactNode,
+      note: ReactNode,
+    ) => void
     steps: {
       [K in keyof TWizardData]: null extends TWizardData[K]
         ? WizardStep<TWizardData[K]> | DisabledStep
@@ -76,7 +86,9 @@ export function WizardCard<const T extends readonly any[]>({
     toRequired,
   } = useStepper(
     steps.map((step, index) =>
-      step ? { index, step, invalid: !!step && data[index] == null } : undefined,
+      step
+        ? { index, step, invalid: !!step && data[index] == null }
+        : undefined,
     ),
   )
 
@@ -86,7 +98,9 @@ export function WizardCard<const T extends readonly any[]>({
     (stepData: any) => {
       if (index != null) {
         setData((prevData) => {
-          const nextData = [...prevData] as { -readonly [K in keyof T]: T[K] | null }
+          const nextData = [...prevData] as {
+            -readonly [K in keyof T]: T[K] | null
+          }
           nextData[index] = stepData
           return nextData
         })
@@ -122,7 +136,11 @@ export function WizardCard<const T extends readonly any[]>({
   )
 
   useLayoutEffect(() => {
-    stableOnStepChange(current?.step?.title, current?.step?.subtitle, current?.step?.note)
+    stableOnStepChange(
+      current?.step?.title,
+      current?.step?.subtitle,
+      current?.step?.note,
+    )
     // Only re-run when the active step's *position* changes — `steps` is an
     // inline array literal in callers, so `current.step` gets a new object
     // reference on every parent render even when the step itself hasn't changed.
@@ -130,7 +148,11 @@ export function WizardCard<const T extends readonly any[]>({
   }, [currentPosition, stableOnStepChange])
 
   return (
-    <div key={currentPosition} className={clsx(className, 'flex flex-col')} {...props}>
+    <div
+      key={currentPosition}
+      className={clsx(className, 'flex flex-col')}
+      {...props}
+    >
       {stepContent}
     </div>
   )

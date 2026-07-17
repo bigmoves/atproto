@@ -1,7 +1,10 @@
 import { XIcon } from '@phosphor-icons/react'
 import { clsx } from 'clsx'
 import type { ReactNode } from 'react'
-import type { CustomizationData, LinkDefinition } from '@atproto/oauth-provider-api'
+import type {
+  CustomizationData,
+  LinkDefinition,
+} from '@atproto/oauth-provider-api'
 import { Button } from '../atoms/button.tsx'
 import { Checkbox } from '../atoms/checkbox.tsx'
 import {
@@ -75,7 +78,7 @@ export function DevConfigPanel({
   }
 
   return (
-    <div className="bg-contrast-100 border-contrast-200 shadow-card fixed bottom-20 right-4 z-[200] flex max-h-[80vh] w-80 flex-col overflow-hidden rounded-panel border">
+    <div className="bg-contrast-100 border-contrast-200 shadow-card rounded-panel fixed bottom-20 right-4 z-[200] flex max-h-[80vh] w-80 flex-col overflow-hidden border">
       <div className="border-contrast-200 flex items-center justify-between border-b px-4 py-3">
         <span className="text-text-default text-sm font-bold">Dev config</span>
         <button
@@ -92,15 +95,17 @@ export function DevConfigPanel({
         <Section title="Preview screens">
           <p className="text-text-light mb-2 text-xs leading-snug">
             Renders a screen full-screen with mock data, for checking style
-            against the current branding. Error/cookie-error can't be
-            reached for real without faking server state.
+            against the current branding. Error/cookie-error can't be reached
+            for real without faking server state.
           </p>
           <div className="flex flex-wrap gap-1.5">
             {DEV_SCREENS.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
-                onClick={() => onPreviewScreen(previewScreen === id ? null : id)}
+                onClick={() =>
+                  onPreviewScreen(previewScreen === id ? null : id)
+                }
                 className={clsx(
                   'rounded-full border px-2.5 py-1 text-xs font-medium',
                   previewScreen === id
@@ -118,11 +123,18 @@ export function DevConfigPanel({
           {DEV_COLOR_NAMES.map((name) => {
             const overrideHex = overrides.colors[name]
             const varName = `--branding-color-${name}`
-            const fallback = typeof window === 'undefined' ? '#888888' : readCssVarAsHex(varName)
+            const fallback =
+              typeof window === 'undefined'
+                ? '#888888'
+                : readCssVarAsHex(varName)
             const value = overrideHex ?? fallback
 
             return (
-              <FieldRow key={name} label={COLOR_LABEL[name]} overridden={!!overrideHex}>
+              <FieldRow
+                key={name}
+                label={COLOR_LABEL[name]}
+                overridden={!!overrideHex}
+              >
                 <input
                   type="color"
                   value={value}
@@ -226,10 +238,7 @@ export function DevConfigPanel({
                 false
               }
               onChange={(e) =>
-                onCustomization(
-                  'show2FaWarningOnEmailUpdate',
-                  e.target.checked,
-                )
+                onCustomization('show2FaWarningOnEmailUpdate', e.target.checked)
               }
             />
             <span className="text-text-default">
@@ -286,7 +295,13 @@ export function DevConfigPanel({
       </div>
 
       <div className="border-contrast-100 border-t px-4 py-3">
-        <Button size="sm" color="error" transparent className="w-full" onClick={onReset}>
+        <Button
+          size="sm"
+          color="error"
+          transparent
+          className="w-full"
+          onClick={onReset}
+        >
           Reset all overrides
         </Button>
       </div>
@@ -303,13 +318,7 @@ function readCssVarAsHex(varName: string): string {
   return `#${parts.map((c) => Math.max(0, Math.min(255, c)).toString(16).padStart(2, '0')).join('')}`
 }
 
-function Section({
-  title,
-  children,
-}: {
-  title: string
-  children: ReactNode
-}) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="mb-4">
       <h3 className="text-text-light mb-2 text-xs font-bold uppercase tracking-wide">

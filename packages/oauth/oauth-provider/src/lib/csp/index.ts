@@ -22,6 +22,7 @@ const BOOLEAN_DIRECTIVES = [
 const ARRAY_DIRECTIVES = [
   'connect-src',
   'default-src',
+  'font-src',
   'form-action',
   'frame-ancestors',
   'frame-src',

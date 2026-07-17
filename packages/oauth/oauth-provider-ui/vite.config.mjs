@@ -8,7 +8,16 @@ import { bundleManifest } from '@atproto-labs/rollup-plugin-bundle-manifest'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // Nested assets (fonts referenced from CSS, images imported from JS) are
+  // emitted with URLs relative to this base and baked directly into the
+  // compiled output — unlike entry scripts/styles, which oauth-provider's
+  // server computes fresh per-request from the bundle manifest (see
+  // `assetUrl()` in `oauth-provider/src/router/assets/assets-manifest.ts`).
+  // Only set this for production builds: in dev mode (`pnpm dev:ui`), Vite's
+  // own dev server serves everything from `/`, so prefixing here would break
+  // HMR and module resolution.
+  base: command === 'build' ? '/@atproto/oauth-provider/~assets/' : undefined,
   resolve: {
     alias: {
       '#': resolve(__dirname, './src'),
@@ -74,4 +83,4 @@ export default defineConfig({
       'multiformats',
     ],
   },
-})
+}))

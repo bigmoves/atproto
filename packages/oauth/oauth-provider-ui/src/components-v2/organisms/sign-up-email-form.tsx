@@ -1,7 +1,10 @@
 import { Trans } from '@lingui/react/macro'
 import { InputEmailAddress } from '../atoms/input-email-address.tsx'
 import { FormField } from '../molecules/form-field.tsx'
-import { SmartForm, type WrappedSmartFormProps } from '../molecules/smart-form.tsx'
+import {
+  SmartForm,
+  type WrappedSmartFormProps,
+} from '../molecules/smart-form.tsx'
 
 export type SignUpEmailData = {
   email: string
