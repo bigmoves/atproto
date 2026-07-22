@@ -27,6 +27,7 @@
 ### Task 1: Vitest adoption + `location-step.ts` helper (TDD)
 
 **Files:**
+
 - Modify: `packages/oauth/oauth-provider-ui/package.json`
 - Create: `packages/oauth/oauth-provider-ui/vitest.config.ts`
 - Create: `packages/oauth/oauth-provider-ui/tsconfig.test.json`
@@ -37,8 +38,10 @@
 - Create: `packages/oauth/oauth-provider-ui/src/lib/location-step.ts`
 
 **Interfaces:**
+
 - Consumes: nothing.
 - Produces (used by Task 3):
+
   - `type AuthStep = 'welcome' | 'sign-in' | 'sign-up' | 'reset-password' | 'reset-password-confirm' | 'consent'`
   - `isAuthStep(value: unknown): value is AuthStep`
   - `parseStepHash(hash: string): AuthStep | undefined` (pure)
@@ -81,9 +84,9 @@ Note the three-level `../../../` (this package is nested one level deeper than e
   "extends": ["../../../tsconfig/vitest.tsconfig.json"],
   "include": ["./src/**/*.test.ts"],
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "./"
   },
-  "references": [{ "path": "./tsconfig.build.json" }],
+  "references": [{ "path": "./tsconfig.build.json" }]
 }
 ```
 
@@ -94,13 +97,13 @@ Note the three-level `../../../` (this package is nested one level deeper than e
   "include": [],
   "compilerOptions": {
     // Needed by Zed's eslint extension
-    "paths": { "#/*": ["./src/*"] },
+    "paths": { "#/*": ["./src/*"] }
   },
   "references": [
     { "path": "./tsconfig.build.json" },
     { "path": "./tsconfig.lib.json" },
-    { "path": "./tsconfig.test.json" },
-  ],
+    { "path": "./tsconfig.test.json" }
+  ]
 }
 ```
 
@@ -271,10 +274,12 @@ git commit -m "Add step-hash helper and vitest setup to oauth-provider-ui"
 ### Task 2: Failing e2e test — refresh mid reset-password
 
 **Files:**
+
 - Modify: `packages/pds/tests/_puppeteer.ts` (add `reload()`)
 - Modify: `packages/pds/tests/oauth.test.ts` (new test after `'allows resetting the password'`, currently ending line ~187)
 
 **Interfaces:**
+
 - Consumes: nothing from Task 1 (different package; drives the UI through a browser).
 - Produces: `PageHelper.reload(): Promise<void>`; jest test `'restores the reset-password step after a page refresh'` — the acceptance test Task 3 must turn green.
 
@@ -295,55 +300,55 @@ In `packages/pds/tests/_puppeteer.ts`, after the `goto` method (line ~15):
 In `packages/pds/tests/oauth.test.ts`, insert immediately after the `'allows resetting the password'` test (after its closing `})`, line ~187):
 
 ```ts
-  it('restores the reset-password step after a page refresh', async () => {
-    const sendTemplateMock = jest
-      .spyOn(network.pds.ctx.mailer, 'sendResetPassword')
-      .mockImplementation(async () => {
-        // noop
-      })
+it('restores the reset-password step after a page refresh', async () => {
+  const sendTemplateMock = jest
+    .spyOn(network.pds.ctx.mailer, 'sendResetPassword')
+    .mockImplementation(async () => {
+      // noop
+    })
 
-    await using page = await PageHelper.from(browser, { languages })
+  await using page = await PageHelper.from(browser, { languages })
 
-    await page.goto(appUrl)
+  await page.goto(appUrl)
 
-    await page.assertTitle('OAuth Client Example')
+  await page.assertTitle('OAuth Client Example')
 
-    const input = await page.typeInInput('identifier', 'alice.test')
+  const input = await page.typeInInput('identifier', 'alice.test')
 
-    await page.navigationAction(async () => input.press('Enter'))
+  await page.navigationAction(async () => input.press('Enter'))
 
-    await page.assertTitle('Connexion')
+  await page.assertTitle('Connexion')
 
-    await page.clickOnText('Oublié ?')
+  await page.clickOnText('Oublié ?')
 
-    await page.assertTitle('Mot de passe oublié')
+  await page.assertTitle('Mot de passe oublié')
 
-    await page.typeInInput('email', 'alice@test.com')
+  await page.typeInInput('email', 'alice@test.com')
 
-    await page.clickOnText('Suivant')
+  await page.clickOnText('Suivant')
 
-    await page.assertTitle('Réinitialiser le mot de passe')
+  await page.assertTitle('Réinitialiser le mot de passe')
 
-    // Refreshing the page must bring the user back to the "confirm" step
-    // (the reset code was already emailed), not the initial sign-in view.
-    await page.reload()
+  // Refreshing the page must bring the user back to the "confirm" step
+  // (the reset code was already emailed), not the initial sign-in view.
+  await page.reload()
 
-    await page.assertTitle('Réinitialiser le mot de passe')
+  await page.assertTitle('Réinitialiser le mot de passe')
 
-    const [params] = sendTemplateMock.mock.lastCall!
+  const [params] = sendTemplateMock.mock.lastCall!
 
-    await page.typeInInput('code', params.token)
+  await page.typeInInput('code', params.token)
 
-    // Keep the same password as the previous test so later tests
-    // (which sign in with 'alice-new-pass') are unaffected.
-    await page.typeInInput('password', 'alice-new-pass')
+  // Keep the same password as the previous test so later tests
+  // (which sign in with 'alice-new-pass') are unaffected.
+  await page.typeInInput('password', 'alice-new-pass')
 
-    await page.clickOnText('Suivant')
+  await page.clickOnText('Suivant')
 
-    await page.assertTitle('Mot de passe mis à jour')
+  await page.assertTitle('Mot de passe mis à jour')
 
-    sendTemplateMock.mockRestore()
-  })
+  sendTemplateMock.mockRestore()
+})
 ```
 
 - [ ] **Step 3: Ensure current UI assets are built**
@@ -364,7 +369,7 @@ From `packages/pds`:
 pnpm test -- tests/oauth.test.ts -t 'restores the reset-password step'
 ```
 
-Expected: FAIL at the post-reload `assertTitle('Réinitialiser le mot de passe')` — received title `'Connexion'` (the flow reset to sign-in). If it fails anywhere *before* the `reload()` call, the test transcription is wrong — fix that first (strings must match the existing passing test).
+Expected: FAIL at the post-reload `assertTitle('Réinitialiser le mot de passe')` — received title `'Connexion'` (the flow reset to sign-in). If it fails anywhere _before_ the `reload()` call, the test transcription is wrong — fix that first (strings must match the existing passing test).
 
 - [ ] **Step 5: Commit**
 
@@ -380,12 +385,14 @@ git commit -m "Add failing e2e test: reset-password step survives refresh"
 ### Task 3: Wire step restore into the authorization flow
 
 **Files:**
+
 - Modify: `packages/oauth/oauth-provider-ui/src/components/reset-password-view.tsx`
 - Modify: `packages/oauth/oauth-provider-ui/src/contexts/authentication.tsx`
 - Modify: `packages/oauth/oauth-provider-ui/src/authorization-page.tsx`
 - Modify (generated): `packages/oauth/oauth-provider-ui/src/locales/*` via `pnpm i18n`
 
 **Interfaces:**
+
 - Consumes (from Task 1, all from `#/lib/location-step.ts`): `type AuthStep`, `readLocationStep()`, `syncLocationStep(step)`.
 - Produces: new optional props on `ResetPasswordView`: `initialView?: 'request' | 'confirm'` and `onViewChange?: (view: 'request' | 'confirm') => void`. Behavior verified by Task 2's e2e test.
 
@@ -511,71 +518,71 @@ function stepFromView(view: View): AuthStep {
 Replace the current view-state initialization —
 
 ```ts
-  const [view, setView] = useState<View>(() => {
-    if (promptMode === 'create' && canSignUp) {
-      return View.SignUp
-    }
+const [view, setView] = useState<View>(() => {
+  if (promptMode === 'create' && canSignUp) {
+    return View.SignUp
+  }
 
-    return homeView
-  })
+  return homeView
+})
 ```
 
 — with (placed directly after the `homeView` computation):
 
 ```ts
-  // Step restored from the URL fragment (if any), read once at mount.
-  // Allows refreshing the page without being sent back to the initial
-  // view.
-  const [initialStep] = useState(readLocationStep)
+// Step restored from the URL fragment (if any), read once at mount.
+// Allows refreshing the page without being sent back to the initial
+// view.
+const [initialStep] = useState(readLocationStep)
 
-  const [view, setView] = useState<View>(() => {
-    // A step in the URL means the user was already navigating the flow
-    // before a refresh; restore it in preference to the prompt default.
-    const initialView = initialStep ? viewFromStep(initialStep) : undefined
-    if (initialView != null) return initialView
+const [view, setView] = useState<View>(() => {
+  // A step in the URL means the user was already navigating the flow
+  // before a refresh; restore it in preference to the prompt default.
+  const initialView = initialStep ? viewFromStep(initialStep) : undefined
+  if (initialView != null) return initialView
 
-    if (promptMode === 'create' && canSignUp) {
-      return View.SignUp
-    }
+  if (promptMode === 'create' && canSignUp) {
+    return View.SignUp
+  }
 
-    return homeView
-  })
+  return homeView
+})
 
-  const [resetPasswordConfirm, setResetPasswordConfirm] = useState(
-    initialStep === 'reset-password-confirm',
+const [resetPasswordConfirm, setResetPasswordConfirm] = useState(
+  initialStep === 'reset-password-confirm',
+)
+
+// Reflect the current step in the URL fragment so that refreshing the
+// page restores the user to the same place. replaceState is used so
+// that view changes never create browser history entries.
+useEffect(() => {
+  syncLocationStep(
+    view === View.ResetPassword && resetPasswordConfirm
+      ? 'reset-password-confirm'
+      : stepFromView(view),
   )
-
-  // Reflect the current step in the URL fragment so that refreshing the
-  // page restores the user to the same place. replaceState is used so
-  // that view changes never create browser history entries.
-  useEffect(() => {
-    syncLocationStep(
-      view === View.ResetPassword && resetPasswordConfirm
-        ? 'reset-password-confirm'
-        : stepFromView(view),
-    )
-  }, [view, resetPasswordConfirm])
+}, [view, resetPasswordConfirm])
 ```
 
 Wire the new props into the `<ResetPasswordView>` render:
 
 ```tsx
-    if (view === View.ResetPassword) {
-      return (
-        <ResetPasswordView
-          emailDefault={resetPasswordHint}
-          initialView={resetPasswordConfirm ? 'confirm' : 'request'}
-          onViewChange={(v) => setResetPasswordConfirm(v === 'confirm')}
-          onResetPasswordRequest={async (data) => {
-            await api.initiatePasswordReset(data)
-          }}
-          onResetPasswordConfirm={async (data) => {
-            await api.confirmResetPassword(data)
-          }}
-          onBack={showSignIn}
-        />
-      )
-    }
+if (view === View.ResetPassword) {
+  return (
+    <ResetPasswordView
+      emailDefault={resetPasswordHint}
+      initialView={resetPasswordConfirm ? 'confirm' : 'request'}
+      onViewChange={(v) => setResetPasswordConfirm(v === 'confirm')}
+      onResetPasswordRequest={async (data) => {
+        await api.initiatePasswordReset(data)
+      }}
+      onResetPasswordConfirm={async (data) => {
+        await api.confirmResetPassword(data)
+      }}
+      onBack={showSignIn}
+    />
+  )
+}
 ```
 
 And reset the sub-step on (re-)entry — the `onForgotPassword` handler in the `<SignInView>` render becomes:
@@ -593,17 +600,17 @@ And reset the sub-step on (re-)entry — the `onForgotPassword` handler in the `
 In `packages/oauth/oauth-provider-ui/src/authorization-page.tsx`, the existing shim rebuilds the URL without the fragment. Change:
 
 ```ts
-  window.history.replaceState(history.state, '', url.pathname + url.search)
+window.history.replaceState(history.state, '', url.pathname + url.search)
 ```
 
 to:
 
 ```ts
-  window.history.replaceState(
-    history.state,
-    '',
-    url.pathname + url.search + url.hash,
-  )
+window.history.replaceState(
+  history.state,
+  '',
+  url.pathname + url.search + url.hash,
+)
 ```
 
 (`url` is constructed from `window.location.href`, so `url.hash` carries the current fragment.)
@@ -653,9 +660,11 @@ git commit -m "Restore OAuth authorize flow step from URL fragment on refresh"
 ### Task 4: Rebuild, e2e verification, full check
 
 **Files:**
+
 - No new files; runs builds and tests.
 
 **Interfaces:**
+
 - Consumes: Task 2's e2e test, Task 3's implementation.
 - Produces: green suite; branch ready for review.
 

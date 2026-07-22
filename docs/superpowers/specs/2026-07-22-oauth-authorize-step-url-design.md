@@ -65,6 +65,7 @@ Why the hash (vs. a query param or sessionStorage):
 
 2. **`contexts/authentication.tsx`** — the impure layer, so hash access is
    architecturally allowed here:
+
    - Seed the `view` `useState` initializer from a valid hash step.
      Precedence: valid hash > `promptMode === 'create'` default (a hash
      means the user was already navigating).
@@ -77,7 +78,7 @@ Why the hash (vs. a query param or sessionStorage):
 
 3. **`components/reset-password-view.tsx`** — stays a pure component per
    the package layering rules. Add optional `initialView?: 'request' |
-   'confirm'` and `onViewChange?: (view: 'request' | 'confirm') => void`
+'confirm'` and `onViewChange?: (view: 'request' | 'confirm') => void`
    props; `AuthenticationProvider` wires them to the hash. The email hint
    is deliberately **not** encoded in the URL (privacy); the confirm form
    already renders without it (the existing "Already have a code?" path).
@@ -88,14 +89,14 @@ Why the hash (vs. a query param or sessionStorage):
 
 ### Step slugs
 
-| Slug | View |
-| --- | --- |
-| `welcome` | `View.Welcome` |
-| `sign-in` | `View.SignIn` |
-| `sign-up` | `View.SignUp` (wizard step 1) |
-| `reset-password` | `View.ResetPassword`, request sub-step |
-| `reset-password-confirm` | `View.ResetPassword`, confirm sub-step |
-| `consent` | `View.Authenticated` (write-only; restore is derived) |
+| Slug                     | View                                                  |
+| ------------------------ | ----------------------------------------------------- |
+| `welcome`                | `View.Welcome`                                        |
+| `sign-in`                | `View.SignIn`                                         |
+| `sign-up`                | `View.SignUp` (wizard step 1)                         |
+| `reset-password`         | `View.ResetPassword`, request sub-step                |
+| `reset-password-confirm` | `View.ResetPassword`, confirm sub-step                |
+| `consent`                | `View.Authenticated` (write-only; restore is derived) |
 
 ## Error handling
 
