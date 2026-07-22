@@ -104,7 +104,10 @@ No new error states, no new user-facing messages.
 
 ## Testing
 
-- Unit coverage for the hash helper and the seed/precedence logic.
+- Unit coverage for the hash helper (parse/format/validate; pure functions,
+  no DOM needed). The seed/precedence logic lives in a React state
+  initializer — unit-testing it would require adding jsdom, so it is
+  covered by the e2e test instead.
 - E2E: extend the existing puppeteer OAuth flow test
   (`packages/pds/tests/oauth.test.ts`) — refresh mid reset-password and
   assert the confirm form comes back.
