@@ -554,6 +554,13 @@ export function createApiMiddleware<
           }),
         )
 
+        // Sort by last seen, most recent first
+        json.sort(
+          (a, b) =>
+            new Date(b.deviceMetadata.lastSeenAt).getTime() -
+            new Date(a.deviceMetadata.lastSeenAt).getTime(),
+        )
+
         return { json }
       },
     }),
