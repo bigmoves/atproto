@@ -1,5 +1,5 @@
 import { useLingui } from '@lingui/react/macro'
-import { AtIcon } from '@phosphor-icons/react'
+import { EnvelopeSimpleIcon } from '@phosphor-icons/react'
 import { composeEventHandlers } from '@radix-ui/primitive'
 import type { Override } from '#/lib/util.ts'
 import { InputText, type InputTextProps } from './input-text.tsx'
@@ -19,7 +19,7 @@ export function InputEmailAddress({
   autoComplete = 'email',
   autoCorrect = 'off',
   dir = 'auto',
-  icon = <AtIcon aria-hidden weight="bold" className="w-5" />,
+  icon = <EnvelopeSimpleIcon aria-hidden weight="bold" className="w-5" />,
   onChange,
   pattern = '^[^@]+@[^@]+\\.[^@]+$',
   spellCheck = 'false',
