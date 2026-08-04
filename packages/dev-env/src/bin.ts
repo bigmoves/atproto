@@ -19,6 +19,10 @@ const run = async () => {
       port: 2583,
       hostname: 'localhost',
       enableDidDocWithSession: true,
+      // Deliver dev emails to the local Mailpit sink (docker-compose service in
+      // packages/dev-infra). View them at http://localhost:8025.
+      emailSmtpUrl: 'smtp://localhost:1025',
+      emailFromAddress: 'dev@pds.test',
     },
     bsky: {
       dbPostgresSchema: 'bsky',

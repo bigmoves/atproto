@@ -46,6 +46,17 @@ services:
       disable: true
     volumes:
       - atp_redis:/data
+  # A local SMTP sink + web inbox for viewing emails sent by the PDS in dev.
+  # SMTP listens on 1025, web UI on http://localhost:8025. Point the PDS at it
+  # with emailSmtpUrl='smtp://localhost:1025' (see packages/dev-env/src/bin.ts).
+  mailpit:
+    image: axllent/mailpit:v1.20
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    environment:
+      - MP_SMTP_AUTH_ACCEPT_ANY=true
+      - MP_SMTP_AUTH_ALLOW_INSECURE=true
 volumes:
   atp_db:
   atp_redis:
