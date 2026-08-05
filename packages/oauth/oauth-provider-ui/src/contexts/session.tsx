@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react'
@@ -13,8 +14,40 @@ import { Api, UnauthorizedError, UnknownRequestUriError } from '#/lib/api.ts'
 import { upsert } from '#/lib/util.ts'
 import { useCurrentLocale } from '#/locales/locale-provider.jsx'
 import { useNotificationsContext } from './notifications.js'
+import {
+  type InitialSelected,
+  InitialSelectedSession,
+  resolveInitialSelection,
+} from './session-selection.ts'
 
 export type { Session }
+export { InitialSelectedSession }
+
+const SELECTED_ACCOUNT_STORAGE_KEY =
+  '@@atproto-oauth-provider/account-manager/selected-did'
+
+function readStoredDid(): string | null {
+  try {
+    return (
+      globalThis.localStorage?.getItem(SELECTED_ACCOUNT_STORAGE_KEY) ?? null
+    )
+  } catch {
+    // Storage may be unavailable (private mode, disabled cookies, etc.)
+    return null
+  }
+}
+
+function writeStoredDid(did: string | null): void {
+  try {
+    if (did == null) {
+      globalThis.localStorage?.removeItem(SELECTED_ACCOUNT_STORAGE_KEY)
+    } else {
+      globalThis.localStorage?.setItem(SELECTED_ACCOUNT_STORAGE_KEY, did)
+    }
+  } catch {
+    // Ignore: persisting the selection is a convenience, not a requirement.
+  }
+}
 
 export type SessionWithToken = Session & {
   ephemeralToken?: string
@@ -31,41 +64,42 @@ export type SessionContextType = {
 const SessionContext = createContext<null | SessionContextType>(null)
 SessionContext.displayName = 'SessionContext'
 
-export enum InitialSelectedSession {
-  First,
-  Only,
-}
-
 export type SessionProviderProps = {
   children: ReactNode
   initialSessions: readonly Session[]
-  initialSelected?: string | InitialSelectedSession
+  initialSelected?: InitialSelected
+  /**
+   * Persist the selected account across page reloads (in `localStorage`) and
+   * restore it on mount. Without this, a device with several remembered
+   * accounts falls back to `initialSelected` on every reload — which, for
+   * {@link InitialSelectedSession.Only}, means the account picker instead of
+   * the account the user was last using.
+   */
+  rememberSelection?: boolean
 }
 
 export function SessionProvider({
   children,
   initialSessions,
   initialSelected,
+  rememberSelection = false,
 }: SessionProviderProps) {
   const locale = useCurrentLocale()
   const { showBoundary } = useErrorBoundary<UnknownRequestUriError>()
   const { notifyError } = useNotificationsContext()
-  const [current, setCurrent] = useState(() => {
-    if (initialSelected === InitialSelectedSession.First) {
-      return initialSessions[0]?.account.did ?? null
-    }
-    if (initialSelected === InitialSelectedSession.Only) {
-      return initialSessions.length === 1
-        ? initialSessions[0].account.did
-        : null
-    }
-    if (initialSessions.some((s) => s.account.did === initialSelected)) {
-      return initialSelected
-    }
-    return null
-  })
+  const [current, setCurrent] = useState(() =>
+    resolveInitialSelection(
+      initialSessions,
+      initialSelected,
+      rememberSelection ? readStoredDid() : null,
+    ),
+  )
   const [sessions, setSessions] =
     useState<readonly SessionWithToken[]>(initialSessions)
+
+  useEffect(() => {
+    if (rememberSelection) writeStoredDid(current)
+  }, [rememberSelection, current])
 
   const session = useMemo(() => {
     return current
