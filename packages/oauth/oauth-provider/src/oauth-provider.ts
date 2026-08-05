@@ -35,6 +35,7 @@ import {
   asAccountStore,
 } from './account/account-store.js'
 import { resolveLoginHint } from './account/login-hint.js'
+import { resolveLoginRequired } from './authorization-login.js'
 import type { ClientAuth, ClientAuthLegacy } from './client/client-auth.js'
 import type { ClientId } from './client/client-id.js'
 import {
@@ -623,19 +624,29 @@ export class OAuthProvider extends OAuthVerifier {
     try {
       const sessions = (
         await this.accountManager.listDeviceAccounts(deviceId)
-      ).map((deviceAccount) => ({
-        account: deviceAccount.account,
-
-        // @TODO Return the session expiration date instead of a boolean to
-        // avoid having to rely on a leeway when "accepting" the request.
-        loginRequired:
-          parameters.prompt === 'login' ||
-          this.checkLoginRequired(deviceAccount),
-        consentRequired: this.checkConsentRequired(
+      ).map((deviceAccount) => {
+        const consentRequired = this.checkConsentRequired(
           parameters,
           deviceAccount.authorizedClients.get(client.id),
-        ),
-      }))
+        )
+        return {
+          account: deviceAccount.account,
+
+          // @TODO Return the session expiration date instead of a boolean to
+          // avoid having to rely on a leeway when "accepting" the request.
+          //
+          // Only require fresh authentication for new authorizations (or an
+          // explicit `prompt=login`) — routine re-authorization of an
+          // already-granted client relies on the active device session. See
+          // {@link resolveLoginRequired}.
+          loginRequired: resolveLoginRequired({
+            promptLogin: parameters.prompt === 'login',
+            consentRequired,
+            authenticationStale: this.checkLoginRequired(deviceAccount),
+          }),
+          consentRequired,
+        }
+      })
 
       // https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 
