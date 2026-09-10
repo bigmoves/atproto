@@ -35,6 +35,7 @@ createRoot(container).render(
             <SessionProvider
               initialSessions={deviceSessions}
               initialSelected={InitialSelectedSession.Only}
+              rememberSelection
             >
               <QueryClientProvider client={qc}>
                 <RouterProvider router={router} />
